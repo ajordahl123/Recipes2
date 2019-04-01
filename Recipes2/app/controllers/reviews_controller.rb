@@ -1,0 +1,32 @@
+class ReviewsController < ApplicationController
+
+  def show
+    @recipe = Review.find(params[:id])
+  end
+
+  def new
+    @review = Review.new
+  end
+
+  def create
+    @review = Review.new(review_params)
+
+    rescue ActiveRecord::NotNullViolation
+      flash[:warning] = "New review creation failed. Please try again."
+      redirect_to new_review_path
+
+    if @article.save
+      flash[:notice] = "New review created successfully."
+      redirect_to recipe_path(@review.recipe) #redirect to the recipe associated with review... not sure if this is correct syntax
+    else
+      flash[:warning] = "New review creation failed. Please try again."
+      redirect_to new_review_path
+  end
+  end
+
+  private
+    def review_params
+      params.require(:review).permit(:text, :stars, :user, :recipe)
+    end
+
+end
