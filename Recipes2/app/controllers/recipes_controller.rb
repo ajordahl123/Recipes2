@@ -1,8 +1,9 @@
 class RecipesController < ApplicationController
+    before_action :authenticate_user! #devise, user authentification
     def index
         # to access all recipes in the view
         # the following line throws uninitialized constant RecipesController::Recipe
-        # @recipes = Recipe.all
+        #@recipes = Recipe.all
     end
 
     def show

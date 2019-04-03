@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+  before_action :authenticate_user! # devise, user authentifictaion
   def show
     @recipe = Review.find(params[:id])
   end

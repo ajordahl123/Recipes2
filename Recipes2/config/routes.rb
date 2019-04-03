@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   # root to: "home#index"
 
   resources :recipes
+  resources :users
   root "recipes#index"
 end
