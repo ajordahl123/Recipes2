@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
     def index
         # to access all recipes in the view
-        @recipes = Recipe.all
+        # the following line throws uninitialized constant RecipesController::Recipe
+        # @recipes = Recipe.all
     end
 
     def show
@@ -16,7 +17,7 @@ class RecipesController < ApplicationController
     # end
 
     # def create
-        
+
     # end
 
     # def update
