@@ -1,2 +1,6 @@
-%h1 Hello
-%h2= link_to "Login", new_user_session_path 
+%h1 Hello Foodies!(Homepage)
+%h2= link_to "Login", new_user_registration_path
+- if @user.nil?
+ %p= "No user singed in yet"
+- else
+ %p= "User is "+ @user.email
