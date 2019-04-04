@@ -13,6 +13,9 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.text :ingredients
       t.time :time_to_create
       t.string :level
+      
+      t.references :review, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
