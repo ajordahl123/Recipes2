@@ -1,0 +1,8 @@
+#main.container
+	%h1.header Chief Details current_user.email
+
+    %h1.image= image_tag current_user.image.attached? ? current_user.image.variant(resize: "300x400^") : 'default_user.jpg'
+    %h2.image= "Upload Chief Image"
+    .row
+    = "#{current_user.username}"
+
