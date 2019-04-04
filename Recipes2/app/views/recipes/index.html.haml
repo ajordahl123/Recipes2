@@ -2,7 +2,7 @@
 %h1.header Recipe  Hello Foodies! (Homepage)
 
 - if current_user
- %h2= link_to "Sigh out", destroy_user_session_path, method: :delete
+ %h2= link_to "Sign out", destroy_user_session_path, method: :delete
 - else
  %h2= link_to "Login", new_user_session_path
 

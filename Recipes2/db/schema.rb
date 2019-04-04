@@ -10,9 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_04_03_234025) do
-=======
 ActiveRecord::Schema.define(version: 2019_04_04_213528) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -35,7 +32,6 @@ ActiveRecord::Schema.define(version: 2019_04_04_213528) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
->>>>>>> c1c50ef10316dad63dd869d2247a32462c667c4b
 
   create_table "recipes", force: :cascade do |t|
     t.string "recipe_name"
