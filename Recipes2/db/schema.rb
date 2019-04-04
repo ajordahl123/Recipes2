@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_30_195913) do
+ActiveRecord::Schema.define(version: 2019_04_03_234025) do
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "recipe_name"
+    t.string "meal_type"
+    t.boolean "vegan"
+    t.boolean "vegetarian"
+    t.boolean "nut_free"
+    t.boolean "dairy_free"
+    t.string "cuisine"
+    t.text "appliance"
+    t.text "instructions"
+    t.text "ingredients"
+    t.time "time_to_create"
+    t.string "level"
+    t.integer "review_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_recipes_on_review_id"
+    t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "stars"
