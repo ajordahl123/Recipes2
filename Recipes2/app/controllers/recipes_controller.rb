@@ -3,16 +3,13 @@ class RecipesController < ApplicationController
     def index
         # to access all recipes in the view
         # the following line throws uninitialized constant RecipesController::Recipe
-<<<<<<< HEAD
-        #@recipes = Recipe.all
+        @recipes = Recipe.all
         if user_signed_in?
             @user = current_user.email
         else
             @user = nil
         end    
-=======
-        @recipes = Recipe.all
->>>>>>> 91add03952b7553e54bee53c685a9f459eec7c1d
+        
     end
 
     def show
