@@ -3,12 +3,15 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
     create_table :recipes do |t|
       t.string :recipe_name
       t.string :meal_type
-      t.string :restriction
+      t.boolean :vegan
+      t.boolean :vegetarian
+      t.boolean :nut_free
+      t.boolean :dairy_free
       t.string :cuisine
       t.text :appliance
       t.text :instructions
       t.text :ingredients
-      t.time :timetocreate
+      t.time :time_to_create
       t.string :level
 
       t.timestamps
