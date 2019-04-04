@@ -1,2 +1,18 @@
-%h1 Hello
+%h1 Recipe
 %h2= link_to "Login", new_user_session_path 
+
+#main.container
+    %h3.header Recipe
+
+    %table.table
+        %thead
+            %tr
+            %th Recipe Name
+            %th Meal type 
+    %tbody
+        -@recipes.each do |r|
+            %tr 
+                %td= "#{r.recipe_name}"
+                %td= "#{r.meal_type}"
+
+= link_to "Create a new recipe", new_recipe_path
