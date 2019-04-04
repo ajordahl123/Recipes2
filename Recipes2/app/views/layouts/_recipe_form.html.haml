@@ -1,0 +1,35 @@
+= f.label :recipe_name, "Recipe name"
+= f.text_field :recipe_name
+
+= f.label :cuisine, "Type of cuisine"
+= f.text_field :cuisine
+
+= f.label :meal_type, "Type of meal"
+= f.select :meal_type, ["Breakfast", "Lunch", "Dinner", Dessert"
+
+= f.label :vegetarian, "This recipe is vegetarian"
+= f.check_box(:vegetarian)
+= f.label :vegan, "This recipe is vegan"
+= f.check_box(:vegan)
+= f.label :nut_free, "This recipe is nut free"
+= f.check_box(:nut_free)
+= f.label :dairy_free, "This recipe is dairy free"
+= f.check_box(:dairy_free)
+
+= f.label :time_to_create, "Time to create, in minutes"
+= f.number_field :time_to_create
+
+= f.label :appliance, "Any special appliances needed"
+= f.text_field :appliance
+
+= f.label :ingredients, "Ingredients required"
+= f.text_field :ingredients
+
+= f.label :instructions, "Instructions"
+= f.text_field :instructions
+
+= f.label :level, "Level of difficulty"
+= f.select :level, ["Easy", "Medium", "Hard"]
+
+= f.label :image, "Picture of the recipe"
+= f.file_field :image

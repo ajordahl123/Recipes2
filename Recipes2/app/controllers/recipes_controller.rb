@@ -3,34 +3,55 @@ class RecipesController < ApplicationController
     def index
         # to access all recipes in the view
         # the following line throws uninitialized constant RecipesController::Recipe
+<<<<<<< HEAD
         #@recipes = Recipe.all
         if user_signed_in?
             @user = current_user.email
         else
             @user = nil
         end    
+=======
+        @recipes = Recipe.all
+>>>>>>> 91add03952b7553e54bee53c685a9f459eec7c1d
     end
 
     def show
         @recipe = Recipe.find(params[:id])
     end
 
+    def new
+        @recipe = Recipe.new
+    end
 
-    # NOTE: see HW4 code for guidance with the following:
+    def create
+        @recipe= Recipe.new(create_update_params)
 
-    # def new
-    #     @blank_recipe = Recipe.new
-    # end
+        if @recipe.save
+          flash[:notice] = "New recipe #{@recipe.recipe_name} created sucessfully"
+          redirect_to recipe_path(@recipe) and return
+        else
+          flash[:warning] = "New recipe could not be created. Please try again"
+          redirect_to new_recipe_path and return
+        end
+    
+    end
 
-    # def create
+    def update
+        @recipe= Recipe.find(params[:id])
+        @recipe.update(create_update_params)
+        flash[:notice] = "#{@recipe.recipe_name}"
+        redirect_to recipe_path(@recipe)
+      end
 
-    # end
+    def destroy
+        @recipe= Recipe.find(params[:id])
+        @recipe.destroy
+        flash[:notice] = " #{@recipe.recipe_name} was deleted."
+        redirect_to recipes_path
+    end
 
-    # def update
-
-    # end
-
-    # def destroy
-
-    # end
+    private
+    def create_update_params
+        params.require(:recipe).permit(:recipe_name, :meal_type, :vegan, :dairy_free, :nut_free, :vegetarian, :cuisine, :appliance, :ingredients, :timetocreate, :level)
+      end
 end

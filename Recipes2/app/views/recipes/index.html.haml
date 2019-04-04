@@ -1,6 +1,25 @@
-%h1 Hello Foodies!(Homepage)
-%h2= link_to "Login", new_user_registration_path
+<<<<<<< HEAD
+
+=======
+%h1 Recipe, Hello Foodies! (Homepage)
+%h2= link_to "Login", new_user_registration_path 
 - if @user.nil?
  %p= "No user singed in yet"
 - else
  %p= "User is "+ @user.email
+#main.container
+    %h3.header Recipe
+
+    %table.table
+        %thead
+            %tr
+            %th Recipe Name
+            %th Meal type 
+    %tbody
+        -@recipes.each do |r|
+            %tr 
+                %td= "#{r.recipe_name}"
+                %td= "#{r.meal_type}"
+
+= link_to "Create a new recipe", new_recipe_path
+>>>>>>> 91add03952b7553e54bee53c685a9f459eec7c1d
