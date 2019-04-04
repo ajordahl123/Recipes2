@@ -1,10 +1,11 @@
 #main.container
 %h1.header Recipe  Hello Foodies! (Homepage)
-%h2= link_to "Login", new_user_registration_path 
-- if @user.nil?
- %p= "No user singed in yet"
+
+- if current_user
+ %h2= link_to "Sigh out", destroy_user_session_path, method: :delete
 - else
- %p= "User is "+ @user.email
+ %h2= link_to "Login", new_user_session_path
+
 
 %table.table
  %thead
