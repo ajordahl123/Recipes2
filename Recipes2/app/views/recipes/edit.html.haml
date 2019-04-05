@@ -1,8 +1,0 @@
-#main.container
-	%h3.header Edit a Recipe
-
-	= form_for @recipe, :method => :put do |f|
-		= render "recipe_form", f: f
-		= f.submit "Save Changes"
-
-		= link_to "Back to recipe details", recipe_path(@recipe)
