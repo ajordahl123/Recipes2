@@ -1,27 +1,33 @@
 class ReviewsController < ApplicationController
-  #before_action :authenticate_user! # devise, user authentifictaion
+
   def show
-    @recipe = Review.find(params[:id])
+    @review = Review.find(params[:id])
   end
 
   def new
-    @review = current_user.reviews.build
+    byebug
+    @recipe = Recipe.find(params[:recipe_id]) #can't find :recipe_id (can't find params???)
+    @review = Review.new
   end
 
   def create
-    @review = current_user.reviews.build(review_params)
+    @recipe = Recipe.find(params[:recipe_id])
+    @review = Review.new(review_params)
+    @recipe.reviews << @review
+    current_user.reviews << @review
 
-    rescue ActiveRecord::NotNullViolation
-      flash[:warning] = "New review creation failed. Please try again."
-      redirect_to new_review_path
+    # rescue ActiveRecord::NotNullViolation
+    #   flash[:warning] = "New review creation failed. Please try again."
+    #   redirect_to new_review_path and return
 
-    if @article.save
+    if @review.save
       flash[:notice] = "New review created successfully."
-      redirect_to recipe_path(@review.recipe) #redirect to the recipe associated with review... not sure if this is correct syntax
+      redirect_to recipe_path(@recipe) and return #redirect to the recipe associated with review... not sure if this is correct syntax
     else
+      byebug
       flash[:warning] = "New review creation failed. Please try again."
-      redirect_to new_review_path
-  end
+      redirect_to new_review_path and return
+    end
   end
 
   private

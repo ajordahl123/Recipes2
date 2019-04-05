@@ -4,9 +4,8 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.belongs_to :recipe
       t.integer :stars
       t.text :text
-      t.references :recipe, foreign_key: true
-      t.references :user, foreign_key: true
-      #t.belongs_to :user
+      t.references :recipes, foreign_key: true
+      t.references :users, foreign_key: true
 
       t.timestamps
     end

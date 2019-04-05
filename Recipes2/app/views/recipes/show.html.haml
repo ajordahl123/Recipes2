@@ -11,4 +11,4 @@
 = link_to "Back to recipe listing", recipes_path
 = link_to "Delete recipe", recipe_path(@recipe), :method => :destroy
 
-= link_to "Write a review", new_review_path
+= link_to "Write a review", new_recipe_review_path(@recipe)
