@@ -15,7 +15,11 @@
  %tbody
   -@recipes.each do |r|
    %tr 
+<<<<<<< HEAD
     %td= link_to r.recipe_name, recipe_path(r)
+=======
+    %td= link_to "#{r.recipe_name}", recipe_path(r)
+>>>>>>> 100f7c47bba007d498895a6b5a9f96281da6b969
     %td= "#{r.meal_type}"
 
 = link_to "Create a new recipe", new_recipe_path

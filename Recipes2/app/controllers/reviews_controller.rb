@@ -5,11 +5,11 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = Review.new
+    @review = current_user.reviews.build
   end
 
   def create
-    @review = Review.new(review_params)
+    @review = current_user.reviews.build(review_params)
 
     rescue ActiveRecord::NotNullViolation
       flash[:warning] = "New review creation failed. Please try again."
