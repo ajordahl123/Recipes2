@@ -9,8 +9,8 @@ class RecipesController < ApplicationController
             @user = current_user.email
         else
             @user = nil
-        end    
-        
+        end
+
     end
 
     def show
@@ -26,15 +26,15 @@ class RecipesController < ApplicationController
         #@recipe= Recipe.new(create_update_params)
         @recipe= current_user.recipes.build(create_update_params)
         if @recipe.save
-          flash[:notice] = "New recipe #{@recipe.recipe_name} created sucessfully"
+          flash[:notice] = "New recipe #{@recipe.recipe_name} created successfully"
           redirect_to recipe_path(@recipe) and return
         else
           flash[:warning] = "New recipe could not be created. Please try again"
           redirect_to new_recipe_path and return
         end
-    
+
     end
-    
+
     def edit
         @recipe = Recipe.find(params[:id]) # get existing object
     end
