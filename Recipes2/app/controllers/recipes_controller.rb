@@ -5,11 +5,11 @@ class RecipesController < ApplicationController
         # to access all recipes in the view
         # the following line throws uninitialized constant RecipesController::Recipe
         @recipes = Recipe.all
-        if user_signed_in?
-            @user = current_user.email
-        else
-            @user = nil
-        end
+#         if user_signed_in?
+#             @user = current_user.email
+#         else
+#             @user = nil
+#         end
 
     end
 
