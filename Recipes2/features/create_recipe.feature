@@ -1,17 +1,4 @@
 # good path
-Feature: Login to account
- As a user
- So that I can keep track of my favorites, reviews, etc
- I want to be able to log in to my account
-
-Feature: Create an account
- As a foodie
- So that I can preserve my profile
- I want to create an account
-
-
-  scenario:
-
 
  Feature: Create a new Recipe
   As a foodie
