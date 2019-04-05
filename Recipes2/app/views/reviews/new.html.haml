@@ -1,7 +1,7 @@
 #main.container
   %h3.header New Review
 
-  = link_to "Back to recipes", recipes_path
-  = form_for @review, :method => :post do |f|
+  = link_to "Back to recipe", recipe_path(params[:recipe_id])
+  = form_for @review, :method => "post", url: recipe_path(params[:recipe_id]) do |f|
     = render "review_form", f: f
     = f.submit "Create new review"

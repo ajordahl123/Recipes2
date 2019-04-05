@@ -1,20 +1,23 @@
 class ReviewsController < ApplicationController
 
   def show
+    @recipe = Recipe.find(params[:recipe_id])
     @review = Review.find(params[:id])
+    redirect_to recipe_path(@recipe) and return
   end
 
   def new
-    byebug
+    # byebug
     @recipe = Recipe.find(params[:recipe_id]) #can't find :recipe_id (can't find params???)
     @review = Review.new
   end
 
   def create
+    byebug
     @recipe = Recipe.find(params[:recipe_id])
     @review = Review.new(review_params)
     @recipe.reviews << @review
-    current_user.reviews << @review
+    # current_user.reviews << @review
 
     # rescue ActiveRecord::NotNullViolation
     #   flash[:warning] = "New review creation failed. Please try again."
@@ -26,7 +29,7 @@ class ReviewsController < ApplicationController
     else
       byebug
       flash[:warning] = "New review creation failed. Please try again."
-      redirect_to new_review_path and return
+      redirect_to new_recipe_review_path and return
     end
   end
 
