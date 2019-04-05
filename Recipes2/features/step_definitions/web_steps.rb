@@ -78,7 +78,11 @@ end
 #
 When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
-    When %{I fill in "#{name}" with "#{value}"}
+    if (name == ("Type of meal"))
+      byebug
+      select(value, :from => name)
+    end
+    fill_in(name, :with => value)
   end
 end
 
@@ -251,4 +255,28 @@ end
 
 Then /^show me the page$/ do
   save_and_open_page
+end
+
+# REGEXES WE WROTE BELOW THIS COMMENT!!!!
+#
+#
+#
+#
+#
+
+Given /^I am a new, authenticated user$/ do
+  email = 'testing@man.net'
+  password = 'secretpass'
+  User.new(:email => email, :password => password, :password_confirmation => password).save!
+
+  visit '/users/sign_in'
+  fill_in "user_email", :with => email
+  fill_in "user_password", :with => password
+  click_button "Log in"
+end
+
+Given("these Recipes:") do |table|
+  table.hashes.each do |h|
+      Recipe.create!(h)
+  end
 end

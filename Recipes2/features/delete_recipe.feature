@@ -8,6 +8,7 @@ Feature: Delete existing rental property
   | brownies        | Dessert   | no     | yes        |   no     | no         | American| oven      | make them good       | chocolate        | 30             | easy  |
 
   Scenario: Delete an existing recipe
+  Given I am a new, authenticated user
   Given I am on the recipes page
   When I follow "brownies"
   Then I should see "Delete recipe"

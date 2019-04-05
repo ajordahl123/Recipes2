@@ -3,7 +3,8 @@ Feature: Edit a Recipe
  So that I can update details of the recipe I posted
  I want to edit the details of the recipe I posted
 
- Background: the website already has some existing recipes to make
+ Background: The user is already logged in and the website already has some existing recipes to make
+   Given I am a new, authenticated user
    Given these Recipes:
      | recipe_name     | meal_type | vegan  | vegetarian | nut_free | dairy_free | cuisine | appliance | instructions         | ingredients      | time_to_create | level |
      | brownies        | Dessert   | no     | yes        |   no     | no         | American| oven      | make them good       | chocolate        | 30             | easy  |
@@ -13,18 +14,18 @@ Feature: Edit a Recipe
    Given I am on the recipes page
    When I fill in the following:
 
-     | recipe_name    | brownies            |
-     | meal_type      | Dessert             |
-     | vegan          | no                  |
-     | vegetarian     | yes                 |
-     | nut_free       | yes                 |
-     | dairy_free     | yes                 |
-     | cuisine        | American            |
-     | appliance      | oven                |
-     | instructions   | make 12             |
-     | ingredients    | flour and chocolate |
-     | time_to_create | 30                  |
-     | level          | easy                |
+     | Recipe name    | brownies            |
+     | Type of meal   | Dessert             |
+     | This recipe is vegan          | no                  |
+     | This recipe is vegetarian     | yes                 |
+     | This recipe is nut free       | yes                 |
+     | This recipe is dairy free     | yes                 |
+     | Type of cuisine| American            |
+     | Any special appliances needed      | oven                |
+     | Instructions   | make 12             |
+     | Ingredients required    | flour and chocolate |
+     | Time to create, in minutes | 30                  |
+     | Level of difficulty          | easy                |
 
    When I follow "brownies"
    Then I should see "Dessert"
