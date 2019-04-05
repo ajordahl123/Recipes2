@@ -80,7 +80,7 @@ When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
     if (name == ("Type of meal"))
       byebug
-      select(value, :from => name)
+      select(value, :from => name, visible: false)
     end
     fill_in(name, :with => value)
   end

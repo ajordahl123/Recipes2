@@ -17,12 +17,12 @@
     When I fill in the following:
 
       | Recipe name    | cupcakes            |
+      | Type of cuisine| American            |
       | Type of meal   | Dessert             |
       | This recipe is vegan          | no                  |
       | This recipe is vegetarian     | yes                 |
       | This recipe is nut free       | yes                 |
       | This recipe is dairy free     | yes                 |
-      | Type of cuisine| American            |
       | Any special appliances needed      | oven                |
       | Instructions   | make 12             |
       | Ingredients required    | flour and chocolate |
