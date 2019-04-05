@@ -15,7 +15,7 @@ Feature: Edit a Recipe
    When I follow "brownies"
    Then I should see "Dessert"
    And I should see "make them good"
-   When I click "Edit recipe" 
+   When I follow "Edit recipe" 
    And I fill in "Instructions" with "make 12"
    And I press "Save Changes"
    Then I should see "Instructions" with "make 12"

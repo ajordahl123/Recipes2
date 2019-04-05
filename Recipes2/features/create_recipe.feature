@@ -18,21 +18,20 @@
 
       | Recipe name    | cupcakes            |
       | Type of cuisine| American            |
-      | Type of meal   | Dessert             |
-      | This recipe is vegan          | no                  |
-      | This recipe is vegetarian     | yes                 |
-      | This recipe is nut free       | yes                 |
-      | This recipe is dairy free     | yes                 |
       | Any special appliances needed      | oven                |
       | Instructions   | make 12             |
       | Ingredients required    | flour and chocolate |
       | Time to create, in minutes | 30                  |
-      | Level of difficulty          | easy                |
 
+    And I select "Dessert" from "Type of meal"
+    And I check "This recipe is vegetarian"
+    And I check "This recipe is nut free"
+    And I check "This recipe is dairy free"
     When I check "vegetarian"
+    And I select "Easy" from "Level of difficulty"
     When I press "Create a new recipe"
-    Then I should be on the create new recipe page
-    And I should see "New recipe 'cupcakes' created successfully"
+    Then I should be on the new recipe page
+    And I should see "New recipe cupcakes created successfully"
     And I should see that "cupcakes" has a level of "easy"
 
 #sad_path

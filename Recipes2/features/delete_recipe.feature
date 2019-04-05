@@ -17,3 +17,4 @@ Feature: Delete existing rental property
   When I follow "Delete recipe"
   Then I should be on the recipes page
   And I should see "brownies was deleted"
+

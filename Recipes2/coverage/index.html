@@ -14,18 +14,18 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-04-05T15:17:08-04:00">2019-04-05T15:17:08-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-04-05T15:40:28-04:00">2019-04-05T15:40:28-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">34.78%</span></span>
+    (<span class="covered_percent"><span class="red">43.48%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.49
+         0.6
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>17</b> files in total.
     <b>115</b> relevant lines. 
-    <span class="green"><b>40</b> lines covered</span> and
-    <span class="red"><b>75</b> lines missed </span>
+    <span class="green"><b>50</b> lines covered</span> and
+    <span class="red"><b>65</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -82,12 +82,12 @@
       
       <tr>
         <td class="strong"><a href="#addccb6214a79ebd1de54b7e4b8b14ed44c7598f" class="src_link" title="app/controllers/recipes_controller.rb">app/controllers/recipes_controller.rb</a></td>
-        <td class="red strong">59.38 %</td>
+        <td class="green strong">90.63 %</td>
         <td>60</td>
         <td>32</td>
-        <td>19</td>
-        <td>13</td>
-        <td>1.1</td>
+        <td>29</td>
+        <td>3</td>
+        <td>1.5</td>
       </tr>
       
       <tr>
@@ -229,11 +229,11 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">25.64%</span></span>
+    (<span class="covered_percent"><span class="red">38.46%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.46
+         0.63
        </span>
     </span> hits/line)
   </h2>
@@ -241,8 +241,8 @@
   <div>
     <b>4</b> files in total.
     <b>78</b> relevant lines. 
-    <span class="green"><b>20</b> lines covered</span> and
-    <span class="red"><b>58</b> lines missed </span>
+    <span class="green"><b>30</b> lines covered</span> and
+    <span class="red"><b>48</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -270,12 +270,12 @@
       
       <tr>
         <td class="strong"><a href="#addccb6214a79ebd1de54b7e4b8b14ed44c7598f" class="src_link" title="app/controllers/recipes_controller.rb">app/controllers/recipes_controller.rb</a></td>
-        <td class="red strong">59.38 %</td>
+        <td class="green strong">90.63 %</td>
         <td>60</td>
         <td>32</td>
-        <td>19</td>
-        <td>13</td>
-        <td>1.1</td>
+        <td>29</td>
+        <td>3</td>
+        <td>1.5</td>
       </tr>
       
       <tr>
@@ -791,11 +791,11 @@
         <div class="source_table" id="addccb6214a79ebd1de54b7e4b8b14ed44c7598f">
   <div class="header">
     <h3>app/controllers/recipes_controller.rb</h3>
-    <h4><span class="red">59.38 %</span> covered</h4>
+    <h4><span class="green">90.63 %</span> covered</h4>
     <div>
       <b>32</b> relevant lines. 
-      <span class="green"><b>19</b> lines covered</span> and
-      <span class="red"><b>13</b> lines missed.</span>
+      <span class="green"><b>29</b> lines covered</span> and
+      <span class="red"><b>3</b> lines missed.</span>
     </div>
   </div>
   
@@ -898,8 +898,8 @@
           <code class="ruby">    def show</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="17">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="17">
+          <span class="hits">3</span>
           
           <code class="ruby">        @recipe = Recipe.find(params[:id])</code>
         </li>
@@ -922,8 +922,8 @@
           <code class="ruby">    def new</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="21">
+          <span class="hits">2</span>
           
           <code class="ruby">        @recipe = Recipe.new</code>
         </li>
@@ -952,8 +952,8 @@
           <code class="ruby">    def create</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="26">
-          
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
           
           <code class="ruby">        @recipe= Recipe.new(create_update_params)</code>
         </li>
@@ -964,8 +964,8 @@
           <code class="ruby">        # @recipe= current_user.recipes.build(create_update_params)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="28">
-          
+        <li class="covered" data-hits="1" data-linenumber="28">
+          <span class="hits">1</span>
           
           <code class="ruby">        if @recipe.save</code>
         </li>
@@ -988,14 +988,14 @@
           <code class="ruby">        else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
-          
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
           
           <code class="ruby">          flash[:warning] = &quot;New recipe could not be created. Please try again&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="33">
-          
+        <li class="covered" data-hits="1" data-linenumber="33">
+          <span class="hits">1</span>
           
           <code class="ruby">          redirect_to new_recipe_path and return</code>
         </li>
@@ -1030,8 +1030,8 @@
           <code class="ruby">    def edit</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="39">
-          
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
           
           <code class="ruby">        @recipe = Recipe.find(params[:id]) # get existing object</code>
         </li>
@@ -1054,26 +1054,26 @@
           <code class="ruby">    def update</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="43">
-          
+        <li class="covered" data-hits="1" data-linenumber="43">
+          <span class="hits">1</span>
           
           <code class="ruby">        @recipe= Recipe.find(params[:id])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="44">
-          
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
           
           <code class="ruby">        @recipe.update(create_update_params)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
+        <li class="covered" data-hits="1" data-linenumber="45">
+          <span class="hits">1</span>
           
           <code class="ruby">        flash[:notice] = &quot;#{@recipe.recipe_name}&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
           
           <code class="ruby">        redirect_to recipe_path(@recipe)</code>
         </li>
@@ -1144,8 +1144,8 @@
           <code class="ruby">    def create_update_params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="58">
-          
+        <li class="covered" data-hits="2" data-linenumber="58">
+          <span class="hits">2</span>
           
           <code class="ruby">        params.require(:recipe).permit(:recipe_name, :meal_type, :vegan, :dairy_free, :nut_free, :vegetarian, :cuisine, :appliance, :ingredients, :timetocreate, :level)</code>
         </li>
