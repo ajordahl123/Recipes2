@@ -11,11 +11,13 @@
  %thead
   %tr
    %th Recipe Name
-   %th Meal type 
+   %th Meal type
+   %th Difficulty Level
  %tbody
   -@recipes.each do |r|
-   %tr 
-    %td= link_to "#{r.recipe_name}", recipe_path(r)
-    %td= "#{r.meal_type}"
+   %tr
+    %td.recipe_name= link_to "#{r.recipe_name}", recipe_path(r)
+    %td.meal_type= "#{r.meal_type}"
+    %td.level= r.level
 
 = link_to "Create a new recipe", new_recipe_path

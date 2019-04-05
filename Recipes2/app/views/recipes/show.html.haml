@@ -1,13 +1,19 @@
 #main.container
 %h1.header Show page
-.row
-  #{@recipe.recipe_name}
-.row
-  #{@recipe.meal_type}
-.row
-  #{@recipe.level}
-.row
-  #{@recipe.instructions}
+
+%table.table
+  %thead
+    %tr
+      %th Recipe Name
+      %th Meal type
+      %th Difficulty Level
+      %th Instructions
+  %tbody
+    %tr
+      %td.recipe_name= @recipe.recipe_name
+      %td.meal_type= @recipe.meal_type
+      %td.level= @recipe.level
+      %td.instructions= @recipe.instructions
 
 = link_to "Edit recipe", edit_recipe_path(@recipe)
 = link_to "Back to recipe listing", recipes_path

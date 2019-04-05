@@ -229,7 +229,7 @@ Then /^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/ do |label
     end
   end
 end
- 
+
 Then /^(?:|I )should be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
@@ -243,8 +243,8 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   query = URI.parse(current_url).query
   actual_params = query ? CGI.parse(query) : {}
   expected_params = {}
-  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')} 
-  
+  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')}
+
   if actual_params.respond_to? :should
     actual_params.should == expected_params
   else
@@ -278,4 +278,23 @@ Given("these Recipes:") do |table|
   table.hashes.each do |h|
       Recipe.create!(h)
   end
+end
+
+Then("I should see that {string} has a level of {string}") do |string, level|
+  page.all(".recipe").each do |row|
+    recipe_name = row.find(".recipe_name")
+    recipe_level = row.find(".level")
+    if recipe_name == name
+        expect(recipe_level).to eq(level)
+    end
+  end
+end
+
+#    And I should see that "brownies" has instructions equal to "make 12"
+Then("I should see that {string} has instructions equal to {string}") do |recipe_name, instructions|
+    all(".recipe").each do |recipe_row| # iterates through each property and its attributes
+        if (recipe_row.find(".recipe").text.eql?(recipe_name))
+            expect(property_row.find(".instructions").text).to eq(instructions)
+        end
+    end
 end

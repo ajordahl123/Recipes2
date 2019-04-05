@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_213528) do
     t.text "appliance"
     t.text "instructions"
     t.text "ingredients"
-    t.time "time_to_create"
+    t.integer "time_to_create"
     t.string "level"
     t.integer "review_id"
     t.integer "user_id"
