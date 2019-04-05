@@ -1,5 +1,10 @@
 class ReviewsController < ApplicationController
 
+  def index
+    @recipe = Recipe.find(params[:recipe_id])
+    redirect_to recipe_path(@recipe)
+  end
+
   def show
     @recipe = Recipe.find(params[:recipe_id])
     @review = Review.find(params[:id])
@@ -8,12 +13,11 @@ class ReviewsController < ApplicationController
 
   def new
     # byebug
-    @recipe = Recipe.find(params[:recipe_id]) #can't find :recipe_id (can't find params???)
+    @recipe = Recipe.find(params[:recipe_id])
     @review = Review.new
   end
 
   def create
-    byebug
     @recipe = Recipe.find(params[:recipe_id])
     @review = Review.new(review_params)
     @recipe.reviews << @review
@@ -27,7 +31,6 @@ class ReviewsController < ApplicationController
       flash[:notice] = "New review created successfully."
       redirect_to recipe_path(@recipe) and return #redirect to the recipe associated with review... not sure if this is correct syntax
     else
-      byebug
       flash[:warning] = "New review creation failed. Please try again."
       redirect_to new_recipe_review_path and return
     end
