@@ -38,7 +38,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'haml-rails'
 gem 'devise'
-gem 'pg'
+
+group :production do
+  gem 'pg'
+end
+
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
