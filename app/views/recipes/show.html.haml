@@ -1,5 +1,13 @@
 #main.container
 %h1.header= @recipe.recipe_name
+
+-# check favorite
+-if @user != nil
+  -if @favorited 
+    .fav= link_to image_tag("fav_color1.png", height: '25', width: '25'), recipe_path(@recipe.id, :unfavorited => true)
+  -else
+    .fav= link_to image_tag("fav_bw.png", height: '25', width: '25'), recipe_path(@recipe.id, :favorited => true)
+
 -if @user == @recipe.user
   -creator = "You, #{@user.email}"
 -else

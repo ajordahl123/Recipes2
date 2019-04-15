@@ -13,10 +13,28 @@ class RecipesController < ApplicationController
     end
 
     def show
-        if user_signed_in?
-            @user = current_user
-        end
         @recipe = Recipe.find(params[:id])
+        if user_signed_in?
+            @user = current_user # to be passed into show view
+            # user just favorited recipe
+            if params[:favorited]
+                @user.favorite_recipes << Recipe.where(:id => params[:id]) # adds the newly favorited recipe to the favorite recipes of that user
+                @favorited = true
+            # user just unfavorited recipe
+            elsif params[:unfavorited]
+                @user.favorite_recipes.delete(params[:id])
+                @favorited = false
+            # user has previously favorited this recipe
+            elsif ! (@user.favorite_recipes.where("recipe_id == ?", params[:id]).empty?)
+                @favorited = true
+            # user hasn't favorited this recipe
+            else
+                @favorited = false
+            end
+        # user isn't logged in
+        else
+            @user = nil
+        end
     end
 
     def new
