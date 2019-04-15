@@ -10,7 +10,6 @@ class RecipesController < ApplicationController
         else
             @user = nil
         end
-
     end
 
     def show
