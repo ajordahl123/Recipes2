@@ -1,35 +1,44 @@
 = f.label :recipe_name, "Recipe name"
 = f.text_field :recipe_name, :required => true
+%br
 
 = f.label :cuisine, "Type of cuisine"
 = f.text_field :cuisine, :required => true
+%br
 
 = f.label :meal_type, "Type of meal"
 = f.select :meal_type, ["Breakfast", "Lunch", "Dinner", "Dessert"], :required => true
+%br
 
-= f.label :vegetarian, "This recipe is vegetarian"
 = f.check_box(:vegetarian)
-= f.label :vegan, "This recipe is vegan"
+= f.label :vegetarian, "This recipe is vegetarian"
+%br
 = f.check_box(:vegan)
-= f.label :nut_free, "This recipe is nut free"
+= f.label :vegan, "This recipe is vegan"
+%br
 = f.check_box(:nut_free)
-= f.label :dairy_free, "This recipe is dairy free"
+= f.label :nut_free, "This recipe is nut free"
+%br
 = f.check_box(:dairy_free)
+= f.label :dairy_free, "This recipe is dairy free"
+%br
 
 = f.label :time_to_create, "Time to create, in minutes"
 = f.number_field :time_to_create, :required => true
+%br
 
 = f.label :appliance, "Any special appliances needed"
 = f.text_field :appliance
+%br
 
 = f.label :ingredients, "Ingredients required"
-= f.text_field :ingredients, :required => true
+= f.text_area :ingredients, :required => true
+%br
 
 = f.label :instructions, "Instructions"
 = f.text_area :instructions, :required => true
+%br
 
 = f.label :level, "Level of difficulty"
 = f.select :level, ["Easy", "Medium", "Hard"], :required => true
-
-= f.label :image, "Picture of the recipe"
-= f.file_field :image, :required => true
+%br

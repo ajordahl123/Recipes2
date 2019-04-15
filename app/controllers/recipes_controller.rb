@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
     #user authentification before any action happens, except
-    #before_action :authenticate_user!, except: [:index, :show]
+    before_action :authenticate_user!, except: [:index, :show] #!!!!!
     def index
         # to access all recipes in the view
         # the following line throws uninitialized constant RecipesController::Recipe
@@ -14,17 +14,21 @@ class RecipesController < ApplicationController
     end
 
     def show
+        if user_signed_in?
+            @user = current_user
+        end
         @recipe = Recipe.find(params[:id])
     end
 
     def new
         @recipe = Recipe.new
-        #@recipe = current_user.recipes.build
+        @recipe = current_user.recipes.build #!!!!!
     end
 
     def create
         @recipe= Recipe.new(create_update_params)
-        #@recipe= current_user.recipes.build(create_update_params)
+        @recipe= current_user.recipes.build(create_update_params) #!!!!!
+        @recipe.user = current_user
         if @recipe.save
           flash[:notice] = "New recipe #{@recipe.recipe_name} created successfully"
           redirect_to recipes_path and return
