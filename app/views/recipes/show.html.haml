@@ -3,26 +3,26 @@
 
 -# check favorite
 -if @user != nil
-  -if @favorited 
+  -if @favorited
     .fav= link_to image_tag("fav_color1.png", height: '25', width: '25'), recipe_path(@recipe.id, :unfavorited => true)
   -else
     .fav= link_to image_tag("fav_bw.png", height: '25', width: '25'), recipe_path(@recipe.id, :favorited => true)
 
--if @user == @recipe.user
-  -creator = "You, #{@user.email}"
--else
-  -creator = @user.email
-.created_by= "Created By: #{creator}"
+  -if @user == @recipe.user                   #user must not be nil in order to show their name
+    -creator = "You, #{@user.email}"
+  -else
+    -creator = @user.email
+  .created_by= "Created By: #{creator}"
 
--# user can edit and delete if it's their own recipe
--if @user == @recipe.user
-  = link_to "Edit recipe", edit_recipe_path(@recipe)
-  = link_to "Delete recipe", recipe_path(@recipe), :method => :delete
-  %br
--# user can review if they're logged in and it's not their own recipe
--if ! @user.nil? && @user != @recipe.user
-  = link_to "Write a review", new_recipe_review_path(@recipe)
-  %br
+  -# user can edit and delete if it's their own recipe
+  -if @user == @recipe.user
+    = link_to "Edit recipe", edit_recipe_path(@recipe)
+    = link_to "Delete recipe", recipe_path(@recipe), :method => :delete
+    %br
+  -# user can review if they're logged in and it's not their own recipe
+  -if ! @user.nil? && @user != @recipe.user
+    = link_to "Write a review", new_recipe_review_path(@recipe)
+    %br
 
 = link_to "Back to recipe listing", recipes_path
 
@@ -62,10 +62,15 @@
 %table.table
   %thead
     %tr
+      %td Name
       %th Rating
       %th Review
   %tbody
     -@recipe.reviews.each do |r|
       %tr
+        -if @recipe.user.nil?
+          %td Anonymous
+        -else
+          %td= @review.user.email
         %td= r.stars
         %td= r.text
