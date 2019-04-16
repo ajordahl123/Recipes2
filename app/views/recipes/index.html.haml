@@ -1,5 +1,17 @@
 #main.container
 %h1.header Recipe  Hello Foodies! (Homepage)
+Filter 
+= form_tag url_for(action: 'index'), :method => :get do
+ = label_tag :recipe_name, 'Recipe name'
+ = text_field_tag :recipe_name
+ %br
+
+ = label_tag :cuisine, "Type of cuisine"
+ = text_field_tag :cuisine
+ %br
+
+ = submit_tag "Refine the list of recipes"
+ = link_to "Clear out filter settings",recipes_path(:reset => true)
 
 - if current_user
  %h2= link_to "Sign out", destroy_user_session_path, method: :delete
