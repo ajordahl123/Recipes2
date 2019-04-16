@@ -3,6 +3,11 @@
 
 	= form_for @recipe, :method => :post do |f|
 		= render  "recipe_form", f: f
+
+		= f.label :image, "Picture of the recipe"
+		= f.file_field :image, :required => true
+		%br
+
 		= f.submit "Create a new recipe"
 
 		= link_to "Back to recipes listing", recipes_path

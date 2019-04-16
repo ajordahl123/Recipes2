@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
-  belongs_to :user, required: false
-  belongs_to :recipe, required: false
+  belongs_to :user
+  belongs_to :recipe
 
   def recipe_title
     if self.recipe.nil?

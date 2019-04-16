@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
     #user authentification before any action happens, except
-    #before_action :authenticate_user!, except: [:index, :show]
+    before_action :authenticate_user!, except: [:index, :show] #!!!!!
     def index
         # to access all recipes in the view
         # the following line throws uninitialized constant RecipesController::Recipe
@@ -10,21 +10,42 @@ class RecipesController < ApplicationController
         else
             @user = nil
         end
-
     end
 
     def show
         @recipe = Recipe.find(params[:id])
+        if user_signed_in?
+            @user = current_user # to be passed into show view
+            # user just favorited recipe
+            if params[:favorited]
+                @user.favorite_recipes << Recipe.where(:id => params[:id]) # adds the newly favorited recipe to the favorite recipes of that user
+                @favorited = true
+            # user just unfavorited recipe
+            elsif params[:unfavorited]
+                @user.favorite_recipes.delete(params[:id])
+                @favorited = false
+            # user has previously favorited this recipe
+            elsif ! (@user.favorite_recipes.where("recipe_id == ?", params[:id]).empty?)
+                @favorited = true
+            # user hasn't favorited this recipe
+            else
+                @favorited = false
+            end
+        # user isn't logged in
+        else
+            @user = nil
+        end
     end
 
     def new
         @recipe = Recipe.new
-        #@recipe = current_user.recipes.build
+        @recipe = current_user.recipes.build #!!!!!
     end
 
     def create
         @recipe= Recipe.new(create_update_params)
-        #@recipe= current_user.recipes.build(create_update_params)
+        @recipe= current_user.recipes.build(create_update_params) #!!!!!
+        @recipe.user = current_user
         if @recipe.save
           flash[:notice] = "New recipe #{@recipe.recipe_name} created successfully"
           redirect_to recipes_path and return

@@ -1,33 +1,76 @@
 #main.container
-%h1.header Show page
+%h1.header= @recipe.recipe_name
 
-%table.table
-  %thead
-    %tr
-      %th Recipe Name
-      %th Meal type
-      %th Difficulty Level
-      %th Instructions
-  %tbody
-    %tr
-      %td.recipe_name= @recipe.recipe_name
-      %td.meal_type= @recipe.meal_type
-      %td.level= @recipe.level
-      %td.instructions= @recipe.instructions
+-# check favorite
+-if @user != nil
+  -if @favorited
+    .fav= link_to image_tag("fav_color1.png", height: '25', width: '25'), recipe_path(@recipe.id, :unfavorited => true)
+  -else
+    .fav= link_to image_tag("fav_bw.png", height: '25', width: '25'), recipe_path(@recipe.id, :favorited => true)
 
-= link_to "Edit recipe", edit_recipe_path(@recipe)
+  -if @user == @recipe.user                   #user must not be nil in order to show their name
+    -creator = "You, #{@user.email}"
+  -else
+    -creator = @user.email
+  .created_by= "Created By: #{creator}"
+
+  -# user can edit and delete if it's their own recipe
+  -if @user == @recipe.user
+    = link_to "Edit recipe", edit_recipe_path(@recipe)
+    = link_to "Delete recipe", recipe_path(@recipe), :method => :delete
+    %br
+  -# user can review if they're logged in and it's not their own recipe
+  -if ! @user.nil? && @user != @recipe.user
+    = link_to "Write a review", new_recipe_review_path(@recipe)
+    %br
+
 = link_to "Back to recipe listing", recipes_path
 
-= link_to "Delete recipe", recipe_path(@recipe), :method => :delete
-= link_to "Write a review", new_recipe_review_path(@recipe)
+%br
+%br
 
+.level= "Level of Difficulty: #{@recipe.level}"
+.cuisine= "Type of Cuisine: #{@recipe.cuisine}"
+.time_to_create= "Time to Create: #{@recipe.time_to_create} minute(s)"
+-if @recipe.image.attached?
+  =image_tag(@recipe.image.variant(resize: "200x200^"))
+
+%br
+-restrictions = ""
+-if @recipe.vegan
+  -restrictions += "|| Vegan |"
+-if @recipe.vegetarian
+  -restrictions += "| Vegetarian |"
+-if @recipe.nut_free
+  -restrictions += "| Nut Free |"
+-if @recipe.dairy_free
+  -restrictions += "| Dairy Free ||"
+-if ! restrictions.eql? ""
+  =restrictions
+
+-if ! @recipe.appliance.eql? ""
+  .appliance= "Special Appliance(s) Needed: #{@recipe.appliance}"
+
+%br
+.ingredients_header= "Ingredients Needed:"
+.ingredients= @recipe.ingredients
+%br
+.instructions_header= "How to Make This Recipe:"
+.instructions= @recipe.instructions
+
+%br
 %table.table
   %thead
     %tr
+      %td Name
       %th Rating
       %th Review
   %tbody
     -@recipe.reviews.each do |r|
       %tr
+        -if @recipe.user.nil?
+          %td Anonymous
+        -else
+          %td= @review.user.email
         %td= r.stars
         %td= r.text
