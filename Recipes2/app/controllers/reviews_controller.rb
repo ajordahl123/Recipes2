@@ -1,32 +1,45 @@
 class ReviewsController < ApplicationController
-  #before_action :authenticate_user! # devise, user authentifictaion
-  def show
-    @recipe = Review.find(params[:id])
-  end
+  # TO DO: IMPLEMENTATION WILL BE CONTINUED IN NEXT ITERATION
 
-  def new
-    @review = current_user.reviews.build
-  end
-
-  def create
-    @review = current_user.reviews.build(review_params)
-
-    rescue ActiveRecord::NotNullViolation
-      flash[:warning] = "New review creation failed. Please try again."
-      redirect_to new_review_path
-
-    if @article.save
-      flash[:notice] = "New review created successfully."
-      redirect_to recipe_path(@review.recipe) #redirect to the recipe associated with review... not sure if this is correct syntax
-    else
-      flash[:warning] = "New review creation failed. Please try again."
-      redirect_to new_review_path
-  end
-  end
-
-  private
-    def review_params
-      params.require(:review).permit(:text, :stars, :user, :recipe)
-    end
+  # def index
+  #   @recipe = Recipe.find(params[:recipe_id])
+  #   redirect_to recipe_path(@recipe)
+  # end
+  #
+  # def show
+  #   @recipe = Recipe.find(params[:recipe_id])
+  #   @review = Review.find(params[:id])
+  #   redirect_to recipe_path(@recipe) and return
+  # end
+  #
+  # def new
+  #   # byebug
+  #   @recipe = Recipe.find(params[:recipe_id])
+  #   @review = Review.new
+  # end
+  #
+  # def create
+  #   @recipe = Recipe.find(params[:recipe_id])
+  #   @review = Review.new(review_params)
+  #   @recipe.reviews << @review
+  #   # current_user.reviews << @review
+  #
+  #   # rescue ActiveRecord::NotNullViolation
+  #   #   flash[:warning] = "New review creation failed. Please try again."
+  #   #   redirect_to new_review_path and return
+  #
+  #   if @review.save
+  #     flash[:notice] = "New review created successfully."
+  #     redirect_to recipe_path(@recipe) and return #redirect to the recipe associated with review... not sure if this is correct syntax
+  #   else
+  #     flash[:warning] = "New review creation failed. Please try again."
+  #     redirect_to new_recipe_review_path and return
+  #   end
+  # end
+  #
+  # private
+  #   def review_params
+  #     params.require(:review).permit(:text, :stars, :user, :recipe)
+  #   end
 
 end

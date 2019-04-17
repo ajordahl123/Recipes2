@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_213528) do
     t.text "appliance"
     t.text "instructions"
     t.text "ingredients"
-    t.time "time_to_create"
+    t.integer "time_to_create"
     t.string "level"
     t.integer "review_id"
     t.integer "user_id"
@@ -55,14 +55,16 @@ ActiveRecord::Schema.define(version: 2019_04_04_213528) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.integer "recipe_id"
     t.integer "stars"
     t.text "text"
-    t.integer "recipe_id"
-    t.integer "user_id"
+    t.integer "recipes_id"
+    t.integer "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_reviews_on_recipe_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["recipes_id"], name: "index_reviews_on_recipes_id"
+    t.index ["users_id"], name: "index_reviews_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|

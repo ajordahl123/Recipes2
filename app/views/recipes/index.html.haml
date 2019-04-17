@@ -1,0 +1,23 @@
+#main.container
+%h1.header Recipe  Hello Foodies! (Homepage)
+
+- if current_user
+ %h2= link_to "Sign out", destroy_user_session_path, method: :delete
+- else
+ %h2= link_to "Login", new_user_session_path
+
+
+%table.table
+ %thead
+  %tr
+   %th Recipe Name
+   %th Meal type
+   %th Difficulty Level
+ %tbody
+  -@recipes.each do |r|
+   %tr
+    %td.recipe_name= link_to "#{r.recipe_name}", recipe_path(r)
+    %td.meal_type= "#{r.meal_type}"
+    %td.level= r.level
+
+= link_to "Create a new recipe", new_recipe_path

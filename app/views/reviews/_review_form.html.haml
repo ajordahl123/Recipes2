@@ -1,0 +1,11 @@
+=f.label :stars, "Rating"
+=f.number_field :stars, required: true, min: 0, max: 5
+
+=f.label :text, "Review text"
+=f.text_field :text
+
+=f.hidden_field :user_id, value: current_user   #is this safe? privacy?
+
+-byebug
+
+=f.hidden_field :recipe_id, value: @recipe
