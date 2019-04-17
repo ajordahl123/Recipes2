@@ -10,10 +10,18 @@ class RecipesController < ApplicationController
         else
             @user = nil
         end
-        # Filtering
-        filtering_params(params).each do |key, value|
-            @recipes = @recipes.public_send(key, value) if value.present?
+        # check filter conditions with session
+        do_redirect, prefs = update_settings(params, session)
+        if do_redirect
+          flash.keep
+          redirect_to recipes_path(prefs) and return
         end
+        # Filtering
+        if prefs != nil
+            prefs.each do |key, value|
+                @recipes = @recipes.public_send(key, value) if value.present?
+            end   
+        end     
     end
 
     def show
@@ -88,7 +96,28 @@ class RecipesController < ApplicationController
         params.require(:recipe).permit(:recipe_name, :meal_type, :vegan, :dairy_free, :nut_free, :vegetarian, :cuisine, :appliance, :ingredients, :time_to_create, :level, :instructions, :image)
     end
     def filtering_params(params)
-        params.slice(:recipe_name, :cuisine, :level, :meal_type, :time_to_create, :vegan, :vegetarian, :dairy_free, :nut_free, :appliance)
+        params.slice(:recipe_name_filter, :cuisine_filter, :level_filter, :meal_type_filter, :time_to_create_filter, :vegan_filter, :vegetarian_filter, :dairy_free_filter, :nut_free_filter, :appliance_filter)
     end
+
+    def update_settings(parms, sess)
+        preferences = session[:preferences] || Hash.new
+        if parms[:reset_filters] #reset filter
+          session.clear
+          return true, Hash.new
+        end
+        should_redirect = false
+        filtering_params(params).each do |key, value|
+            if !value.present? # not currently set; look at session
+                value = preferences[key]
+                should_redirect = true
+            elsif value != preferences[key]  
+                # filter is different from session; stick with current
+                should_redirect = true
+            end    
+            preferences[key] = value
+        end
+        session[:preferences] = preferences
+        return should_redirect, preferences
+      end
 end
 
