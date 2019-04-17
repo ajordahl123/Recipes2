@@ -4,8 +4,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def new
+    @user = User.new
+  end
+
   def update
-    @user= Recipe.find(params[:id])
+    @user= User.find(params[:id])
     if @user.update(create_update_params) #successful!
         # flash[:notice] = "#{@recipe.recipe_name} successfully updated!"
         redirect_to recipe_path(@user)
