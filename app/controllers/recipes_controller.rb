@@ -10,6 +10,23 @@ class RecipesController < ApplicationController
         else
             @user = nil
         end
+
+        sort = params[:sort_by].to_s
+
+        if sort == "rating"
+          @recipes = Recipe.sort_by_rating.reverse
+        # elsif sort == "num_reviews"
+        #   byebug
+        #   @recipes = Recipe.sort_by_most_reviewed()
+        elsif sort == "recent"
+          @recipes = @recipes.order("created_at DESC")
+        elsif sort == "level"
+          @recipes = Recipe.sort_by_difficulty
+        end
+
+        # Filtering
+        filtering_params(params).each do |key, value|
+            @recipes = @recipes.public_send(key, value) if value.present?
         # check filter conditions with session
         do_redirect, prefs = update_settings(params, session)
         if do_redirect
@@ -20,8 +37,8 @@ class RecipesController < ApplicationController
         if prefs != nil
             prefs.each do |key, value|
                 @recipes = @recipes.public_send(key, value) if value.present?
-            end   
-        end     
+            end
+        end
     end
 
     def show
@@ -110,14 +127,13 @@ class RecipesController < ApplicationController
             if !value.present? # not currently set; look at session
                 value = preferences[key]
                 should_redirect = true
-            elsif value != preferences[key]  
+            elsif value != preferences[key]
                 # filter is different from session; stick with current
                 should_redirect = true
-            end    
+            end
             preferences[key] = value
         end
         session[:preferences] = preferences
         return should_redirect, preferences
       end
 end
-

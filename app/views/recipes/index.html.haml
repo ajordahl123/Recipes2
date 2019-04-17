@@ -43,14 +43,24 @@
 %table.table
  %thead
   %tr
-   %th Recipe Name
+   %th= link_to "Recipe", recipes_path(sort_by: 'recent')
+   %th= link_to "Rating", recipes_path(sort_by: 'rating')
+   %th= link_to "Num. of Reviews", recipes_path(sort_by: 'num_reviews')
    %th Meal type
-   %th Difficulty Level
+   %th= link_to "Difficulty", recipes_path(sort_by: 'level') # this will sort as easy -> hard -> medium... create a hash to fix
  %tbody
+
   -@recipes.each do |r|
    %tr
+    //-byebug
     %td.recipe_name= link_to "#{r.recipe_name}", recipe_path(r)
+    -if r.rating == -1
+     %td.rating No reviews
+    -else
+     %td.rating= "#{r.rating}"
+    %td.num_reviews ###
     %td.meal_type= "#{r.meal_type}"
     %td.level= r.level
+
 
 = link_to "Create a new recipe", new_recipe_path

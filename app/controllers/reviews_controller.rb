@@ -25,13 +25,8 @@ class ReviewsController < ApplicationController
     @recipe.reviews << @review
 
     byebug
-    # current_user.reviews << @review
 
-    # rescue ActiveRecord::NotNullViolation
-    #   flash[:warning] = "New review creation failed. Please try again."
-    #   redirect_to new_review_path and return
-
-    if @review.save
+    if @review.save!
       flash[:notice] = "New review created successfully."
       redirect_to recipe_path(@recipe) and return #redirect to the recipe associated with review
     else
@@ -42,8 +37,7 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
-      params[:user] = current_user
-      params.require(:review).permit(:text, :stars, :recipe_id, :user_id)
+      params.require(:review).permit(:text, :stars, :user_id, :recipe_id)
     end
 
 end
