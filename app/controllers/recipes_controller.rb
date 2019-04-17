@@ -87,7 +87,7 @@ class RecipesController < ApplicationController
         params.require(:recipe).permit(:recipe_name, :meal_type, :vegan, :dairy_free, :nut_free, :vegetarian, :cuisine, :appliance, :ingredients, :time_to_create, :level, :instructions, :image)
     end
     def filtering_params(params)
-        params.slice(:recipe_name, :cuisine)
+        params.slice(:recipe_name, :cuisine, :level, :meal_type)
     end
 end
 

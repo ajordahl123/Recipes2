@@ -10,6 +10,14 @@ Filter
  = text_field_tag :cuisine
  %br
 
+ = label_tag :meal_type, "Type of meal"
+ = select_tag :meal_type, options_for_select(["", "Breakfast", "Lunch", "Dinner", "Dessert"])
+ %br
+
+ = label_tag :level, "Level of difficulty"
+ = select_tag :level, options_for_select(["","Easy", "Medium", "Hard"])
+ %br
+
  = submit_tag "Refine the list of recipes"
  = link_to "Clear out filter settings",recipes_path(:reset => true)
 
