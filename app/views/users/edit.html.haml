@@ -1,0 +1,10 @@
+#main.container
+    %h3.header Edit Youre Profile
+
+    =form_for current_user, :method => :put do |f| 
+        = f.label :image, "Upload a new profile picture"
+        = f.file_field :image
+        %br
+        = f.submit "Save Changes"
+        %br
+        = link_to "Back to recipe details", user_path(current_user)
