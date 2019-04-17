@@ -11,9 +11,30 @@ class RecipesController < ApplicationController
             @user = nil
         end
 
+        sort = params[:sort_by].to_s
+
+        if sort == "rating"
+          @recipes = Recipe.sort_by_rating.reverse
+        # elsif sort == "num_reviews"
+        #   byebug
+        #   @recipes = Recipe.sort_by_most_reviewed()
+        elsif sort == "recent"
+          @recipes = @recipes.order("created_at DESC")
+        elsif sort == "level"
+          @recipes = Recipe.sort_by_difficulty
+        end
+
+        # check filter conditions with session
+        do_redirect, prefs = update_settings(params, session)
+        if do_redirect
+          flash.keep
+          redirect_to recipes_path(prefs) and return
+        end
         # Filtering
-        filtering_params(params).each do |key, value|
-            @recipes = @recipes.public_send(key, value) if value.present?
+        if prefs != nil
+            prefs.each do |key, value|
+                @recipes = @recipes.public_send(key, value) if value.present?
+            end
         end
     end
 
@@ -59,7 +80,6 @@ class RecipesController < ApplicationController
           flash[:warning] = "New recipe could not be created. Please try again"
           redirect_to new_recipe_path and return
         end
-
     end
 
     def edit
@@ -75,7 +95,7 @@ class RecipesController < ApplicationController
             flash[:warning] = "Sorry, the recipe couldn't be updated. Please try again."
             redirect_to edit_recipe_path(@recipe)
         end
-      end
+    end
 
     def destroy
         @recipe= Recipe.find(params[:id])
@@ -89,7 +109,27 @@ class RecipesController < ApplicationController
         params.require(:recipe).permit(:recipe_name, :meal_type, :vegan, :dairy_free, :nut_free, :vegetarian, :cuisine, :appliance, :ingredients, :time_to_create, :level, :instructions, :image)
     end
     def filtering_params(params)
-        params.slice(:recipe_name, :cuisine, :level, :meal_type, :time_to_create, :vegan, :vegetarian, :dairy_free, :nut_free)
+        params.slice(:recipe_name_filter, :cuisine_filter, :level_filter, :meal_type_filter, :time_to_create_filter, :vegan_filter, :vegetarian_filter, :dairy_free_filter, :nut_free_filter, :appliance_filter)
+    end
+
+    def update_settings(parms, sess)
+        preferences = session[:preferences] || Hash.new
+        if parms[:reset_filters] #reset filter
+          session.clear
+          return true, Hash.new
+        end
+        should_redirect = false
+        filtering_params(params).each do |key, value|
+            if !value.present? # not currently set; look at session
+                value = preferences[key]
+                should_redirect = true
+            elsif value != preferences[key]
+                # filter is different from session; stick with current
+                should_redirect = true
+            end
+            preferences[key] = value
+        end
+        session[:preferences] = preferences
+        return should_redirect, preferences
     end
 end
-

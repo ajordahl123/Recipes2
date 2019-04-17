@@ -1,14 +1,16 @@
 #main.container
 %h1.header= @recipe.recipe_name
 
--# check favorite
+
 -if @user != nil
-  -if @user == @recipe.user                   #user must not be nil in order to show their name
+  -# display recipe creator
+  -if @user == @recipe.user
     -creator = "You, #{@user.email}"
   -else
     -creator = @user.email
   .created_by= "Created By: #{creator}"
 
+  -# check favorited or not
   -if @favorited
     .fav= link_to image_tag("fav_color1.png", height: '25', width: '25'), recipe_path(@recipe.id, :unfavorited => true)
     .fav_text= "Unfavorite this recipe"
@@ -32,6 +34,7 @@
 %br
 
 .level= "Level of Difficulty: #{@recipe.level}"
+.meal_type= "Type of Meal: #{@recipe.meal_type}"
 .cuisine= "Type of Cuisine: #{@recipe.cuisine}"
 .time_to_create= "Time to Create: #{@recipe.time_to_create} minute(s)"
 %br
@@ -74,9 +77,10 @@
   %tbody
     -@recipe.reviews.each do |r|
       %tr
-        -if @recipe.user.nil?
+        -user = User.find(@recipe.user_id)
+        -if user.nil?
           %td Anonymous
         -else
-          %td= @review.user.email
+          %td= user.email
         %td= r.stars
         %td= r.text

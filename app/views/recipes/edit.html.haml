@@ -3,5 +3,10 @@
 
 	= form_for @recipe, :method => :put do |f|
 		= render "recipe_form", f: f
+
+		= f.label :image, "Picture of the recipe"
+		= f.file_field :image
+		%br
+
 		= f.submit "Save Changes"
 		= link_to "Back to recipe details", recipe_path(@recipe)
