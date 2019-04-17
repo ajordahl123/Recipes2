@@ -3,17 +3,16 @@ class Recipe < ApplicationRecord
     has_many :reviews, :dependent => :destroy
     belongs_to :user, required: false
 
-    scope :recipe_name, -> (name) { where(recipe_name: name)}
-    scope :cuisine, -> (cuisine) { where(cuisine: cuisine)}
-    scope :level, -> (level) { where(level: level)}
-    scope :meal_type, -> (type) { where(meal_type: type)}
-    scope :time_to_create, -> (time) { where("time_to_create <= ?", "#{time}")}
-    scope :vegan, -> (value) { where(vegan: value)}
-    scope :vegetarian, -> (value) { where(vegetarian: value)}
-    scope :dairy_free, -> (value) { where(dairy_free: value)}
-    scope :nut_free, -> (value) { where(nut_free: value)}
-
-    # scope :sort_by_most_reviewed, -> () {joins(:reviews).select("recipes.id, count(reviews) as num_reviews").group("recipes.id").order("num_reviews DESC")}
+    scope :recipe_name_filter, -> (name) { where('recipe_name LIKE ?', "%#{name}%")}
+    scope :cuisine_filter, -> (cuisine) { where(cuisine: cuisine)}
+    scope :level_filter, -> (level) { where(level: level)}
+    scope :meal_type_filter, -> (type) { where(meal_type: type)}
+    scope :time_to_create_filter, -> (time) { where("time_to_create <= ?", "#{time}")}
+    scope :appliance_filter, -> (app) { where('appliance LIKE ?', "#{app}")}
+    scope :vegan_filter, -> (value) { where(vegan: value)}
+    scope :vegetarian_filter, -> (value) { where(vegetarian: value)}
+    scope :dairy_free_filter, -> (value) { where(dairy_free: value)}
+    scope :nut_free_filter, -> (value) { where(nut_free: value)}
 
     has_and_belongs_to_many :fans,
         class_name: "User",
