@@ -6,4 +6,6 @@ class Recipe < ApplicationRecord
         class_name: "User",
         foreign_key: "recipe_id",
         association_foreign_key: "user_id"
+    
+    
 end

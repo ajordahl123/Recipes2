@@ -1,10 +1,19 @@
 #main.container
-	%h1.header Chief Details current_user.email
+  %h1.header Chef Details
+  %h2.header= @user.email
 
+<<<<<<< HEAD
     %h1.image= image_tag current_user.image.attached? ? current_user.image.variant(resize: "300x400^") : 'default_user.jpg'
     %h2.image= "Upload Chief Image"
     .row
 
           
     = "#{current_user.username}"
+=======
+  %h1.image= image_tag @user.image.attached? ? @user.image.variant(resize: "300x400^") : 'default_user.jpg'
+  %h2.image= "Upload Chef Image"
+>>>>>>> 058bd6bc6311c36875e48db6af109aafa6f66620
 
+  =link_to "Add a new recipe", new_recipe_path
+  .row
+  = "#{@user.username}"

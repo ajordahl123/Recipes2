@@ -21,9 +21,10 @@ class RecipesController < ApplicationController
                 @user.favorite_recipes << Recipe.where(:id => params[:id]) # adds the newly favorited recipe to the favorite recipes of that user
                 @favorited = true
             # user just unfavorited recipe
-            elsif params[:unfavorited]
+            elsif params[:unfavorited] && ! (@user.favorite_recipes.where("recipe_id == ?", params[:id]).empty?)
                 @user.favorite_recipes.delete(params[:id])
                 @favorited = false
+                params[:unfavorited] = false
             # user has previously favorited this recipe
             elsif ! (@user.favorite_recipes.where("recipe_id == ?", params[:id]).empty?)
                 @favorited = true
