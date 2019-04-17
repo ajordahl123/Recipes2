@@ -7,7 +7,7 @@
   -if @user == @recipe.user
     -creator = "You, #{@user.email}"
   -else
-    -creator = @user.email
+    -creator = @recipe.user.email
   .created_by= "Created By: #{creator}"
 
   -# check favorited or not

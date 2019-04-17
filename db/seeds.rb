@@ -8,18 +8,18 @@
 
 
 # users
-user_list = [["cnie@gmail.com","cn0017","Can","Nie"],
-    ["bobama@gmail.com","bo616","Barack","Obama"],
-    ["asmish@gmail.com","as505",'Adam',"Smith"]
+user_list = [["cnie@gmail.com","cn0017","Can","Nie","1234567"],
+    ["bobama@gmail.com","bo616","Barack","Obama","1234567"],
+    ["asmish@gmail.com","as505",'Adam',"Smith","1234567"]
 ]
-user_list.each do |email, username, first, last|
-    User.create(email: email, username: username, first: first, last: last)
+user_list.each do |email, username, first, last, password|
+    User.create(email: email, username: username, first: first, last: last, password: password)
 end    
 
 
 #recipes
 recipe_list = [['sushi','Dinner','no','no','yes','yes','Japanese','','Put things on rice','rice, fish, soy sauce, wasabi','20','Easy',1],
-    ['spaghetti','Dinner','yes','yes','yes','yes','Italian','pot','Boil spaghetti','spaghetti','7','Easy',1]
+    ['spaghetti','Dinner','yes','yes','yes','yes','Italian','pot','Boil spaghetti','spaghetti','7','Easy',3]
 ]
 recipe_list.each do |name, type, is_vegan, is_vege, is_nutf, is_dairyf, cuisine, 
     appliance, instr, ingre, time, level, user_id|
