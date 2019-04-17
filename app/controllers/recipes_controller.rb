@@ -10,6 +10,11 @@ class RecipesController < ApplicationController
         else
             @user = nil
         end
+
+        # Filtering
+        filtering_params(params).each do |key, value|
+            @recipes = @recipes.public_send(key, value) if value.present?
+        end
     end
 
     def show
@@ -21,9 +26,10 @@ class RecipesController < ApplicationController
                 @user.favorite_recipes << Recipe.where(:id => params[:id]) # adds the newly favorited recipe to the favorite recipes of that user
                 @favorited = true
             # user just unfavorited recipe
-            elsif params[:unfavorited]
+            elsif params[:unfavorited] && ! (@user.favorite_recipes.where("recipe_id == ?", params[:id]).empty?)
                 @user.favorite_recipes.delete(params[:id])
                 @favorited = false
+                params[:unfavorited] = false
             # user has previously favorited this recipe
             elsif ! (@user.favorite_recipes.where("recipe_id == ?", params[:id]).empty?)
                 @favorited = true
@@ -81,6 +87,9 @@ class RecipesController < ApplicationController
     private
     def create_update_params
         params.require(:recipe).permit(:recipe_name, :meal_type, :vegan, :dairy_free, :nut_free, :vegetarian, :cuisine, :appliance, :ingredients, :time_to_create, :level, :instructions, :image)
-      end
-
+    end
+    def filtering_params(params)
+        params.slice(:recipe_name, :cuisine, :level, :meal_type, :time_to_create, :vegan, :vegetarian, :dairy_free, :nut_free)
+    end
 end
+
