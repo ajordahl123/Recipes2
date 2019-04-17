@@ -10,7 +10,6 @@ class RecipesController < ApplicationController
         else
             @user = nil
         end
-
         # Filtering
         filtering_params(params).each do |key, value|
             @recipes = @recipes.public_send(key, value) if value.present?
@@ -89,7 +88,7 @@ class RecipesController < ApplicationController
         params.require(:recipe).permit(:recipe_name, :meal_type, :vegan, :dairy_free, :nut_free, :vegetarian, :cuisine, :appliance, :ingredients, :time_to_create, :level, :instructions, :image)
     end
     def filtering_params(params)
-        params.slice(:recipe_name, :cuisine, :level, :meal_type, :time_to_create, :vegan, :vegetarian, :dairy_free, :nut_free)
+        params.slice(:recipe_name, :cuisine, :level, :meal_type, :time_to_create, :vegan, :vegetarian, :dairy_free, :nut_free, :appliance)
     end
 end
 

@@ -263,8 +263,8 @@ end
 #
 #
 
-Given /^I am a new, authenticated user$/ do
-  email = 'testing@man.net'
+Given ("I am a new, authenticated user with email {string}") do |email_address|
+  email = email_address
   password = 'secretpass'
   User.new(:email => email, :password => password, :password_confirmation => password).save!
 
@@ -276,6 +276,9 @@ end
 
 Given("these Recipes:") do |table|
   table.hashes.each do |h|
+      user_email = h["user_email"]
+      h["user_id"] = User.where("email == ?", user_email).ids[0]
+      h.delete("user_email")
       Recipe.create!(h)
   end
 end
@@ -290,11 +293,18 @@ Then("I should see that {string} has a level of {string}") do |string, level|
   end
 end
 
-#    And I should see that "brownies" has instructions equal to "make 12"
 Then("I should see that {string} has instructions equal to {string}") do |recipe_name, instructions|
     all(".recipe").each do |recipe_row| # iterates through each property and its attributes
         if (recipe_row.find(".recipe").text.eql?(recipe_name))
             expect(property_row.find(".instructions").text).to eq(instructions)
         end
     end
+end
+
+Then("I should see {string} on the page") do |attribute_value|
+  all(".recipe").each do |recipe_row| # iterates through each property and its attributes
+      if (recipe_row.find(".recipe").text.eql?(recipe_name))
+          expect(property_row.find(".instructions").text).to eq(instructions)
+      end
+  end
 end

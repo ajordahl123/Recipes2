@@ -1,7 +1,14 @@
 #main.container
-%h1.header Recipe  Hello Foodies! (Homepage)
+- if current_user
+ %h2= link_to "Sign out", destroy_user_session_path, method: :delete
+- else
+ %h2= link_to "Login", new_user_session_path
+
+%h1.header View All Recipes
+
 %h3.header Filter Recipes
 = form_tag url_for(action: 'index'), :method => :get do
+
  = label_tag :recipe_name, 'Recipe name'
  = text_field_tag :recipe_name
  %br
@@ -17,23 +24,20 @@
  = label_tag :time_to_create, "Time to create"
  = number_field_tag :time_to_create
  %br
+ = label_tag :appliance, 'Special Appliance'
+ = text_field_tag :appliance
+ %br
  = check_box_tag (:vegetarian)
- = label_tag :vegetarian, "This recipe is vegetarian"
+ = label_tag :vegetarian, "Vegetarian"
  = check_box_tag (:vegan)
- = label_tag :vegan, "This recipe is vegan"
+ = label_tag :vegan, "Vegan"
  = check_box_tag (:nut_free)
- = label_tag :nut_free, "This recipe is nut free"
+ = label_tag :nut_free, "Nut free"
  = check_box_tag (:dairy_free)
- = label_tag :dairy_free, "This recipe is dairy free"
+ = label_tag :dairy_free, "Dairy free"
  %br
  = submit_tag "Refine the list of recipes"
  = link_to "Clear out filter settings",recipes_path(:reset => true)
-
-
-- if current_user
- %h2= link_to "Sign out", destroy_user_session_path, method: :delete
-- else
- %h2= link_to "Login", new_user_session_path
 
 
 %table.table

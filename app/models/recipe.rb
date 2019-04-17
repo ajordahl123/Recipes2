@@ -2,12 +2,13 @@ class Recipe < ApplicationRecord
     has_one_attached :image
     has_many :reviews
     belongs_to :user, required: false
-    
-    scope :recipe_name, -> (name) { where(recipe_name: name)}  
+
+    scope :recipe_name, -> (name) { where('recipe_name LIKE ?', "%#{name}%")}
     scope :cuisine, -> (cuisine) { where(cuisine: cuisine)}
     scope :level, -> (level) { where(level: level)}
     scope :meal_type, -> (type) { where(meal_type: type)}
     scope :time_to_create, -> (time) { where("time_to_create <= ?", "#{time}")}
+    scope :appliance, -> (app) { where('appliance LIKE ?', "#{app}")}
     scope :vegan, -> (value) { where(vegan: value)}
     scope :vegetarian, -> (value) { where(vegetarian: value)}
     scope :dairy_free, -> (value) { where(dairy_free: value)}
