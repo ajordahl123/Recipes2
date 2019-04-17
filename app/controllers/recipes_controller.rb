@@ -11,6 +11,14 @@ class RecipesController < ApplicationController
             @user = nil
         end
 
+        sort = params[:sort_by].to_s
+
+        if sort == "rating"
+          @recipes = Recipe.sort_by_rating
+        elsif sort == "num_reviews"
+          @recipes = @recipes.order(reviews.length)
+        end
+
         # Filtering
         filtering_params(params).each do |key, value|
             @recipes = @recipes.public_send(key, value) if value.present?
@@ -92,4 +100,3 @@ class RecipesController < ApplicationController
         params.slice(:recipe_name, :cuisine, :level, :meal_type, :time_to_create, :vegan, :vegetarian, :dairy_free, :nut_free)
     end
 end
-

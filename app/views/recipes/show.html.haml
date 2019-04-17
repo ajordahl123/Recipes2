@@ -69,7 +69,7 @@
   %thead
     %tr
       %th Name
-      %th Rating
+      %th= link_to "Rating",
       %th Review
   %tbody
     -@recipe.reviews.each do |r|
