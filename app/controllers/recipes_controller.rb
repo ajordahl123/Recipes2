@@ -89,6 +89,5 @@ class RecipesController < ApplicationController
     def filtering_params(params)
         params.slice(:recipe_name, :cuisine)
     end
-
 end
 
