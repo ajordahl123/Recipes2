@@ -69,14 +69,15 @@
   %thead
     %tr
       %th Name
-      %th= link_to "Rating",
+      %th Rating
       %th Review
   %tbody
     -@recipe.reviews.each do |r|
       %tr
-        -if @recipe.user.nil?
+        -user = User.find(@recipe.user_id)
+        -if user.nil?
           %td Anonymous
         -else
-          %td= @review.user.email
+          %td= user.email
         %td= r.stars
         %td= r.text

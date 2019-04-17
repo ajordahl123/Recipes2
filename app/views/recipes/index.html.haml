@@ -39,8 +39,9 @@
 %table.table
  %thead
   %tr
-   %th= link_to "Recipe Name", recipes_path(sort_by: 'recipe_name')
+   %th= link_to "Recipe", recipes_path(sort_by: 'recent')
    %th= link_to "Rating", recipes_path(sort_by: 'rating')
+   %th= link_to "Num. of Reviews", recipes_path(sort_by: 'num_reviews')
    %th Meal type
    %th= link_to "Difficulty", recipes_path(sort_by: 'level') # this will sort as easy -> hard -> medium... create a hash to fix
  %tbody
@@ -49,7 +50,11 @@
    %tr
     //-byebug
     %td.recipe_name= link_to "#{r.recipe_name}", recipe_path(r)
-    %td.rating= "#{r.rating}"
+    -if r.rating == -1
+     %td.rating No reviews
+    -else
+     %td.rating= "#{r.rating}"
+    %td.num_reviews ###
     %td.meal_type= "#{r.meal_type}"
     %td.level= r.level
 

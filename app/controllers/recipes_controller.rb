@@ -14,9 +14,14 @@ class RecipesController < ApplicationController
         sort = params[:sort_by].to_s
 
         if sort == "rating"
-          @recipes = Recipe.sort_by_rating
-        elsif sort == "num_reviews"
-          @recipes = @recipes.order(reviews.length)
+          @recipes = Recipe.sort_by_rating.reverse
+        # elsif sort == "num_reviews"
+        #   byebug
+        #   @recipes = Recipe.sort_by_most_reviewed()
+        elsif sort == "recent"
+          @recipes = @recipes.order("created_at DESC")
+        elsif sort == "level"
+          @recipes = Recipe.sort_by_difficulty
         end
 
         # Filtering

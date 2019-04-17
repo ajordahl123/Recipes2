@@ -1,4 +1,5 @@
 class Review < ApplicationRecord
+  has_many_attached :photos
   belongs_to :user
   belongs_to :recipe
 
@@ -8,5 +9,7 @@ class Review < ApplicationRecord
     else return self.recipe.title
     end
   end
+
+
 
 end
