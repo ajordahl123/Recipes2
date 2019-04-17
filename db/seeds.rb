@@ -6,17 +6,27 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Recipe.delete_all
+
+# users
+user_list = [["cnie@gmail.com","cn0017","Can","Nie"],
+    ["bobama@gmail.com","bo616","Barack","Obama"],
+    ["asmish@gmail.com","as505",'Adam',"Smith"]
+]
+user_list.each do |email, username, first, last|
+    User.create(email: email, username: username, first: first, last: last)
+end    
 
 
-ulist = []
-ulist << User.create(first: "Barack", last: "Obama")
-ulist << User.create(first: "Michelle", last: "Obama")
-
-rlist = []
-
-rlist << Recipe.create!([{recipe_name: 'sushi', meal_type: 'Dinner', vegan: 'no', vegetarian: 'no', nut_free: 'yes', dairy_free: 'yes', cuisine: 'Japanese', appliance: '', instructions: 'Put things on rice', time_to_create: 25, level: 'Easy', user: ulist[0]}])
-rlist << Recipe.create!([{recipe_name: 'spaghetti', meal_type: 'Dinner', vegan: 'yes', vegetarian: 'yes', nut_free: 'yes', dairy_free: 'yes', cuisine: 'Italian', appliance: '', instructions: 'Boil spaghetti', time_to_create: 7, level: 'Easy', user: ulist[1]}])
+#recipes
+recipe_list = [['sushi','Dinner','no','no','yes','yes','Japanese','','Put things on rice','rice, fish, soy sauce, wasabi','20','Easy',1],
+    ['spaghetti','Dinner','yes','yes','yes','yes','Italian','pot','Boil spaghetti','spaghetti','7','Easy',1]
+]
+recipe_list.each do |name, type, is_vegan, is_vege, is_nutf, is_dairyf, cuisine, 
+    appliance, instr, ingre, time, level, user_id|
+    Recipe.create( recipe_name: name, meal_type: type, vegan:is_vegan, vegetarian: is_vege, nut_free: is_nutf, 
+        dairy_free: is_dairyf, cuisine: cuisine, appliance: appliance, instructions: instr, ingredients: ingre,
+        time_to_create: time, level: level, user_id: user_id)
+end
 
 # 1.upto(2) do |id|
 #     puts "Adding reviews to recipe #{id}"

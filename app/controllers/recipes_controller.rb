@@ -24,9 +24,6 @@ class RecipesController < ApplicationController
           @recipes = Recipe.sort_by_difficulty
         end
 
-        # Filtering
-        filtering_params(params).each do |key, value|
-            @recipes = @recipes.public_send(key, value) if value.present?
         # check filter conditions with session
         do_redirect, prefs = update_settings(params, session)
         if do_redirect
@@ -83,7 +80,6 @@ class RecipesController < ApplicationController
           flash[:warning] = "New recipe could not be created. Please try again"
           redirect_to new_recipe_path and return
         end
-
     end
 
     def edit
@@ -99,7 +95,7 @@ class RecipesController < ApplicationController
             flash[:warning] = "Sorry, the recipe couldn't be updated. Please try again."
             redirect_to edit_recipe_path(@recipe)
         end
-      end
+    end
 
     def destroy
         @recipe= Recipe.find(params[:id])
@@ -135,5 +131,5 @@ class RecipesController < ApplicationController
         end
         session[:preferences] = preferences
         return should_redirect, preferences
-      end
+    end
 end
