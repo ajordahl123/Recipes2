@@ -349,7 +349,6 @@ Then("I should see {string} on the page") do |attribute_value|
       end
   end
 end
-<<<<<<< HEAD
 
 When("I click on the image {string}") do |img_name|
   find(".#{img_name}").click
@@ -358,5 +357,3 @@ end
 Then("I should see the image {string}") do |image|
   expect(page).to have_xpath("//img[contains(@src, \"#{image}\")]")
 end
-=======
->>>>>>> dece2b4009f3fe6aa9e94137a7e5928f00c46723
