@@ -18,7 +18,7 @@ end
 
 
 #recipes
-recipe_list = [['sushi','Dinner','no','no','yes','yes','Japanese','','Put things on rice','rice, fish, soy sauce, wasabi','20','Easy',1],
+recipe_list = [['sushi','Dinner','no','no','yes','yes','Japanese','','Put things on rice','rice, fish, soy sauce, wasabi','20','Easy',2],
     ['spaghetti','Dinner','yes','yes','yes','yes','Italian','pot','Boil spaghetti','spaghetti','7','Easy',3]
 ]
 recipe_list.each do |name, type, is_vegan, is_vege, is_nutf, is_dairyf, cuisine, 
