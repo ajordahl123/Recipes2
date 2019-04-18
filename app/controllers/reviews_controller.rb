@@ -13,18 +13,14 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    # byebug
     @recipe = Recipe.find(params[:recipe_id])
     @review = Review.new
   end
 
   def create
     @recipe = Recipe.find(params[:recipe_id])
-    byebug
     @review = Review.new(review_params)
     @recipe.reviews << @review
-
-    byebug
 
     if @review.save!
       flash[:notice] = "New review created successfully."

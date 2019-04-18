@@ -30,6 +30,18 @@ class RecipesController < ApplicationController
           flash.keep
           redirect_to recipes_path(prefs) and return
         end
+
+        @recipe_name = prefs[:recipe_name_filter]
+        @cuisine = prefs[:cuisine_filter]
+        @meal_type = prefs[:meal_type_filter]
+        @level = prefs[:level_filter]
+        @time_to_create = prefs[:time_to_create_filter]
+        @appliance = prefs[:appliance_filter]
+        @vegetarian = prefs[:vegetarian_filter]
+        @vegan = prefs[:vegan_filter]
+        @nut_free = prefs[:nut_free_filter]
+        @dairy_free = prefs[:dairy_free_filter]
+
         # Filtering
         if prefs != nil
             prefs.each do |key, value|

@@ -4,8 +4,6 @@
 =f.label :text, "Review text"
 =f.text_field :text
 
--byebug
-
 =f.hidden_field :user_id, value: current_user.id   #is this safe? privacy?
 
 =f.hidden_field :recipe_id, value: @recipe.id

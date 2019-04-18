@@ -7,33 +7,33 @@
 %h1.header View All Recipes
 
 %h3.header Filter Recipes
-= form_tag url_for(action: 'index'), :method => :get do
+= form_tag recipes_path, :method => :get do
 
  = label_tag :recipe_name_filter, 'Recipe name'
- = text_field_tag :recipe_name_filter
+ = text_field_tag :recipe_name_filter, "#{@recipe_name}"
  %br
  = label_tag :cuisine_filter, "Type of cuisine"
- = text_field_tag :cuisine_filter
+ = text_field_tag :cuisine_filter, "#{@cuisine}"
  %br
  = label_tag :meal_type_filter, "Type of meal"
- = select_tag :meal_type_filter, options_for_select(["", "Breakfast", "Lunch", "Dinner", "Dessert"])
+ = select_tag :meal_type_filter, options_for_select(["", "Breakfast", "Lunch", "Dinner", "Dessert"]), :selected => "#{@meal_type}"
  %br
  = label_tag :level_filter, "Level of difficulty"
- = select_tag :level_filter, options_for_select(["","Easy", "Medium", "Hard"])
+ = select_tag :level_filter, options_for_select(["","Easy", "Medium", "Hard"]), :selected => "#{@level}"
  %br
  = label_tag :time_to_create_filter, "Time to create"
- = number_field_tag :time_to_create_filter
+ = number_field_tag :time_to_create_filter, "#{@time_to_create}"
  %br
  = label_tag :appliance_filter, 'Special Appliance'
- = text_field_tag :appliance_filter
+ = text_field_tag :appliance_filter, "#{@appliance}"
  %br
- = check_box_tag (:vegetarian_filter)
+ = check_box_tag (:vegetarian_filter), "#{@vegetarian}"
  = label_tag :vegetarian_filter, "Vegetarian"
- = check_box_tag (:vegan_filter)
+ = check_box_tag (:vegan_filter), "#{@vegan}"
  = label_tag :vegan_filter, "Vegan"
- = check_box_tag (:nut_free_filter)
+ = check_box_tag (:nut_free_filter), "#{@nut_free}"
  = label_tag :nut_free_filter, "Nut free"
- = check_box_tag (:dairy_free_filter)
+ = check_box_tag (:dairy_free_filter), "#{@dairy_free}"
  = label_tag :dairy_free_filter, "Dairy free"
  %br
  = submit_tag "Refine the list of recipes"
