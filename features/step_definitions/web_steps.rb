@@ -295,8 +295,9 @@ Given("these Reviews:") do |table|
     user_email = h["user_email"]
     h["user_id"] = User.where("email == ?", user_email).ids[0]
     recipe = h["recipe"]
-    h["recipe"] = Recipe.where("recipe_name == ?", recipe)
+    h["recipe_id"] = Recipe.where("recipe_name == ?", recipe).ids[0]
     h.delete("user_email")
+    h.delete("recipe")
     Review.create!(h)
   end
 end
