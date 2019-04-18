@@ -25,3 +25,6 @@ Feature: Filter recipes
     Then I should be on the recipes page
     And I should see "brownies"
     But I should not see "cookies"
+    When I follow "Clear out filter settings"
+    Then I should see "brownies"
+    And I should see "cookies"
