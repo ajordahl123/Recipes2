@@ -263,6 +263,7 @@ end
 #
 #
 
+
 Given ("I am a new, authenticated user with email {string}") do |email_address|
   email = email_address
   password = 'secretpass'
@@ -289,12 +290,46 @@ Given("these Recipes:") do |table|
   end
 end
 
+Given("these Reviews:") do |table|
+  table.hashes.each do |h|
+    user_email = h["user_email"]
+    h["user_id"] = User.where("email == ?", user_email).ids[0]
+    recipe = h["recipe"]
+    h["recipe"] = Recipe.where("recipe_name == ?", recipe)
+    h.delete("user_email")
+    Review.create!(h)
+  end
+end
+
 Then("I should see that {string} has a level of {string}") do |string, level|
   page.all(".recipe").each do |row|
     recipe_name = row.find(".recipe_name")
     recipe_level = row.find(".level")
     if recipe_name == name
         expect(recipe_level).to eq(level)
+    end
+  end
+end
+
+Then ("{string} should appear before {string}") do |first, second|
+  f = nil
+  page.all(".recipe").each do |row|
+    recipe_name = row.find(".recipe_name")
+    if (f.nil?)
+      f = recipe_name
+    elsif recipe_name.eql?(second)
+      expect(f).to eq(recipe_name)
+    end
+  end
+end
+
+
+Then("I should see that {string} gave the recipe a rating of {string}") do |email, rating|
+  page.all(".review").each do |row|
+    rev_email = row.find(".username")
+    rev_rating = row.find(".stars")
+    if rev_email == email
+      expect(rev_rating).to eq(rating)
     end
   end
 end
@@ -314,6 +349,7 @@ Then("I should see {string} on the page") do |attribute_value|
       end
   end
 end
+<<<<<<< HEAD
 
 When("I click on the image {string}") do |img_name|
   find(".#{img_name}").click
@@ -322,3 +358,5 @@ end
 Then("I should see the image {string}") do |image|
   expect(page).to have_xpath("//img[contains(@src, \"#{image}\")]")
 end
+=======
+>>>>>>> dece2b4009f3fe6aa9e94137a7e5928f00c46723

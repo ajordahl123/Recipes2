@@ -13,6 +13,7 @@ class Recipe < ApplicationRecord
     scope :vegetarian_filter, -> (value) { where(vegetarian: value)}
     scope :dairy_free_filter, -> (value) { where(dairy_free: value)}
     scope :nut_free_filter, -> (value) { where(nut_free: value)}
+    # scope :num_reviews, -> { Recipe.joins(:reviews).group(reviews.recipe_id).count(reviews.recipe_id)}
 
     has_and_belongs_to_many :fans,
         class_name: "User",
@@ -31,6 +32,10 @@ class Recipe < ApplicationRecord
     else
       -1
     end
+  end
+
+  def num_reviews
+    self.reviews.length
   end
 
   def Recipe.sort_by_rating

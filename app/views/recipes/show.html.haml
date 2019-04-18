@@ -6,6 +6,8 @@
   -# display recipe creator
   -if @user == @recipe.user
     -creator = "You, #{@user.email}"
+  -elsif @recipe.user.nil?
+    -creator = "Unknown creator"
   -else
     -creator = @recipe.user.email
   .created_by= "Created By: #{creator}"
@@ -77,10 +79,13 @@
   %tbody
     -@recipe.reviews.each do |r|
       %tr
-        -user = User.find(r.user_id)
-        -if user.nil?
-          %td Anonymous
+        -if r.user_id.nil?
+          %td.username Anonymous
         -else
-          %td= user.email
-        %td= r.stars
-        %td= r.text
+          -user = User.find(r.user_id)
+          -if user.nil?
+            %td.username Anonymous
+          -else
+            %td.username= user.email
+        %td.stars= r.stars
+        %td.review_text= r.text
