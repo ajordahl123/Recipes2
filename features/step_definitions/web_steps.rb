@@ -274,6 +274,12 @@ Given ("I am a new, authenticated user with email {string}") do |email_address|
   click_button "Log in"
 end
 
+Given ("there is an authenticated user with email {string}") do |email_address|
+  email = email_address
+  password = 'secretpass'
+  User.new(:email => email, :password => password, :password_confirmation => password).save!
+end
+
 Given("these Recipes:") do |table|
   table.hashes.each do |h|
       user_email = h["user_email"]
@@ -307,4 +313,12 @@ Then("I should see {string} on the page") do |attribute_value|
           expect(property_row.find(".instructions").text).to eq(instructions)
       end
   end
+end
+
+When("I click on the image {string}") do |img_name|
+  find(".#{img_name}").click
+end
+
+Then("I should see the image {string}") do |image|
+  expect(page).to have_xpath("//img[contains(@src, \"#{image}\")]")
 end

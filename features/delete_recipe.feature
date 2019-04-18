@@ -7,7 +7,7 @@ Feature: Delete existing rental property
   Given I am a new, authenticated user with email "testing@colgate.edu"
   Given these Recipes:
   | recipe_name     | meal_type | vegan  | vegetarian | nut_free | dairy_free | cuisine | appliance | instructions         | ingredients      | time_to_create | level | user_email           |
-  | brownies        | Dessert   | no     | yes        |   no     | no         | American| oven      | make them good       | chocolate        | 30             | easy  | testing@colgate.edu  |  
+  | brownies        | Dessert   | no     | yes        |   no     | no         | American| oven      | make them good       | chocolate        | 30             | Easy  | testing@colgate.edu  |  
 
   Scenario: Delete an existing recipe
 
