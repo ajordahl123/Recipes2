@@ -77,7 +77,7 @@
   %tbody
     -@recipe.reviews.each do |r|
       %tr
-        -user = User.find(@recipe.user_id)
+        -user = User.find(r.user_id)
         -if user.nil?
           %td Anonymous
         -else
