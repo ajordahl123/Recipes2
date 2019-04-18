@@ -86,6 +86,6 @@
           -if user.nil?
             %td.username Anonymous
           -else
-            %td.username= user.email
+            %td.username= link_to(user.email, user_path(user)) 
         %td.stars= r.stars
         %td.review_text= r.text
