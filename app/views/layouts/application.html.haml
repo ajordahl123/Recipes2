@@ -11,7 +11,8 @@
     #header
       %h1= link_to "Recipes2", root_path
       /.profilebutton
-      =link_to "View Profile", current_user
+      - if !@user.nil?
+        =link_to "View Profile", current_user
       -# LOGO EXAMPLE: .logo= image_tag("bedbug.png", :width => 100)
     - if flash[:notice]
       #notice.message= flash[:notice]
