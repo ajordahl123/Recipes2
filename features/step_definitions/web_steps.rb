@@ -354,6 +354,9 @@ When("I click on the image {string}") do |img_name|
   find(".#{img_name}").click
 end
 
-Then("I should see the image {string}") do |image|
-  expect(page).to have_xpath("//img[contains(@src, \"#{image}\")]")
+Then("I should see the image {string}") do |img_name|
+  byebug
+  match = find_all('.fav img').collect{|img| img['src'].include? img_name}
+  expect(match).to be_any
+  #expect(page).to have_xpath("//img[contains(@src, \"#{image}\")]")
 end
