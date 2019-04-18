@@ -1,9 +1,12 @@
-=f.label :stars, "Rating"
+%div=f.label :stars, "Rating"
 =f.number_field :stars, required: true, min: 0, max: 5
 
-=f.label :text, "Review text"
+%div=f.label :text, "Review text"
 =f.text_field :text
 
-=f.hidden_field :user_id, value: current_user.id   #is this safe? privacy?
+%div= f.label :image, "Photo"
+=f.file_field :image
+
+=f.hidden_field :user_id, value: current_user.id
 
 =f.hidden_field :recipe_id, value: @recipe.id
