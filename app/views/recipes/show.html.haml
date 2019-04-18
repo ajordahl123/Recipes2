@@ -14,11 +14,14 @@
 
   -# check favorited or not
   -if @favorited
-    .fav= link_to image_tag("fav_color1.png", height: '25', width: '25'), recipe_path(@recipe.id, :unfavorited => true)
-    .fav_text= "Unfavorite this recipe"
+    -# .fav= link_to image_tag("fav_color1.png", height: '25', width: '25', href: "fav_color1"), recipe_path(@recipe.id, :unfavorited => true)
+    .fav= image_tag("fav_color1.png", height: '25', width: '25')
+    .fav_text= link_to "Unfavorite this recipe", recipe_path(@recipe.id, :unfavorited => true) 
   -else
-    .fav= link_to image_tag("fav_bw.png", height: '25', width: '25'), recipe_path(@recipe.id, :favorited => true)
-    .fav_text= "Favorite this recipe"
+    -# .fav= link_to image_tag("fav_bw.png", height: '25', width: '25',  href: "fav_bw"), recipe_path(@recipe.id, :favorited => true)
+    -# .fav_text= "Favorite this recipe"
+    .fav= link_to image_tag("fav_bw.png", height: '25', width: '25')
+    .fav_text= link_to "Favorite this recipe", recipe_path(@recipe.id, :favorited => true)
 
   -# user can edit and delete if it's their own recipe
   -if @user == @recipe.user

@@ -16,10 +16,10 @@
  = text_field_tag :cuisine_filter, "#{@cuisine}"
  %br
  = label_tag :meal_type_filter, "Type of meal"
- = select_tag :meal_type_filter, options_for_select(["", "Breakfast", "Lunch", "Dinner", "Dessert"]), :selected => "#{@meal_type}"
+ = select_tag :meal_type_filter, options_for_select(["", "Breakfast", "Lunch", "Dinner", "Dessert"],"#{@meal_type}")
  %br
  = label_tag :level_filter, "Level of difficulty"
- = select_tag :level_filter, options_for_select(["","Easy", "Medium", "Hard"]), :selected => "#{@level}"
+ = select_tag :level_filter, options_for_select(["","Easy", "Medium", "Hard"], "#{@level}")
  %br
  = label_tag :time_to_create_filter, "Time to create"
  = number_field_tag :time_to_create_filter, "#{@time_to_create}"

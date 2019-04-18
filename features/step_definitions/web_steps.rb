@@ -350,10 +350,18 @@ Then("I should see {string} on the page") do |attribute_value|
   end
 end
 
-When("I click on the image {string}") do |img_name|
-  find(".#{img_name}").click
-end
+# When("I click on the image {string}") do |img_name|
+#   #find('.fav img').click
+#   x = find('.fav img')
+#   byebug
+#   if x['href']== img_name
+#     x.click
+#   end
+#   # x = find_link('img[href$="#{img_name}"]')
+#   #find(:xpath, '//img[contains(@href, "#{img_name}")]').click
+# end
 
-Then("I should see the image {string}") do |image|
-  expect(page).to have_xpath("//img[contains(@src, \"#{image}\")]")
+Then("I should see the image {string}") do |img_name|
+  match = find_all('.fav img').collect{|img| img['src'].include? img_name}
+  expect(match).to be_any
 end
