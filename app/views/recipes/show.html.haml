@@ -76,6 +76,7 @@
       %th Name
       %th Rating
       %th Review
+      %th Images
   %tbody
     -@recipe.reviews.each do |r|
       %tr
@@ -86,6 +87,10 @@
           -if user.nil?
             %td.username Anonymous
           -else
-            %td.username= link_to(user.email, user_path(user)) 
+            %td.username= link_to(user.email, user_path(user))
         %td.stars= r.stars
         %td.review_text= r.text
+        -if r.image.attached?
+          %td.photo= image_tag(get_image(r), size: 100)
+        -else
+          %td.photo No photo attached

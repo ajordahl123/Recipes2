@@ -38,6 +38,21 @@ class Recipe < ApplicationRecord
     self.reviews.length
   end
 
+  def Recipe.sort_by_num_reviews
+    recipes = Recipe.all
+    hash = {}
+    recipes.each do |r|
+      num = r.reviews.length
+      hash[r] = num
+    end
+    list = hash.sort_by{|name, num| num}
+    rlist = []
+    list.each do |l|
+      rlist << l[0]
+    end
+    rlist
+  end
+
   def Recipe.sort_by_rating
     recipes = Recipe.all
     hash = {}
