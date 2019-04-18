@@ -16,12 +16,13 @@ class RecipesController < ApplicationController
         if sort == "rating"
           @recipes = Recipe.sort_by_rating.reverse
         # elsif sort == "num_reviews"
-        #   byebug
-        #   @recipes = Recipe.sort_by_most_reviewed()
+        #   @recipes = Recipe.order("self.num_reviews DESC") #num_reviews is an instance method, does it need to be an instance variable???
         elsif sort == "recent"
           @recipes = @recipes.order("created_at DESC")
         elsif sort == "level"
           @recipes = Recipe.sort_by_difficulty
+        elsif sort == "duration"
+          @recipes = Recipe.order("time_to_create")
         end
 
         # check filter conditions with session

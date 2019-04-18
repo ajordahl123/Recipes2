@@ -47,6 +47,7 @@
    %th= link_to "Rating", recipes_path(sort_by: 'rating')
    %th= link_to "Num. of Reviews", recipes_path(sort_by: 'num_reviews')
    %th Meal type
+   %th= link_to "Ready In", recipes_path(sort_by: "duration")
    %th= link_to "Difficulty", recipes_path(sort_by: 'level') # this will sort as easy -> hard -> medium... create a hash to fix
  %tbody
 
@@ -58,8 +59,9 @@
      %td.rating No reviews
     -else
      %td.rating= "#{r.rating}"
-    %td.num_reviews ###
+    %td.num_reviews= "#{r.num_reviews}"
     %td.meal_type= "#{r.meal_type}"
+    %td.time_to_create= "#{r.time_to_create} mins"
     %td.level= r.level
 
 
