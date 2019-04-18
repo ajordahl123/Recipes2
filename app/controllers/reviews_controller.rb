@@ -1,16 +1,16 @@
 class ReviewsController < ApplicationController
   # TO DO: IMPLEMENTATION WILL BE CONTINUED IN NEXT ITERATION
 
-  def index
-    @recipe = Recipe.find(params[:recipe_id])
-    redirect_to recipe_path(@recipe)
-  end
+  # def index
+  #   @recipe = Recipe.find(params[:recipe_id])
+  #   redirect_to recipe_path(@recipe)
+  # end
 
-  def show
-    @recipe = Recipe.find(params[:recipe_id])
-    @review = Review.find(params[:id])
-    redirect_to recipe_path(@recipe) and return
-  end
+  # def show
+  #   @recipe = Recipe.find(params[:recipe_id])
+  #   @review = Review.find(params[:id])
+  #   redirect_to recipe_path(@recipe) and return
+  # end
 
   def new
     @recipe = Recipe.find(params[:recipe_id])
