@@ -92,8 +92,9 @@ class RecipesController < ApplicationController
           flash[:notice] = "New recipe #{@recipe.recipe_name} created successfully"
           redirect_to recipes_path and return
         else
-          flash[:warning] = "New recipe could not be created. Please try again"
-          redirect_to new_recipe_path and return
+            # handled by pop-up notice. Cannot sumbit if any required fileds is not completed
+        #   flash[:warning] = "New recipe could not be created. Please try again"
+        #   redirect_to new_recipe_path and return
         end
     end
 
@@ -106,9 +107,10 @@ class RecipesController < ApplicationController
         if @recipe.update(create_update_params) #successful!
             flash[:notice] = "#{@recipe.recipe_name} successfully updated!"
             redirect_to recipe_path(@recipe)
-        else # unsucessful
-            flash[:warning] = "Sorry, the recipe couldn't be updated. Please try again."
-            redirect_to edit_recipe_path(@recipe)
+        else 
+            # handled by pop-up notice. Cannot sumbit if any required fileds is not completed
+            # flash[:warning] = "Sorry, the recipe couldn't be updated. Please try again."
+            # redirect_to edit_recipe_path(@recipe)
         end
     end
 

@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    # devise handles this
+    #@user = User.new
   end
 
   def update
