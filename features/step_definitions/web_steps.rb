@@ -362,7 +362,11 @@ end
 #   #find(:xpath, '//img[contains(@href, "#{img_name}")]').click
 # end
 
-Then("I should see the image {string}") do |img_name|
-  match = find_all('.fav img').collect{|img| img['src'].include? img_name}
-  expect(match).to be_any
+# Then("I should see the image {string}") do |img_name|
+#   match = find_all('.fav img').collect{|img| img['src'].include? img_name}
+#   expect(match).to be_any
+# end
+
+Then /^(?:|I )should see the image "([^"]*)"$/ do |value|
+  expect(page).to have_css("img[src*='#{value}']")
 end
