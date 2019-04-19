@@ -1,4 +1,5 @@
 require 'rails_helper'
+#require 'SimpleCov'
 RSpec.describe "index page", type: :feature do
     before :each do
       visit "/recipes"
