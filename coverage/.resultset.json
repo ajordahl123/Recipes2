@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "RSpec": {
     "coverage": {
       "/Users/christinadoan/Desktop/food/Recipes2/app/models/user.rb": [
@@ -397,6 +398,8 @@
     },
     "timestamp": 1555703062
   },
+=======
+>>>>>>> 5a8b03d8bc30ad822dbc6968dda13ec4339c1f86
   "Cucumber Features": {
     "coverage": {
       "/Users/christinadoan/Desktop/food/Recipes2/app/models/user.rb": [
@@ -426,13 +429,20 @@
         1,
         null,
         null,
+<<<<<<< HEAD
         51,
         51,
         47,
+=======
+        49,
+        49,
+        45,
+>>>>>>> 5a8b03d8bc30ad822dbc6968dda13ec4339c1f86
         null,
         4,
         null,
         null,
+<<<<<<< HEAD
         51,
         null,
         51,
@@ -445,16 +455,36 @@
         48,
         1,
         47,
+=======
+        49,
+        null,
+        49,
+        1,
+        48,
+        null,
+        1,
+        47,
+        1,
+        46,
+        1,
+        45,
+>>>>>>> 5a8b03d8bc30ad822dbc6968dda13ec4339c1f86
         1,
         null,
         null,
         null,
+<<<<<<< HEAD
         51,
         51,
+=======
+        49,
+        49,
+>>>>>>> 5a8b03d8bc30ad822dbc6968dda13ec4339c1f86
         3,
         3,
         null,
         null,
+<<<<<<< HEAD
         48,
         48,
         48,
@@ -470,6 +500,23 @@
         null,
         48,
         48,
+=======
+        46,
+        46,
+        46,
+        46,
+        46,
+        46,
+        46,
+        null,
+        46,
+        46,
+        46,
+        null,
+        null,
+        46,
+        46,
+>>>>>>> 5a8b03d8bc30ad822dbc6968dda13ec4339c1f86
         12,
         null,
         null,
@@ -514,8 +561,9 @@
         1,
         1,
         null,
-        0,
-        0,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -529,8 +577,9 @@
         1,
         1,
         null,
-        0,
-        0,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -546,6 +595,7 @@
         3,
         null,
         1,
+<<<<<<< HEAD
         50,
         null,
         null,
@@ -557,6 +607,19 @@
         null,
         50,
         50,
+=======
+        48,
+        null,
+        null,
+        1,
+        49,
+        49,
+        1,
+        1,
+        null,
+        48,
+        48,
+>>>>>>> 5a8b03d8bc30ad822dbc6968dda13ec4339c1f86
         14,
         10,
         10,
@@ -566,8 +629,13 @@
         null,
         14,
         null,
+<<<<<<< HEAD
         50,
         50,
+=======
+        48,
+        48,
+>>>>>>> 5a8b03d8bc30ad822dbc6968dda13ec4339c1f86
         null,
         null
       ],
@@ -749,7 +817,8 @@
         null,
         null,
         1,
-        0,
+        null,
+        null,
         null,
         null,
         1,
@@ -793,6 +862,10 @@
         0
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1555703779
+=======
+    "timestamp": 1555698909
+>>>>>>> 5a8b03d8bc30ad822dbc6968dda13ec4339c1f86
   }
 }
