@@ -10,6 +10,7 @@ Background: The user is already logged in
     When I am on the recipes page
     When I follow "View Profile"
     Then I should see "Chef Details"
+    And I should see the image "default_user"
     When I follow "Edit your profile picture"
     And I attach the file "chef.jpg" to "Upload a new profile picture"
     And I press "Save Changes"
