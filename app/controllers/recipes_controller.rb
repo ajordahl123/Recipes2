@@ -40,7 +40,6 @@ class RecipesController < ApplicationController
         @time_to_create = prefs["time_to_create_filter"]
         @appliance = prefs["appliance_filter"]
         @vegetarian = prefs["vegetarian_filter"]
-        #byebug
         @vegan = prefs["vegan_filter"]
         @nut_free = prefs["nut_free_filter"]
         @dairy_free = prefs["dairy_free_filter"]

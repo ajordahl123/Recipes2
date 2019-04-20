@@ -53,7 +53,6 @@
 
   -@recipes.each do |r|
    %tr
-    //-byebug
     %td.recipe_name= link_to "#{r.recipe_name}", recipe_path(r)
     -if r.rating == -1
      %td.rating No reviews
