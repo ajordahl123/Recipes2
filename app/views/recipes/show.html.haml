@@ -30,7 +30,7 @@
     %br
 
 -# user can review if they're logged in and it's not their own recipe
--if @user != @recipe.user || @user.nil?
+-if @user != @recipe.user && !@user.nil?
   = link_to "Write a review", new_recipe_review_path(@recipe)
   %br
 = link_to "Back to recipe listing", recipes_path
