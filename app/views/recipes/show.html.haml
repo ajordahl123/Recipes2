@@ -22,18 +22,19 @@
     -# .fav_text= "Favorite this recipe"
     .fav= link_to image_tag("fav_bw.png", height: '25', width: '25')
     .fav_text= link_to "Favorite this recipe", recipe_path(@recipe.id, :favorited => true)
-
+  %br
   -# user can edit and delete if it's their own recipe
   -if @user == @recipe.user
-    = link_to "Edit recipe", edit_recipe_path(@recipe)
-    = link_to "Delete recipe", recipe_path(@recipe), :method => :delete
+    %li= link_to "Edit recipe", edit_recipe_path(@recipe)
+    %br
+    %li= link_to "Delete recipe", recipe_path(@recipe), :method => :delete
     %br
 
 -# user can review if they're logged in and it's not their own recipe
 -if @user != @recipe.user && !@user.nil?
-  = link_to "Write a review", new_recipe_review_path(@recipe)
+  %li= link_to "Write a review", new_recipe_review_path(@recipe)
   %br
-= link_to "Back to recipe listing", recipes_path
+%li= link_to "Back to recipe listing", recipes_path
 
 %br
 %br

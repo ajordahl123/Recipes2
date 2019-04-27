@@ -1,4 +1,5 @@
 #main.container
+= "#{@user.username}"
 %h1.header= "Chef Details #{@user.email}"
 
 -# %h1.image= image_tag current_user.image.attached? ? current_user.image.variant(resize: "300x400^") : 'default_user.jpg'
@@ -28,4 +29,4 @@
 .row
 = link_to "Edit your profile picture", edit_user_path(@user)
 
-= "#{@user.username}"
+
