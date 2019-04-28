@@ -1,30 +1,14 @@
 class RecipesController < ApplicationController
     #user authentification before any action happens, except
-    before_action :authenticate_user!, except: [:index, :show] #!!!!!
+    before_action :authenticate_user!, except: [:index, :show]
     def index
-        # to access all recipes in the view
         # the following line throws uninitialized constant RecipesController::Recipe
         @recipes = Recipe.all
-        if user_signed_in?
-            @user = current_user.email
-        else
-            @user = nil
-        end
+        @user = set_user
 
+        #sort recipes
         sort = params[:sort_by].to_s
-
-        if sort == "rating"
-          @recipes = Recipe.sort_by_rating.reverse
-        elsif sort == "num_reviews"
-        #   byebug
-          @recipes = Recipe.sort_by_num_reviews.reverse # is an instance method, does it need to be an instance variable???
-        elsif sort == "recent"
-          @recipes = @recipes.order("created_at DESC")
-        elsif sort == "level"
-          @recipes = Recipe.sort_by_difficulty
-        elsif sort == "duration"
-          @recipes = Recipe.order("time_to_create")
-        end
+        sort_recipes(sort)
 
         # check filter conditions with session
         do_redirect, prefs = update_settings(params, session)
@@ -33,6 +17,7 @@ class RecipesController < ApplicationController
           redirect_to recipes_path(prefs) and return
         end
 
+        #maintain filtered values
         @recipe_name = prefs["recipe_name_filter"]
         @cuisine = prefs["cuisine_filter"]
         @meal_type = prefs["meal_type_filter"]
@@ -124,6 +109,13 @@ class RecipesController < ApplicationController
     def create_update_params
         params.require(:recipe).permit(:recipe_name, :meal_type, :vegan, :dairy_free, :nut_free, :vegetarian, :cuisine, :appliance, :ingredients, :time_to_create, :level, :instructions, :image)
     end
+    def set_user
+        if user_signed_in?
+            @user = current_user.email
+        else
+            @user = nil
+        end
+    end    
     def filtering_params(params)
         params.slice(:recipe_name_filter, :cuisine_filter, :level_filter, :meal_type_filter, :time_to_create_filter, :vegan_filter, :vegetarian_filter, :dairy_free_filter, :nut_free_filter, :appliance_filter)
     end
@@ -147,5 +139,18 @@ class RecipesController < ApplicationController
         end
         session[:preferences] = preferences
         return should_redirect, preferences
+    end
+    def sort_recipes(sort)
+        if sort == "rating"
+            @recipes = Recipe.sort_by_rating.reverse
+        elsif sort == "num_reviews"
+            @recipes = Recipe.sort_by_num_reviews.reverse # is an instance method, does it need to be an instance variable???
+        elsif sort == "recent"
+            @recipes = @recipes.order("created_at DESC")
+        elsif sort == "level"
+            @recipes = Recipe.sort_by_difficulty
+        elsif sort == "duration"
+            @recipes = Recipe.order("time_to_create")
+        end
     end
 end

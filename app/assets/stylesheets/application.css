@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ .navbar {
+    min-height: 38px;
+  }
+  .navbar right {
+      text-align: right;
+  }

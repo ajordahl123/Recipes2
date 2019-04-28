@@ -1,16 +1,32 @@
 #main.container
-    %h1.header= "Chef Details #{@user.email}"
+= "#{@user.username}"
+%h1.header= "Chef Details #{@user.email}"
 
-    -# %h1.image= image_tag current_user.image.attached? ? current_user.image.variant(resize: "300x400^") : 'default_user.jpg'
-    -# %h2.image= "Upload Chief Image"
+-# %h1.image= image_tag current_user.image.attached? ? current_user.image.variant(resize: "300x400^") : 'default_user.jpg'
+-# %h2.image= "Upload Chief Image"
 
-    -if !@user.image.attached?
-        %h2=image_tag("default_user.jpg")
-    -else
-        %h2=image_tag(@user.image.variant(resize: "200x200^"))
+-if !@user.image.attached?
+    %h2=image_tag("default_user.jpg",size: "100x100")
+-else
+    %h2=image_tag(@user.image.variant(resize: "100x100^"))
 
-    .row
+.row
 
-    = link_to "Edit your profile picture", edit_user_path(@user)
+%h2.fav_recipes= "My Favorite Recipes"
+%table.table
+    %thead
+        %tr
+            %th Name
+            %th Creator
+    %tbody
+        -@user.favorite_recipes.each do |r|
+            %tr
+                %td.recipe_name= link_to "#{r.recipe_name}", recipe_path(r)
+                %td.creator= User.where("id == ?",r.user_id).first.email
 
-    = "#{@user.username}"
+.row
+= link_to "Back to recipe listing", recipes_path
+.row
+= link_to "Edit your profile picture", edit_user_path(@user)
+
+
