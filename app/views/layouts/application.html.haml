@@ -9,11 +9,22 @@
 
   %body
     #header
-      %h1= link_to "Recipes2", root_path
+      #loginlogout
+        - if current_user
+          = link_to "Logout", destroy_user_session_path, method: :delete
+        - else
+          = link_to "Login", new_user_session_path
+
       /.profilebutton
-      - if !@user.nil?
-        =link_to "View Profile", current_user
+      - if current_user
+        =link_to "Your Profile", current_user
+
+      = link_to "Create a new recipe", new_recipe_path
+
+      =link_to "All Recipes", recipes_path
       -# LOGO EXAMPLE: .logo= image_tag("bedbug.png", :width => 100)
+
+
     - if flash[:notice]
       #notice.message= flash[:notice]
     - elsif flash[:warning]

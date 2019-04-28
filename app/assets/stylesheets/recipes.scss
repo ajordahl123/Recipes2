@@ -1,3 +1,66 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Color palette definitons
+$primary-color-pink: #e04e43;
+$secondary-color-blue: #48a9a6;
+$tertiary-color-cyan: #defffc;
+$text-grey: #545e75;
+$text-black: #1e2019;
+
+
+body {
+    background: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#main.container {
+    margin-top: 60px; /* Add a top margin to avoid content overlay */
+}
+
+h1 {
+    color: $primary-color-pink;
+}
+
+#header {
+    overflow: hidden;
+    background-color: $secondary-color-blue;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 10px; /* Position the navbar at the top of the page */
+    width: 97%; /* Full width */
+    height: 25px;
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+#header a {
+    float: right;
+    display: block;
+    color: $text-grey;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 0px 35px;
+
+}
+#header a:hover {
+    //background: $tertiary-color-cyan;
+    color: $tertiary-color-cyan;
+}
+
+
+// Just something I was trying with general style stuff, no need to keep this for the filters toolbar Ryan!!
+.button {
+    input, a {
+        border-radius: 8px;
+        background-color: $primary-color-pink; 
+        border: none;
+        color: white;
+        padding: 2px 2px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+    }
+}
