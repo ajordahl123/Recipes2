@@ -1,100 +1,100 @@
 #main.container
-%h1.header= @recipe.recipe_name
+  %h1.header= @recipe.recipe_name
 
 
--if @user != nil
-  -# display recipe creator
-  -if @user == @recipe.user
-    -creator = "You, #{@user.email}"
-  -elsif @recipe.user.nil?
-    -creator = "Unknown creator"
-  -else
-    -creator = @recipe.user.email
-  .created_by= "Created By: #{creator}"
+  -if @user != nil
+    -# display recipe creator
+    -if @user == @recipe.user
+      -creator = "You, #{@user.email}"
+    -elsif @recipe.user.nil?
+      -creator = "Unknown creator"
+    -else
+      -creator = @recipe.user.email
+    .created_by= "Created By: #{creator}"
 
-  -# check favorited or not
-  -if @favorited
-    -# .fav= link_to image_tag("fav_color1.png", height: '25', width: '25', href: "fav_color1"), recipe_path(@recipe.id, :unfavorited => true)
-    .fav= image_tag("fav_color1.png", height: '25', width: '25')
-    .fav_text= link_to "Unfavorite this recipe", recipe_path(@recipe.id, :unfavorited => true) 
-  -else
-    -# .fav= link_to image_tag("fav_bw.png", height: '25', width: '25',  href: "fav_bw"), recipe_path(@recipe.id, :favorited => true)
-    -# .fav_text= "Favorite this recipe"
-    .fav= link_to image_tag("fav_bw.png", height: '25', width: '25')
-    .fav_text= link_to "Favorite this recipe", recipe_path(@recipe.id, :favorited => true)
-  %br
-  -# user can edit and delete if it's their own recipe
-  -if @user == @recipe.user
-    %li= link_to "Edit recipe", edit_recipe_path(@recipe)
+    -# check favorited or not
+    -if @favorited
+      -# .fav= link_to image_tag("fav_color1.png", height: '25', width: '25', href: "fav_color1"), recipe_path(@recipe.id, :unfavorited => true)
+      .fav= image_tag("fav_color1.png", height: '25', width: '25')
+      .fav_text= link_to "Unfavorite this recipe", recipe_path(@recipe.id, :unfavorited => true) 
+    -else
+      -# .fav= link_to image_tag("fav_bw.png", height: '25', width: '25',  href: "fav_bw"), recipe_path(@recipe.id, :favorited => true)
+      -# .fav_text= "Favorite this recipe"
+      .fav= image_tag("fav_bw.png", height: '25', width: '25')
+      .fav_text= link_to "Favorite this recipe", recipe_path(@recipe.id, :favorited => true)
     %br
-    %li= link_to "Delete recipe", recipe_path(@recipe), :method => :delete
+    -# user can edit and delete if it's their own recipe
+    -if @user == @recipe.user
+      %li= link_to "Edit recipe", edit_recipe_path(@recipe)
+      %br
+      %li= link_to "Delete recipe", recipe_path(@recipe), :method => :delete
+      %br
+
+  -# user can review if they're logged in and it's not their own recipe
+  -if @user != @recipe.user && !@user.nil?
+    %li= link_to "Write a review", new_recipe_review_path(@recipe)
     %br
+  %li= link_to "Back to recipe listing", recipes_path
 
--# user can review if they're logged in and it's not their own recipe
--if @user != @recipe.user && !@user.nil?
-  %li= link_to "Write a review", new_recipe_review_path(@recipe)
   %br
-%li= link_to "Back to recipe listing", recipes_path
+  %br
 
-%br
-%br
+  .level= "Level of Difficulty: #{@recipe.level}"
+  .meal_type= "Type of Meal: #{@recipe.meal_type}"
+  .cuisine= "Type of Cuisine: #{@recipe.cuisine}"
+  .time_to_create= "Time to Create: #{@recipe.time_to_create} minute(s)"
+  %br
+  -if @recipe.image.attached?
+    =image_tag(@recipe.image.variant(resize: "200x200^"))
+  %br
+  %br
+  -restrictions = ""
+  -if @recipe.vegan
+    -restrictions += "|| Vegan |"
+  -if @recipe.vegetarian
+    -restrictions += "| Vegetarian |"
+  -if @recipe.nut_free
+    -restrictions += "| Nut Free |"
+  -if @recipe.dairy_free
+    -restrictions += "| Dairy Free ||"
+  -if ! restrictions.eql? ""
+    =restrictions
 
-.level= "Level of Difficulty: #{@recipe.level}"
-.meal_type= "Type of Meal: #{@recipe.meal_type}"
-.cuisine= "Type of Cuisine: #{@recipe.cuisine}"
-.time_to_create= "Time to Create: #{@recipe.time_to_create} minute(s)"
-%br
--if @recipe.image.attached?
-  =image_tag(@recipe.image.variant(resize: "200x200^"))
-%br
-%br
--restrictions = ""
--if @recipe.vegan
-  -restrictions += "|| Vegan |"
--if @recipe.vegetarian
-  -restrictions += "| Vegetarian |"
--if @recipe.nut_free
-  -restrictions += "| Nut Free |"
--if @recipe.dairy_free
-  -restrictions += "| Dairy Free ||"
--if ! restrictions.eql? ""
-  =restrictions
+  -if ! @recipe.appliance.eql? ""
+    .appliance= "Special Appliance(s) Needed: #{@recipe.appliance}"
 
--if ! @recipe.appliance.eql? ""
-  .appliance= "Special Appliance(s) Needed: #{@recipe.appliance}"
+  %br
+  .ingredients_header= "Ingredients Needed:"
+  .ingredients= @recipe.ingredients
+  %br
+  .instructions_header= "How to Make This Recipe:"
+  .instructions= @recipe.instructions
 
-%br
-.ingredients_header= "Ingredients Needed:"
-.ingredients= @recipe.ingredients
-%br
-.instructions_header= "How to Make This Recipe:"
-.instructions= @recipe.instructions
+  %br
+  %br
+  .reviews_header= "See What Other People Think About This Recipe"
 
-%br
-%br
-.reviews_header= "See What Other People Think About This Recipe"
-
-%table.table
-  %thead
-    %tr
-      %th Name
-      %th Rating
-      %th Review
-      %th Images
-  %tbody
-    -@recipe.reviews.each do |r|
+  %table.table
+    %thead
       %tr
-        -if r.user_id.nil?
-          %td.username Anonymous
-        -else
-          -user = User.find(r.user_id)
-          -if user.nil?
+        %th Name
+        %th Rating
+        %th Review
+        %th Images
+    %tbody
+      -@recipe.reviews.each do |r|
+        %tr
+          -if r.user_id.nil?
             %td.username Anonymous
           -else
-            %td.username= link_to(user.email, user_path(user))
-        %td.stars= r.stars
-        %td.review_text= r.text
-        -if r.image.attached?
-          %td.photo= image_tag(get_image(r), size: 100)
-        -else
-          %td.photo No photo attached
+            -user = User.find(r.user_id)
+            -if user.nil?
+              %td.username Anonymous
+            -else
+              %td.username= link_to(user.email, user_path(user))
+          %td.stars= r.stars
+          %td.review_text= r.text
+          -if r.image.attached?
+            %td.photo= image_tag(get_image(r), size: 100)
+          -else
+            %td.photo No photo attached

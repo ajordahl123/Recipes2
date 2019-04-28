@@ -33,26 +33,27 @@
     .button= submit_tag "Refine the list of recipes"
     .button= link_to "Clear out filter settings",recipes_path(:reset_filters => true)
 
-
+  %br
   %table.table
     %thead
       %tr
-        %th= link_to "Recipe", recipes_path(sort_by: 'recent')
-        %th= link_to "Rating", recipes_path(sort_by: 'rating')
-        %th= link_to "Num. of Reviews", recipes_path(sort_by: 'num_reviews')
+        %th= link_to "Name", recipes_path(sort_by: 'recent')
         %th Meal type
         %th= link_to "Ready In", recipes_path(sort_by: "duration")
         %th= link_to "Difficulty", recipes_path(sort_by: 'level') # this will sort as easy -> hard -> medium... create a hash to fix
+        %th= link_to "Rating", recipes_path(sort_by: 'rating')
+        %th= link_to "Num. of Reviews", recipes_path(sort_by: 'num_reviews')
+    
     %tbody
 
       -@recipes.each do |r|
         %tr
-          %td.recipe_name= link_to "#{r.recipe_name}", recipe_path(r)
+          %td.recipe_name= link_to ("#{r.recipe_name}".upcase), recipe_path(r)
+          %td.meal_type= "#{r.meal_type}"
+          %td.time_to_create= "#{r.time_to_create} mins"
+          %td.level= r.level
           -if r.rating == -1
             %td.rating No reviews
           -else
             %td.rating= "#{r.rating}"
           %td.num_reviews= "#{r.num_reviews}"
-          %td.meal_type= "#{r.meal_type}"
-          %td.time_to_create= "#{r.time_to_create} mins"
-          %td.level= r.level

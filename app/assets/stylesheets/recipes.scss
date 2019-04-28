@@ -11,8 +11,17 @@ $text-black: #1e2019;
 
 
 body {
-    background: white;
+    background: $tertiary-color-cyan;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: $text-grey;
+}
+
+a {
+    color: $secondary-color-blue;
+}
+
+a:hover {
+    color: $text-grey;
 }
 
 #main.container {
@@ -23,11 +32,15 @@ h1 {
     color: $primary-color-pink;
 }
 
+h3 {
+    color: $secondary-color-blue;
+}
+
 #header {
     overflow: hidden;
-    background-color: $secondary-color-blue;
+    background-color: $primary-color-pink;
     position: fixed; /* Set the navbar to fixed position */
-    top: 10px; /* Position the navbar at the top of the page */
+    top: 0px; /* Position the navbar at the top of the page */
     width: 97%; /* Full width */
     height: 25px;
     border-radius: 8px;
@@ -37,18 +50,48 @@ h1 {
 #header a {
     float: right;
     display: block;
-    color: $text-grey;
+    color: $tertiary-color-cyan;
     text-align: center;
     font-size: 18px;
     text-decoration: none;
     padding: 0px 35px;
-
 }
 #header a:hover {
-    //background: $tertiary-color-cyan;
-    color: $tertiary-color-cyan;
+    color: $text-grey;
 }
 
+table {
+    text-align: center;
+    width: 100%;
+    color: $text-grey;
+}
+
+th {
+    padding: 10px 0px;
+    text-align: center;
+    align-content: left;
+    border-top-width: 5px;
+    border-top-style: solid;
+    border-top-color: $secondary-color-blue; 
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: $secondary-color-blue;
+
+    a {
+        color: $primary-color-pink;
+    }
+}
+
+td {
+    border-color: $tertiary-color-cyan;
+    border-width: 15px;
+    border-style: solid;
+
+    a {
+        font-weight: bold;
+    }
+    
+}
 
 // Just something I was trying with general style stuff, no need to keep this for the filters toolbar Ryan!!
 .button {
@@ -64,3 +107,4 @@ h1 {
         font-size: 14px;
     }
 }
+
