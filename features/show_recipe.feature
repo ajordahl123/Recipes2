@@ -13,7 +13,7 @@ Feature: Show Recipe Details
 
   Scenario: View the details of a recipe the current user created
     Given I am on the recipes page
-    When I follow "brownies"
+    When I follow "BROWNIES"
     Then I should see "brownies"
     And I should see "Edit recipe"
     And I should see "Delete recipe"
@@ -22,7 +22,7 @@ Feature: Show Recipe Details
 
   Scenario: View the details of a recipe another user created
     Given I am on the recipes page
-    When I follow "cookies"
+    When I follow "COOKIES"
     Then I should see "cookies"
     And I should see "Write a review"
     And I should see "Back to recipe listing"

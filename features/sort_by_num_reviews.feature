@@ -22,4 +22,4 @@
   Scenario: Sort by rating
     Given I am on the recipes page
     And I follow "Num. of Reviews"
-    Then "cookies" should appear before "brownies"
+    Then "COOKIES" should appear before "BROWNIES"

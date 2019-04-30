@@ -12,7 +12,7 @@ Feature: Edit a Recipe
 
  Scenario: Update an existing recipe
    Given I am on the recipes page
-   When I follow "brownies"
+   When I follow "BROWNIES"
    Then I should see "Dessert"
    And I should see "make them good"
    When I follow "Edit recipe"

@@ -61,7 +61,6 @@ class RecipesController < ApplicationController
         else
             @user = nil
         end
-
         @star = 0 
         @count = 0
         @numofreviews = 0
@@ -80,6 +79,8 @@ class RecipesController < ApplicationController
         else
             @chefstatus = 0
         end 
+
+
 
         # if @recipe.user.recipes.length > 0 && @recipe.user.recipes.average("stars") > 4 
         #     @chefstatus = 1

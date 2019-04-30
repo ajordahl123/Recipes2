@@ -15,16 +15,16 @@ Feature: Filter recipes
     And I fill in "Recipe name" with "brownies"
     And I press "Refine the list of recipes"
     Then I should be on the recipes page
-    And I should see "brownies"
-    But I should not see "cookies"
+    And I should see "BROWNIES"
+    But I should not see "COOKIES"
 
   Scenario: filter by level of difficulty
     When I go to the recipes page
     And I select "Easy" from "Level of difficulty" 
     And I press "Refine the list of recipes"
     Then I should be on the recipes page
-    And I should see "brownies"
-    But I should not see "cookies"
+    And I should see "BROWNIES"
+    But I should not see "COOKIES"
     When I follow "Clear out filter settings"
-    Then I should see "brownies"
-    And I should see "cookies"
+    Then I should see "BROWNIES"
+    And I should see "COOKIES"
