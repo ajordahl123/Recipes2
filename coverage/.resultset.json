@@ -1,7 +1,624 @@
 {
+  "RSpec": {
+    "coverage": {
+<<<<<<< HEAD
+      "/Users/zhua/Recipes2/app/models/user.rb": [
+=======
+      "/Users/Ali/Recipes2/app/models/user.rb": [
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+<<<<<<< HEAD
+      "/Users/zhua/Recipes2/app/models/application_record.rb": [
+=======
+      "/Users/Ali/Recipes2/app/models/application_record.rb": [
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        1,
+        1,
+        null
+      ],
+<<<<<<< HEAD
+      "/Users/zhua/Recipes2/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/zhua/Recipes2/app/helpers/recipes_helper.rb": [
+=======
+      "/Users/Ali/Recipes2/app/controllers/recipes_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        49,
+        49,
+        45,
+        null,
+        4,
+        null,
+        null,
+        49,
+        null,
+        49,
+        1,
+        48,
+        null,
+        1,
+        47,
+        1,
+        46,
+        1,
+        45,
+        1,
+        null,
+        null,
+        null,
+        49,
+        49,
+        3,
+        3,
+        null,
+        null,
+        46,
+        46,
+        46,
+        46,
+        46,
+        46,
+        46,
+        null,
+        46,
+        46,
+        46,
+        null,
+        null,
+        46,
+        46,
+        12,
+        null,
+        null,
+        null,
+        null,
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        1,
+        null
+      ],
+      "/Users/zhua/Recipes2/app/helpers/review_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/zhua/Recipes2/app/helpers/reviews_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/zhua/Recipes2/app/helpers/u_sers_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/zhua/Recipes2/app/models/recipe.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+<<<<<<< HEAD
+        null,
+        null,
+        1,
+        0,
+=======
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        3,
+        null,
+        1,
+        48,
+        null,
+        null,
+        1,
+        49,
+        49,
+        1,
+        1,
+        null,
+        48,
+        48,
+        14,
+        10,
+        10,
+        4,
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        null,
+        null,
+<<<<<<< HEAD
+=======
+        14,
+        null,
+        48,
+        48,
+        null,
+        null
+      ],
+      "/Users/Ali/Recipes2/app/controllers/application_controller.rb": [
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+<<<<<<< HEAD
+        0,
+        0,
+        0,
+        0,
+=======
+        null
+      ],
+      "/Users/Ali/Recipes2/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Ali/Recipes2/app/helpers/recipes_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Ali/Recipes2/app/helpers/review_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Ali/Recipes2/app/helpers/reviews_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Ali/Recipes2/app/helpers/u_sers_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Ali/Recipes2/app/models/recipe.rb": [
+        1,
+        1,
+        1,
+        1,
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        null,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        1,
+<<<<<<< HEAD
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+=======
+        60,
+        60,
+        60,
+        39,
+        39,
+        null,
+        60,
+        26,
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        null,
+        null,
+        0,
+        null,
+        null,
+<<<<<<< HEAD
+=======
+        1,
+        46,
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        null,
+        null,
+        null
+      ],
+      "/Users/zhua/Recipes2/app/models/review.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/zhua/Recipes2/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/zhua/Recipes2/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/Users/zhua/Recipes2/app/controllers/application_controller.rb": [
+        0,
+        null,
+        0
+      ],
+      "/Users/zhua/Recipes2/app/controllers/users_controller.rb": [
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0
+      ],
+<<<<<<< HEAD
+      "/Users/zhua/Recipes2/app/controllers/recipes_controller.rb": [
+        0,
+=======
+      "/Users/Ali/Recipes2/app/models/review.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        null,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+<<<<<<< HEAD
+        0,
+=======
+        null
+      ],
+      "/Users/Ali/Recipes2/app/controllers/reviews_controller.rb": [
+        1,
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        null,
+        0,
+        0,
+        0,
+        null,
+<<<<<<< HEAD
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+=======
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+<<<<<<< HEAD
+        0,
+        0,
+        0,
+        0,
+=======
+        null
+      ],
+      "/Users/Ali/Recipes2/app/controllers/users_controller.rb": [
+        1,
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/zhua/Recipes2/app/controllers/reviews_controller.rb": [
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+<<<<<<< HEAD
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+=======
+        null
+      ],
+      "/Users/Ali/Recipes2/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/Ali/Recipes2/app/jobs/application_job.rb": [
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0
+      ],
+<<<<<<< HEAD
+      "/Users/zhua/Recipes2/app/channels/application_cable/connection.rb": [
+=======
+      "/Users/Ali/Recipes2/app/channels/application_cable/connection.rb": [
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        0,
+        0,
+        0,
+        0
+      ],
+<<<<<<< HEAD
+      "/Users/zhua/Recipes2/app/channels/application_cable/channel.rb": [
+=======
+      "/Users/Ali/Recipes2/app/channels/application_cable/channel.rb": [
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+<<<<<<< HEAD
+    "timestamp": 1555632258
+=======
+<<<<<<< HEAD
+    "timestamp": 1555631160
+=======
+<<<<<<< HEAD
+    "timestamp": 1555626305
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
+  },
   "Cucumber Features": {
     "coverage": {
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/models/user.rb": [
+      "/Users/zhua/Recipes2/app/models/user.rb": [
         1,
         null,
         null,
@@ -16,12 +633,12 @@
         null,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/models/application_record.rb": [
+      "/Users/zhua/Recipes2/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/controllers/recipes_controller.rb": [
+      "/Users/zhua/Recipes2/app/controllers/recipes_controller.rb": [
         1,
         null,
         1,
@@ -173,32 +790,32 @@
         null,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/controllers/application_controller.rb": [
+      "/Users/zhua/Recipes2/app/controllers/application_controller.rb": [
         1,
         null,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/helpers/application_helper.rb": [
+      "/Users/zhua/Recipes2/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/helpers/recipes_helper.rb": [
+      "/Users/zhua/Recipes2/app/helpers/recipes_helper.rb": [
         1,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/helpers/review_helper.rb": [
+      "/Users/zhua/Recipes2/app/helpers/review_helper.rb": [
         1,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/helpers/reviews_helper.rb": [
+      "/Users/zhua/Recipes2/app/helpers/reviews_helper.rb": [
         1,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/helpers/u_sers_helper.rb": [
+      "/Users/zhua/Recipes2/app/helpers/u_sers_helper.rb": [
         1,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/models/recipe.rb": [
+      "/Users/zhua/Recipes2/app/models/recipe.rb": [
         1,
         1,
         1,
@@ -288,7 +905,7 @@
         null,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/models/review.rb": [
+      "/Users/zhua/Recipes2/app/models/review.rb": [
         1,
         1,
         1,
@@ -302,7 +919,7 @@
         null,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/controllers/reviews_controller.rb": [
+      "/Users/zhua/Recipes2/app/controllers/reviews_controller.rb": [
         1,
         null,
         null,
@@ -343,7 +960,7 @@
         null,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/controllers/users_controller.rb": [
+      "/Users/zhua/Recipes2/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -372,29 +989,37 @@
         null,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/channels/application_cable/channel.rb": [
+      "/Users/zhua/Recipes2/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/channels/application_cable/connection.rb": [
+      "/Users/zhua/Recipes2/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/Users/zhua/Recipes2/app/channels/application_cable/connection.rb": [
         0,
         0,
         0,
         0
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/jobs/application_job.rb": [
-        0,
-        0
-      ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/mailers/application_mailer.rb": [
+      "/Users/zhua/Recipes2/app/channels/application_cable/channel.rb": [
         0,
         0,
         0,
         0
       ]
     },
+<<<<<<< HEAD
+    "timestamp": 1555632110
+=======
+    "timestamp": 1555631636
+=======
     "timestamp": 1555629705
+>>>>>>> 06e9dae4209d38683e38528f23df95502484d2f0
+>>>>>>> e3dd9d6e902908a756bf149969df30cc5694de73
+>>>>>>> d0378332d305404afcf4ec991d4dffd611344ba0
   }
 }
