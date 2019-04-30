@@ -12,6 +12,7 @@ class RecipesController < ApplicationController
 
         # check filter conditions with session
         do_redirect, prefs = update_settings(params, session)
+        #byebug
         if do_redirect
           flash.keep
           redirect_to recipes_path(prefs) and return
@@ -28,7 +29,6 @@ class RecipesController < ApplicationController
         @vegan = prefs["vegan_filter"]
         @nut_free = prefs["nut_free_filter"]
         @dairy_free = prefs["dairy_free_filter"]
-
         # Filtering
         if prefs != nil
             prefs.each do |key, value|
@@ -117,7 +117,7 @@ class RecipesController < ApplicationController
         end
     end    
     def filtering_params(params)
-        params.slice(:recipe_name_filter, :cuisine_filter, :level_filter, :meal_type_filter, :time_to_create_filter, :vegan_filter, :vegetarian_filter, :dairy_free_filter, :nut_free_filter, :appliance_filter)
+        params.slice( :recipe_name_filter, :cuisine_filter, :level_filter, :meal_type_filter, :time_to_create_filter, :appliance_filter, :vegan_filter, :vegetarian_filter, :dairy_free_filter, :nut_free_filter)
     end
 
     def update_settings(parms, sess)
@@ -126,16 +126,29 @@ class RecipesController < ApplicationController
           session.clear
           return true, Hash.new
         end
-        should_redirect = false
+        should_redirect = false 
+        check_boxes = ["vegetarian_filter","vegan_filter","nut_free_filter","dairy_free_filter"]
         filtering_params(params).each do |key, value|
-            if !value.present? # not currently set; look at session
-                value = preferences[key]
-                should_redirect = true
-            elsif value != preferences[key]
-                # filter is different from session; stick with current
-                should_redirect = true
-            end
-            preferences[key] = value
+            # handle checkbox values first
+            if check_boxes.include? key
+                if value.nil?
+                    value = preferences[key]
+                    should_redirect = true
+                elsif value != preferences[key]
+                    should_redirect = true  
+                end
+                preferences[key] = 'true'  
+            else    
+                #"".present => false  
+                if !value.present? # not currently set; look at session
+                    value = preferences[key]
+                    should_redirect = true
+                elsif value != preferences[key]
+                    # filter is different from session; stick with current
+                    should_redirect = true
+                end
+                preferences[key] = value
+            end    
         end
         session[:preferences] = preferences
         return should_redirect, preferences
