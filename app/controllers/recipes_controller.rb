@@ -75,7 +75,7 @@ class RecipesController < ApplicationController
                 end
         end
 
-        if @count != 0 && (@star/@numofreviews)/@count >= 4
+        if @count != 0 &&  @numofreviews != 0 && (@star/@numofreviews)/@count >= 4
             @chefstatus = 1
         else
             @chefstatus = 0
