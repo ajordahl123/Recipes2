@@ -14,11 +14,12 @@ end
 
 
 #recipes
-recipe_list = [['sushi','Dinner','no','no','yes','yes','Japanese','','Put things on rice','rice, fish, soy sauce, wasabi','10','Easy',2],
-    ['spaghetti','Dinner','yes','yes','yes','yes','Italian','pot','Boil spaghetti','spaghetti','20','Medium',3],
-    ['burger','Lunch','no','no','yes','no','American','pan','This is a test','buns,grounded beef,cheese,tomato,lettuce','30','Hard',1]
+recipe_list = [['sushi','Dinner','false','false','true','true','Japanese','','Put things on rice','rice, fish, soy sauce, wasabi','10','Easy',2],
+    ['spaghetti','Dinner','true','true','true','false','Italian','pot','Boil spaghetti','spaghetti','20','Medium',3],
+    ['burger','Lunch','false','false','true','false','American','pan','This is a test','buns,grounded beef,cheese,tomato,lettuce','30','Hard',1]
     #,'app/assets/images/sushi.jpg','app/assets/images/spaghetti.jpg'
 ]
+
 recipe_list.each do |name, type, is_vegan, is_vege, is_nutf, is_dairyf, cuisine, 
     appliance, instr, ingre, time, level, user_id|#img_path
     #img = File.read(img_path)
@@ -27,6 +28,8 @@ recipe_list.each do |name, type, is_vegan, is_vege, is_nutf, is_dairyf, cuisine,
         time_to_create: time, level: level, user_id: user_id)#, image: Rails.root.join(img_path).open
 end
 
+
+#Recipe.create(:recipe_name => "test",:meal_type =>"Dinner",:vegan => "true", :vegetarian => "false", :nut_free => "true", :dairy_free => 'false',:cuisine => 'Whatever',:appliance => "testing", :instructions => "testhahaha", :ingredients => "eggs", :time_to_create => '17', :level => 'Medium', :user_id => 1)
 # 1.upto(2) do |id|
 #     puts "Adding reviews to recipe #{id}"
 #
