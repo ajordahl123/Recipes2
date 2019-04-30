@@ -61,6 +61,32 @@ class RecipesController < ApplicationController
         else
             @user = nil
         end
+
+        @star = 0 
+        @count = 0
+        @numofreviews = 0
+        @chefstatus = 0
+        allrecipes = Recipe.where("user_id == ?", @recipe.user.id)
+        allrecipes.each do |r|
+            @count = @count + 1 
+                r.reviews.each do |rr|
+                    @numofreviews = @numofreviews + 1
+                    @star = @star + rr.stars
+                end
+        end
+
+        if @count != 0 && (@star/@numofreviews)/@count >= 4
+            @chefstatus = 1
+        else
+            @chefstatus = 0
+        end 
+
+        # if @recipe.user.recipes.length > 0 && @recipe.user.recipes.average("stars") > 4 
+        #     @chefstatus = 1
+        # else
+        #     @chefstatus = 0
+        # end
+
     end
 
     def new

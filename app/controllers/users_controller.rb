@@ -2,8 +2,26 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-  end
+    
+    @star = 0 
+    @count = 0
+    @chefstatus = 0
+    @numofreviews = 0
+    @user.recipes.each do |r|
+      @count = @count + 1 
+        r.reviews.each do |rr|
+        @numofreviews = @numofreviews + 1
+        @star = @star + rr.stars
+        end
+    end
+    if @count != 0 && @star/@count > 4
+      @chefstatus = 1
+    else
+      @chefstatus = 0
+    end 
 
+  end 
+  
   def new
     # devise handles this
     #@user = User.new
