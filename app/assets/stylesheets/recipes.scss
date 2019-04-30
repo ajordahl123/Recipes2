@@ -1,3 +1,95 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Color palette definitons
+$primary-color-pink: #e04e43;
+$secondary-color-blue: #48a9a6;
+$tertiary-color-cyan: #defffc;
+$text-grey: #545e75;
+$text-black: #1e2019;
+
+
+body {
+    background: $tertiary-color-cyan;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: $text-grey;
+}
+
+a {
+    color: $secondary-color-blue;
+}
+
+a:hover {
+    color: $text-grey;
+}
+
+#main.container {
+    margin-top: 60px; /* Add a top margin to avoid content overlay */
+}
+
+h1 {
+    color: $primary-color-pink;
+}
+
+h3 {
+    color: $secondary-color-blue;
+}
+
+#header {
+    overflow: hidden;
+    background-color: $primary-color-pink;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0px; /* Position the navbar at the top of the page */
+    width: 97%; /* Full width */
+    height: 25px;
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+#header a {
+    float: right;
+    display: block;
+    color: $tertiary-color-cyan;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 0px 35px;
+}
+#header a:hover {
+    color: $text-grey;
+}
+
+table {
+    text-align: center;
+    width: 100%;
+    color: $text-grey;
+}
+
+th {
+    padding: 10px 0px;
+    text-align: center;
+    align-content: left;
+    border-top-width: 5px;
+    border-top-style: solid;
+    border-top-color: $secondary-color-blue; 
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: $secondary-color-blue;
+
+    a {
+        color: $primary-color-pink;
+    }
+}
+
+td {
+    border-color: $tertiary-color-cyan;
+    border-width: 15px;
+    border-style: solid;
+
+    a {
+        font-weight: bold;
+    }
+    
+}
+

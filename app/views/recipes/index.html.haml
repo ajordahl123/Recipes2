@@ -1,68 +1,33 @@
 #main.container
-- if current_user
- %h2= link_to "Sign out", destroy_user_session_path, method: :delete
-- else
- %h2= link_to "Login", new_user_session_path
+  = link_to "Recipes2", root_path
 
-%h1.header View All Recipes
+  = form_tag recipes_path, :method => :get do 
+    = render  "filter_form"
 
-%h3.header Filter Recipes
-= form_tag recipes_path, :method => :get do
+    .button= submit_tag "Refine the list of recipes"
+    .button= link_to "Clear out filter settings",recipes_path(:reset_filters => true)
 
- = label_tag :recipe_name_filter, 'Recipe name'
- = text_field_tag :recipe_name_filter, "#{@recipe_name}"
- %br
- = label_tag :cuisine_filter, "Type of cuisine"
- = text_field_tag :cuisine_filter, "#{@cuisine}"
- %br
- = label_tag :meal_type_filter, "Type of meal"
- = select_tag :meal_type_filter, options_for_select(["", "Breakfast", "Lunch", "Dinner", "Dessert"],"#{@meal_type}")
- %br
- = label_tag :level_filter, "Level of difficulty"
- = select_tag :level_filter, options_for_select(["","Easy", "Medium", "Hard"], "#{@level}")
- %br
- = label_tag :time_to_create_filter, "Time to create"
- = number_field_tag :time_to_create_filter, "#{@time_to_create}"
- %br
- = label_tag :appliance_filter, 'Special Appliance'
- = text_field_tag :appliance_filter, "#{@appliance}"
- %br
- = check_box_tag (:vegetarian_filter), "#{@vegetarian}"
- = label_tag :vegetarian_filter, "Vegetarian"
- = check_box_tag (:vegan_filter), "#{@vegan}"
- = label_tag :vegan_filter, "Vegan"
- = check_box_tag (:nut_free_filter), "#{@nut_free}"
- = label_tag :nut_free_filter, "Nut free"
- = check_box_tag (:dairy_free_filter), "#{@dairy_free}"
- = label_tag :dairy_free_filter, "Dairy free"
- %br
- = submit_tag "Refine the list of recipes"
- = link_to "Clear out filter settings",recipes_path(:reset_filters => true)
+  %br
+  %table.table
+    %thead
+      %tr
+        %th= link_to "Name", recipes_path(sort_by: 'recent')
+        %th Meal type
+        %th= link_to "Ready In", recipes_path(sort_by: "duration")
+        %th= link_to "Difficulty", recipes_path(sort_by: 'level') # this will sort as easy -> hard -> medium... create a hash to fix
+        %th= link_to "Rating", recipes_path(sort_by: 'rating')
+        %th= link_to "Num. of Reviews", recipes_path(sort_by: 'num_reviews')
+    
+    %tbody
 
-
-%table.table
- %thead
-  %tr
-   %th= link_to "Recipe", recipes_path(sort_by: 'recent')
-   %th= link_to "Rating", recipes_path(sort_by: 'rating')
-   %th= link_to "Num. of Reviews", recipes_path(sort_by: 'num_reviews')
-   %th Meal type
-   %th= link_to "Ready In", recipes_path(sort_by: "duration")
-   %th= link_to "Difficulty", recipes_path(sort_by: 'level') # this will sort as easy -> hard -> medium... create a hash to fix
- %tbody
-
-  -@recipes.each do |r|
-   %tr
-    //-byebug
-    %td.recipe_name= link_to "#{r.recipe_name}", recipe_path(r)
-    -if r.rating == -1
-     %td.rating No reviews
-    -else
-     %td.rating= "#{r.rating}"
-    %td.num_reviews= "#{r.num_reviews}"
-    %td.meal_type= "#{r.meal_type}"
-    %td.time_to_create= "#{r.time_to_create} mins"
-    %td.level= r.level
-
-
-= link_to "Create a new recipe", new_recipe_path
+      -@recipes.each do |r|
+        %tr
+          %td.recipe_name= link_to ("#{r.recipe_name}".upcase), recipe_path(r)
+          %td.meal_type= "#{r.meal_type}"
+          %td.time_to_create= "#{r.time_to_create} mins"
+          %td.level= r.level
+          -if r.rating == -1
+            %td.rating No reviews
+          -else
+            %td.rating= "#{r.rating}"
+          %td.num_reviews= "#{r.num_reviews}"
