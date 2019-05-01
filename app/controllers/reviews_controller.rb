@@ -10,12 +10,13 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @recipe.reviews << @review
 
-    if @review.save!
+    if @review.save
       flash[:notice] = "New review created successfully."
       redirect_to recipe_path(@recipe) and return #redirect to the recipe associated with review
     else
         # with validation in model
-        render 'new'
+        #render 'new'
+        redirect_to new_recipe_review_path(@recipe)
     end
   end
 

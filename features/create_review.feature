@@ -27,3 +27,16 @@
     And I press "Create new review"
     Then I should see "See What Other People Think About This Recipe..."
     And I should see that "testing@colgate.edu" gave the recipe a rating of "4"
+
+#sad path
+  Scenario: Create a new review without text
+    Given I am on the recipes page
+    And I follow "BROWNIES"
+    Then I should see "Dessert"
+    When I follow "Write a review"
+    And I fill in the following:
+
+      |Rating         | 4         |
+
+    And I press "Create new review"
+    Then I should be on the new review for recipe 1 page
