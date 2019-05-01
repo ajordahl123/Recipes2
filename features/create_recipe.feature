@@ -11,7 +11,7 @@
       | recipe_name     | meal_type | vegan  | vegetarian | nut_free | dairy_free | cuisine | appliance | instructions         | ingredients      | time_to_create | level | user_email           |
       | brownies        | Dessert   | false  | true       |   false  | false      | American| oven      | make them good       | chocolate        | 30             | Easy  | testing@colgate.edu  |
       | cookies         | Dessert   | true   | true       |   true   | true       | French  |  oven     | cook for ten minutes | butter and flour | 20             | Hard  | testing@colgate.edu  |
-
+  
   Scenario: Create a new recipe without specific image
     Given I am on the new recipe page
     When I fill in the following:
@@ -30,6 +30,27 @@
     When I check "vegetarian"
     And I select "Easy" from "Level of difficulty"
     When I press "Create a new recipe"
-    Then I should be on the recipes page
     And I should see "New recipe cupcakes created successfully"
-    And I should see that "cupcakes" has a level of "easy"
+    And I should be on the recipes page
+
+
+#sad path
+  Scenario: Create a new recipe without instructions
+      Given I am on the new recipe page
+    When I fill in the following:
+
+      | Recipe name                     | cupcakes            |
+      | Type of cuisine                 | American            |
+      | Any special appliances needed   | oven                |
+      | Ingredients required            | flour and chocolate |
+      | Time to create, in minutes      | 30                  |
+
+    And I select "Dessert" from "Type of meal"
+    And I check "This recipe is vegetarian"
+    And I check "This recipe is nut free"
+    And I check "This recipe is dairy free"
+    When I check "vegetarian"
+    And I select "Easy" from "Level of difficulty"
+    When I press "Create a new recipe"
+    Then I should be on the new recipe page
+

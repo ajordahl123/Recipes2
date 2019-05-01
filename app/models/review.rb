@@ -3,10 +3,9 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :recipe
 
-  # def recipe_title
-  #   if self.recipe.nil?
-  #     return "not available"
-  #   else return self.recipe.title
-  #   end
-  # end
+
+  validates :stars, inclusion: {in: 1..5}
+  validates :text, presence: true
+  validates :recipe_id, numericality: { only_integer: true }
+  validates :user_id, numericality: { only_integer: true }
 end
