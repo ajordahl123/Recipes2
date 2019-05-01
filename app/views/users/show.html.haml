@@ -1,18 +1,18 @@
 #main.container
-    
+
     %h1.header= "Chef Details for #{@user.username}"
     %h2.header= "Email address: #{@user.email}"
     -# %h1.image= image_tag current_user.image.attached? ? current_user.image.variant(resize: "300x400^") : 'default_user.jpg'
     -# %h2.image= "Upload Chief Image"
- 
-    -if @chefstatus == 1 
-        %h3= "#{@user==current_user ? "Congradulations! You have" : "#{@user.username} has"} recieved star chef status by getting great reviews!" 
-        =image_tag("starchef.jpg",size: "100x100")
-    -else 
-        %h3= "#{@user==current_user ? "You have" : "#{@user.username} has"} not yet recieved star chef status yet."
-    .row 
 
-    
+    -if @chefstatus == 1
+        %h3= "#{@user==current_user ? "Congradulations! You have" : "#{@user.username} has"} recieved star chef status by getting great reviews!"
+        =image_tag("starchef.jpg",size: "100x100")
+    -else
+        %h3= "#{@user==current_user ? "You have" : "#{@user.username} has"} not yet recieved star chef status yet."
+    .row
+
+
 
     -if !@user.image.attached?
         %h2=image_tag("default_user.jpg",size: "100x100")
@@ -20,7 +20,7 @@
         %h2=image_tag(@user.image.variant(resize: "100x100^"))
 
     .row
-    
+
     %h2.fav_recipes= "My Favorite Recipes"
     %table.table
         %thead
@@ -38,6 +38,5 @@
     -# %br
     -# = link_to "Back to recipe listing", recipes_path
     .row
-    = link_to "Edit your profile picture", edit_user_path(@user)
-
-
+    -if (current_user == @user)
+        = link_to "Edit your profile picture", edit_user_path(@user)
