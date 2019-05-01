@@ -41,7 +41,7 @@ h2, h3 {
     background-color: $primary-color-pink;
     position: fixed; /* Set the navbar to fixed position */
     top: 0px; /* Position the navbar at the top of the page */
-    width: 97%; /* Full width */
+    width: 97%;
     height: 95px;
     border-radius: 8px;
     padding: 10px 15px;
@@ -55,6 +55,7 @@ h2, h3 {
     font-size: 18px;
     text-decoration: none;
     padding: 0px 35px;
+    
 }
 #header a:hover {
     color: $text-grey;

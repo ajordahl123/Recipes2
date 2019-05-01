@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
-    #user authentification before any action happens, except
+    #user authentification before some actions happen
     before_action :authenticate_user!, except: [:index, :show]
+
     def index
         # the following line throws uninitialized constant RecipesController::Recipe
         @recipes = Recipe.all
@@ -12,7 +13,7 @@ class RecipesController < ApplicationController
 
         # check filter conditions with session
         do_redirect, prefs = update_settings(params, session)
-        #byebug
+
         if do_redirect
           flash.keep
           redirect_to recipes_path(prefs) and return
@@ -29,6 +30,7 @@ class RecipesController < ApplicationController
         @vegan = prefs["vegan_filter"]
         @nut_free = prefs["nut_free_filter"]
         @dairy_free = prefs["dairy_free_filter"]
+
         # Filtering
         if prefs != nil
             prefs.each do |key, value|
@@ -45,20 +47,18 @@ class RecipesController < ApplicationController
 
     def new
         @recipe = Recipe.new
-        @recipe = current_user.recipes.build #!!!!!
+        @recipe = current_user.recipes.build 
     end
 
     def create
         @recipe= Recipe.new(create_update_params)
-        @recipe= current_user.recipes.build(create_update_params) #!!!!!
+        @recipe= current_user.recipes.build(create_update_params)
         @recipe.user = current_user
         if @recipe.save
           flash[:notice] = "New recipe #{@recipe.recipe_name} created successfully"
           redirect_to recipes_path and return
         else
-            # handled by pop-up notice. Cannot sumbit if any required fileds is not completed
-        #   flash[:warning] = "New recipe could not be created. Please try again"
-        #   redirect_to new_recipe_path and return
+            # handled by pop-up notice. Cannot sumbit if any required fields is not completed
         end
     end
 
@@ -72,9 +72,7 @@ class RecipesController < ApplicationController
             flash[:notice] = "#{@recipe.recipe_name} successfully updated!"
             redirect_to recipe_path(@recipe)
         else 
-            # handled by pop-up notice. Cannot sumbit if any required fileds is not completed
-            # flash[:warning] = "Sorry, the recipe couldn't be updated. Please try again."
-            # redirect_to edit_recipe_path(@recipe)
+            # handled by pop-up notice. Cannot sumbit if any required fields is not completed
         end
     end
 
@@ -116,7 +114,6 @@ class RecipesController < ApplicationController
                 end
                 preferences[key] = 'true'  
             else    
-                #"".present => false  
                 if !value.present? # not currently set; look at session
                     value = preferences[key]
                     should_redirect = true
@@ -134,7 +131,7 @@ class RecipesController < ApplicationController
         if sort == "rating"
             @recipes = Recipe.sort_by_rating.reverse
         elsif sort == "num_reviews"
-            @recipes = Recipe.sort_by_num_reviews.reverse # is an instance method, does it need to be an instance variable???
+            @recipes = Recipe.sort_by_num_reviews.reverse
         elsif sort == "recent"
             @recipes = @recipes.order("created_at DESC")
         elsif sort == "level"
@@ -149,15 +146,18 @@ class RecipesController < ApplicationController
             @user = current_user # to be passed into show view
             # user just favorited recipe
             if params[:favorited]
-                @user.favorite_recipes << Recipe.where(:id => params[:id]) # adds the newly favorited recipe to the favorite recipes of that user
+                # adds the newly favorited recipe to the favorite recipes of that user
+                @user.favorite_recipes << Recipe.where(:id => params[:id]) 
                 @favorited = true
             # user just unfavorited recipe
             elsif params[:unfavorited] && ! (@user.favorite_recipes.where("recipe_id == ?", params[:id]).empty?)
+                # remove recipe from the user's favorites list
                 @user.favorite_recipes.delete(params[:id])
                 @favorited = false
                 params[:unfavorited] = false
             # user has previously favorited this recipe
             elsif ! (@user.favorite_recipes.where("recipe_id == ?", params[:id]).empty?)
+                # passed to view so the correct message will be shown
                 @favorited = true
             # user hasn't favorited this recipe
             else
@@ -179,12 +179,14 @@ class RecipesController < ApplicationController
         allrecipes = Recipe.where("user_id == ?", @recipe.user.id)
         allrecipes.each do |r|
             @count = @count + 1 
-                r.reviews.each do |rr|
-                    @numofreviews = @numofreviews + 1
-                    @star = @star + rr.stars
-                end
+            # count the number of reviews for recipes by this user, and the total num stars it's received
+            r.reviews.each do |rr|
+                @numofreviews = @numofreviews + 1
+                @star = @star + rr.stars
+            end
         end
 
+        # if average stars for this recipe are 4, give star chef status
         if @count != 0 &&  @numofreviews != 0 && (@star/@numofreviews)/@count >= 4
             @chefstatus = 1
         else

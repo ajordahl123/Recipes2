@@ -1,25 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
-    
-    @star = 0 
-    @count = 0
-    @chefstatus = 0
-    @numofreviews = 0
-    @user.recipes.each do |r|
-      @count = @count + 1 
-        r.reviews.each do |rr|
-        @numofreviews = @numofreviews + 1
-        @star = @star + rr.stars
-        end
-    end
-    if @count != 0 &&  @numofreviews != 0 && (@star/@numofreviews)/@count >= 4
-      @chefstatus = 1
-    else
-      @chefstatus = 0
-    end 
-
+    update_star_chef_status
   end 
   
   def new
@@ -43,4 +25,24 @@ private
         params.require(:user).permit(:username, :first, :string, :image)
     end
 
+    def update_star_chef_status
+      @user = User.find(params[:id])
+    
+      @star = 0 
+      @count = 0
+      @chefstatus = 0
+      @numofreviews = 0
+      @user.recipes.each do |r|
+        @count = @count + 1 
+          r.reviews.each do |rr|
+          @numofreviews = @numofreviews + 1
+          @star = @star + rr.stars
+          end
+      end
+      if @count != 0 &&  @numofreviews != 0 && (@star/@numofreviews)/@count >= 4
+        @chefstatus = 1
+      else
+        @chefstatus = 0
+      end 
+    end 
 end

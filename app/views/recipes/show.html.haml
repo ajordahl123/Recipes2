@@ -14,9 +14,8 @@
 
 
     -if @chefstatus == 1 
-      %h1= "This user is has achieved star chef status"
-      %h1=image_tag("starchef.jpg",size: "100x100")
-
+      =image_tag("starchef.jpg",size: "30x30")
+      This user is has achieved star chef status.
 
     -# check favorited or not
     -if @favorited

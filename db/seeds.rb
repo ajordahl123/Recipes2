@@ -39,6 +39,7 @@ recipe_list.each do |name, type, is_vegan, is_vege, is_nutf, is_dairyf, cuisine,
         time_to_create: time, level: level, user_id: user_id)#, image: Rails.root.join(img_path).open
 end
 
+<<<<<<< HEAD
 #reviews
     # revtext = {
     #     1 => "disgusting",
@@ -53,4 +54,30 @@ review_list = [[1,'It was disgusting',1,1],
 ]
 review_list.each do |star, text, recipe_id, user_id|
     Review.create(stars: star, text: text, recipe_id: recipe_id, user_id: user_id)
+=======
+
+puts recipes.length
+0.upto(recipes.length) do |id|
+    puts "Adding reviews to recipe #{id}"
+
+    revtext = {
+        1 => "disgusting",
+        2 => "not great",
+        3 => "meh",
+        4 => "pretty good",
+        5 => "delicious",
+    }
+
+    num_reviews =rand(3)+2
+    num_reviews.times do
+        rtype = rand(5)+1
+        rtext = revtext[rtype]
+        r = Review.create(stars: rtype, text: "It was #{rtext}.")
+        r.user = users[rand(3)]
+        r.recipe = recipes[id]
+        if r.save
+            recipes[id] .reviews << r
+        end
+    end
+>>>>>>> fbe840264cc5daab39106d80baee85190456ba88
 end
