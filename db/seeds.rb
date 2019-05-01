@@ -26,7 +26,8 @@ end
 #recipes
 recipe_list = [['sushi','Dinner','no','no','yes','yes','Japanese','','Put things on rice','rice, fish, soy sauce, wasabi','10','Easy',2],
 	    ['spaghetti','Dinner','yes','yes','yes','yes','Italian','pot','Boil spaghetti','spaghetti','20','Medium',3],
-	    ['burger','Lunch','no','no','yes','no','American','pan','This is a test','buns,grounded beef,cheese,tomato,lettuce','30','Hard',1]
+        ['burger','Lunch','no','no','yes','no','American','pan','This is a test','buns,grounded beef,cheese,tomato,lettuce','30','Hard',1],
+        ['chicken pot pie','Dinner','no','no','yes','no','American','pan','This is a test','chicken,pie crust,peas,carrots','30','Hard',1]
 	    #,'app/assets/images/sushi.jpg','app/assets/images/spaghetti.jpg'
 ]
 
@@ -39,7 +40,7 @@ recipe_list.each do |name, type, is_vegan, is_vege, is_nutf, is_dairyf, cuisine,
         time_to_create: time, level: level, user_id: user_id)#, image: Rails.root.join(img_path).open
 end
 
-<<<<<<< HEAD
+
 #reviews
     # revtext = {
     #     1 => "disgusting",
@@ -50,34 +51,11 @@ end
     # }
 review_list = [[1,'It was disgusting',1,1],
     [3,'meh',2,2],
-    [5,'It was delicious!',3,3]
+    [4,'really tasty!',2,1],
+    [5,'MY FAVORITE EVER!',2,3],
+    [5,'It was delicious!',3,3],
+    [1,'I threw it away',4,3]
 ]
 review_list.each do |star, text, recipe_id, user_id|
     Review.create(stars: star, text: text, recipe_id: recipe_id, user_id: user_id)
-=======
-
-puts recipes.length
-0.upto(recipes.length) do |id|
-    puts "Adding reviews to recipe #{id}"
-
-    revtext = {
-        1 => "disgusting",
-        2 => "not great",
-        3 => "meh",
-        4 => "pretty good",
-        5 => "delicious",
-    }
-
-    num_reviews =rand(3)+2
-    num_reviews.times do
-        rtype = rand(5)+1
-        rtext = revtext[rtype]
-        r = Review.create(stars: rtype, text: "It was #{rtext}.")
-        r.user = users[rand(3)]
-        r.recipe = recipes[id]
-        if r.save
-            recipes[id] .reviews << r
-        end
-    end
->>>>>>> fbe840264cc5daab39106d80baee85190456ba88
 end

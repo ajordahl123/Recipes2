@@ -170,28 +170,28 @@ class RecipesController < ApplicationController
     end
 
     def update_star_chef_status
-        @recipe = Recipe.find(params[:id])
-        
-        @star = 0 
-        @count = 0
-        @numofreviews = 0
-        @chefstatus = 0
-        allrecipes = Recipe.where("user_id == ?", @recipe.user.id)
-        allrecipes.each do |r|
-            @count = @count + 1 
-            # count the number of reviews for recipes by this user, and the total num stars it's received
-            r.reviews.each do |rr|
-                @numofreviews = @numofreviews + 1
-                @star = @star + rr.stars
+        if user_signed_in?
+            @recipe = Recipe.find(params[:id])
+            
+
+            @count = 0
+            @rating = 0
+            @chefstatus = 0
+            allrecipes = Recipe.where("user_id == ?", @recipe.user.id)
+            allrecipes.each do |r|
+                @count = @count + 1
+                if !r.rating.nil?
+                    @rating = @rating + r.rating
+                end
+            end
+
+            # if average stars for all recipes created by the user is greater than or equal to 4, they are a star chef
+            if @count != 0 && @rating/@count >= 4
+                @chefstatus = 1
+            else
+                @chefstatus = 0
             end
         end
-
-        # if average stars for this recipe are 4, give star chef status
-        if @count != 0 &&  @numofreviews != 0 && (@star/@numofreviews)/@count >= 4
-            @chefstatus = 1
-        else
-            @chefstatus = 0
-        end 
 
         # if @recipe.user.recipes.length > 0 && @recipe.user.recipes.average("stars") > 4 
         #     @chefstatus = 1
