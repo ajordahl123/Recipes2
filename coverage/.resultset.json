@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/zhua/Recipes2/app/models/user.rb": [
+      "/Users/Ali/Recipes2/app/models/user.rb": [
         1,
         null,
         null,
@@ -16,12 +16,12 @@
         null,
         null
       ],
-      "/Users/zhua/Recipes2/app/models/application_record.rb": [
+      "/Users/Ali/Recipes2/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/Users/zhua/Recipes2/app/controllers/recipes_controller.rb": [
+      "/Users/Ali/Recipes2/app/controllers/recipes_controller.rb": [
         1,
         null,
         1,
@@ -62,56 +62,9 @@
         null,
         null,
         1,
-        11,
-        11,
-        10,
-        null,
-        10,
-        1,
-        1,
-        null,
-        9,
-        1,
-        1,
-        1,
-        null,
-        8,
-        1,
-        null,
-        null,
-        7,
-        null,
-        null,
-        null,
-        1,
-        null,
-        11,
-        11,
-        11,
-        11,
-        11,
-        10,
         12,
         12,
-        0,
-        0,
-        null,
-        null,
-        null,
-        10,
-        0,
-        null,
-        10,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
+        12,
         null,
         null,
         1,
@@ -214,34 +167,89 @@
         1,
         null,
         null,
+        null,
+        1,
+        12,
+        11,
+        null,
+        11,
+        1,
+        1,
+        null,
+        10,
+        1,
+        1,
+        1,
+        null,
+        9,
+        1,
+        null,
+        null,
+        8,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        12,
+        null,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        14,
+        14,
+        1,
+        1,
+        null,
+        null,
+        null,
+        12,
+        1,
+        null,
+        11,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ],
-      "/Users/zhua/Recipes2/app/controllers/application_controller.rb": [
+      "/Users/Ali/Recipes2/app/controllers/application_controller.rb": [
         1,
         null,
         null
       ],
-      "/Users/zhua/Recipes2/app/helpers/application_helper.rb": [
+      "/Users/Ali/Recipes2/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/zhua/Recipes2/app/helpers/recipes_helper.rb": [
+      "/Users/Ali/Recipes2/app/helpers/recipes_helper.rb": [
         1,
         null
       ],
-      "/Users/zhua/Recipes2/app/helpers/review_helper.rb": [
+      "/Users/Ali/Recipes2/app/helpers/review_helper.rb": [
         1,
         null
       ],
-      "/Users/zhua/Recipes2/app/helpers/reviews_helper.rb": [
+      "/Users/Ali/Recipes2/app/helpers/reviews_helper.rb": [
         1,
         null
       ],
-      "/Users/zhua/Recipes2/app/helpers/u_sers_helper.rb": [
+      "/Users/Ali/Recipes2/app/helpers/u_sers_helper.rb": [
         1,
         null
       ],
-      "/Users/zhua/Recipes2/app/models/recipe.rb": [
+      "/Users/Ali/Recipes2/app/models/recipe.rb": [
         1,
         1,
         1,
@@ -330,7 +338,7 @@
         null,
         null
       ],
-      "/Users/zhua/Recipes2/app/models/review.rb": [
+      "/Users/Ali/Recipes2/app/models/review.rb": [
         1,
         1,
         1,
@@ -344,7 +352,48 @@
         null,
         null
       ],
-      "/Users/zhua/Recipes2/app/controllers/users_controller.rb": [
+      "/Users/Ali/Recipes2/app/controllers/reviews_controller.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/Ali/Recipes2/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -392,71 +441,30 @@
         null,
         null
       ],
-      "/Users/zhua/Recipes2/app/mailers/application_mailer.rb": [
+      "/Users/Ali/Recipes2/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/zhua/Recipes2/app/jobs/application_job.rb": [
+      "/Users/Ali/Recipes2/app/jobs/application_job.rb": [
         0,
         0
       ],
-      "/Users/zhua/Recipes2/app/controllers/reviews_controller.rb": [
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0
-      ],
-      "/Users/zhua/Recipes2/app/channels/application_cable/connection.rb": [
+      "/Users/Ali/Recipes2/app/channels/application_cable/connection.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/zhua/Recipes2/app/channels/application_cable/channel.rb": [
+      "/Users/Ali/Recipes2/app/channels/application_cable/channel.rb": [
         0,
         0,
         0,
         0
       ]
     },
-    "timestamp": 1556682963
+    "timestamp": 1556724855
   },
   "RSpec": {
     "coverage": {
