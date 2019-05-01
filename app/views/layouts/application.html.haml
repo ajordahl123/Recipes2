@@ -3,16 +3,16 @@
   #main.container
     %head
       %meta{ charset: 'utf-8' }
-      %title Recipes2
+      %title Nybble
       = csrf_meta_tags
       = stylesheet_link_tag 'application', media: 'all'
       = javascript_include_tag 'application'
 
-      = favicon_link_tag 'favicon.ico'
+      = favicon_link_tag
 
     %body
       #header
-        .logo= image_tag("logo.png", :height => 95)
+        .logo= link_to image_tag("logo.png", :height => 95), root_path
         #loginlogout
           - if current_user
             = link_to "Logout", destroy_user_session_path, method: :delete

@@ -1,7 +1,7 @@
 #main.container
   %br
 
-  = form_tag recipes_path, :method => :get do 
+  = form_tag recipes_path, :method => :get do
     = render  "filter_form"
 
     .button= submit_tag "Refine the list of recipes"
@@ -17,7 +17,7 @@
         %th= link_to "Difficulty", recipes_path(sort_by: 'level') # this will sort as easy -> hard -> medium... create a hash to fix
         %th= link_to "Rating", recipes_path(sort_by: 'rating')
         %th= link_to "Num. of Reviews", recipes_path(sort_by: 'num_reviews')
-    
+
     %tbody
 
       -@recipes.each do |r|
