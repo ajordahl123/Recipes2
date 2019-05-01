@@ -21,7 +21,7 @@
      When I am on the recipes page
      When I follow "Your Profile & Favorite Recipes"
      Then I should see "Chef Details"
-     And I should see "Congradulations! You have recieved star chef status. This means your recipes are getting great reviews!"
+     And I should see "Congradulations! You have recieved star chef status by getting great reviews!"
  
     Given these Reviews:
       | user_email            | recipe   | stars     | text                    |

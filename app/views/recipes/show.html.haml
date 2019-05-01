@@ -13,7 +13,7 @@
       -creator = @recipe.user.username
       -creator_id = @recipe.user.id
     .created_by Created By:
-    .created_by= link_to "#{-creator}", user_path(creator_id)
+    .created_by= link_to "#{creator}", user_path(creator_id)
 
 
     -if @chefstatus == 1 
@@ -39,7 +39,7 @@
   -if @user != @recipe.user && !@user.nil?
     %li= link_to "Write a review", new_recipe_review_path(@recipe)
     %br
-  -# %li= link_to "Back to recipe listing", recipes_path
+  %li= link_to "Back to recipe listing", recipes_path
 
   %br
   %br

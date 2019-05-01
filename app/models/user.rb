@@ -10,5 +10,6 @@ class User < ApplicationRecord
     class_name: "Recipe",
     foreign_key: "user_id",
     association_foreign_key: "recipe_id"
+  validates :image, presence: true
 
 end

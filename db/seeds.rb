@@ -24,18 +24,11 @@ end
 
 
 #recipes
-<<<<<<< HEAD
 recipe_list = [['sushi','Dinner','no','no','yes','yes','Japanese','','Put things on rice','rice, fish, soy sauce, wasabi','10','Easy',2],
 	    ['spaghetti','Dinner','yes','yes','yes','yes','Italian','pot','Boil spaghetti','spaghetti','20','Medium',3],
         ['burger','Lunch','no','no','yes','no','American','pan','This is a test','buns,grounded beef,cheese,tomato,lettuce','30','Hard',1],
         ['chicken pot pie','Dinner','no','no','yes','no','American','pan','This is a test','chicken,pie crust,peas,carrots','30','Hard',1]
 	    #,'app/assets/images/sushi.jpg','app/assets/images/spaghetti.jpg'
-=======
-recipe_list = [['Sushi','Dinner','false','false','true','true','Japanese','hands','Place the seaweed on a bamboo mat, then cover the sheet of seaweed with an even layer of prepared sushi rice. Smooth gently with the rice paddle. Layer salmon, cream cheese, and avocado on the rice, and roll it up tightly. Slice with a sharp knife, and enjoy with soy sauce.','6 sheets sushi seaweed, 1 batch prepared sushi rice, 1/2 lb sushi-grade raw salmon, 4 oz cream cheese, soy sauce, wasabi(if you like)','10','Easy',2,'app/assets/images/sushi.jpg'],
-	    ['Spaghetti','Dinner','true','true','true','true','Italian','pot','Boil spaghetti','spaghetti','20','Medium',3,'app/assets/images/spaghetti.jpg'],
-	    ['Burger','Lunch','false','false','true','false','American','pan','This is a test','buns,grounded beef,cheese,tomato,lettuce','30','Hard',1,'app/assets/images/burger.jpg']
-	    #,'app/assets/images/sushi.jpg','app/assets/images/spaghetti.jpg', 'app/assets/images/burger.jpg'
->>>>>>> 561fcfbe268e277a9d2d06ac9944223f00b1b84c
 ]
 
 
@@ -47,10 +40,6 @@ recipe_list.each do |name, type, is_vegan, is_vege, is_nutf, is_dairyf, cuisine,
         time_to_create: time, level: level, user_id: user_id, image: File.new(img_path))#, image: Rails.root.join(img_path).open
 end
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 561fcfbe268e277a9d2d06ac9944223f00b1b84c
 #reviews
     # revtext = {
     #     1 => "disgusting",
