@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/zhua/Recipes2/app/models/user.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/models/user.rb": [
         1,
         null,
         null,
@@ -14,40 +14,41 @@
         null,
         null,
         null,
-        null,
-        null
-      ],
-      "/Users/zhua/Recipes2/app/models/application_record.rb": [
-        1,
-        1,
-        null
-      ],
-      "/Users/zhua/Recipes2/app/controllers/application_controller.rb": [
         1,
         null,
         null
       ],
-      "/Users/zhua/Recipes2/app/helpers/application_helper.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/models/application_record.rb": [
+        1,
         1,
         null
       ],
-      "/Users/zhua/Recipes2/app/helpers/recipes_helper.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null
+      ],
+      "/Users/christinadoan/Desktop/food/Recipes2/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/zhua/Recipes2/app/helpers/review_helper.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/helpers/recipes_helper.rb": [
         1,
         null
       ],
-      "/Users/zhua/Recipes2/app/helpers/reviews_helper.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/helpers/review_helper.rb": [
         1,
         null
       ],
-      "/Users/zhua/Recipes2/app/helpers/u_sers_helper.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/helpers/reviews_helper.rb": [
         1,
         null
       ],
-      "/Users/zhua/Recipes2/app/controllers/recipes_controller.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/helpers/u_sers_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/christinadoan/Desktop/food/Recipes2/app/controllers/recipes_controller.rb": [
         1,
         null,
         1,
@@ -254,7 +255,7 @@
         null,
         null
       ],
-      "/Users/zhua/Recipes2/app/models/recipe.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/models/recipe.rb": [
         1,
         1,
         1,
@@ -283,14 +284,14 @@
         null,
         null,
         1,
-        126,
-        126,
-        126,
-        109,
-        109,
+        116,
+        116,
+        116,
+        77,
+        77,
         null,
-        126,
-        54,
+        116,
+        44,
         null,
         72,
         null,
@@ -349,7 +350,7 @@
         null,
         null
       ],
-      "/Users/zhua/Recipes2/app/models/review.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/models/review.rb": [
         1,
         1,
         1,
@@ -362,7 +363,7 @@
         1,
         null
       ],
-      "/Users/zhua/Recipes2/app/controllers/users_controller.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -398,10 +399,10 @@
         5,
         5,
         5,
-        9,
-        9,
-        9,
-        null,
+        5,
+        4,
+        4,
+        4,
         null,
         null,
         null,
@@ -414,7 +415,7 @@
         null,
         null
       ],
-      "/Users/zhua/Recipes2/app/controllers/reviews_controller.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/controllers/reviews_controller.rb": [
         1,
         null,
         1,
@@ -444,29 +445,29 @@
         null,
         null
       ],
-      "/Users/zhua/Recipes2/app/mailers/application_mailer.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/zhua/Recipes2/app/jobs/application_job.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/jobs/application_job.rb": [
         0,
         0
       ],
-      "/Users/zhua/Recipes2/app/channels/application_cable/connection.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/channels/application_cable/connection.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/zhua/Recipes2/app/channels/application_cable/channel.rb": [
+      "/Users/christinadoan/Desktop/food/Recipes2/app/channels/application_cable/channel.rb": [
         0,
         0,
         0,
         0
       ]
     },
-    "timestamp": 1556748785
+    "timestamp": 1556753324
   }
 }
