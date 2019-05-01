@@ -158,10 +158,7 @@ class RecipesController < ApplicationController
         filtering_params(params).each do |key, value|
             # handle checkbox values first
             if check_boxes.include? key
-                if value.nil?
-                    value = preferences[key]
-                    should_redirect = true
-                elsif value != preferences[key]
+                if value != preferences[key]
                     should_redirect = true  
                 end
                 preferences[key] = 'true'  

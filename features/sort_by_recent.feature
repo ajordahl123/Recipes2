@@ -8,8 +8,8 @@
     Given there is an authenticated user with email "otheruser@colgate.edu"
     Given these Recipes:
       | recipe_name     | meal_type | vegan  | vegetarian | nut_free | dairy_free | cuisine | appliance | instructions         | ingredients      | time_to_create | level | user_email           |
-      | brownies        | Dessert   | no     | yes        |   no     | no         | American| oven      | make them good       | chocolate        | 30             | Easy  | otheruser@colgate.edu  |
-      | cookies         | Dessert   | yes    | yes        |   yes    | yes        | French  |  oven     | cook for ten minutes | butter and flour | 20             | Hard  | testing@colgate.edu  |
+      | brownies        | Dessert   | false  | true       |   false  | false      | American| oven      | make them good       | chocolate        | 30             | Easy  | otheruser@colgate.edu  |
+      | cookies         | Dessert   | true   | true       |   true   | true       | French  |  oven     | cook for ten minutes | butter and flour | 20             | Hard  | testing@colgate.edu  |
 
     Given these Reviews:
       | user_email            | recipe   | stars     | text                    |

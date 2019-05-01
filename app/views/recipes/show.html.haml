@@ -5,11 +5,11 @@
   -if @user != nil
     -# display recipe creator
     -if @user == @recipe.user
-      -creator = "You, #{@user.email}"
+      -creator = "You, #{@user.username}"
     -elsif @recipe.user.nil?
       -creator = "Unknown creator"
     -else
-      -creator = @recipe.user.email
+      -creator = @recipe.user.username
     .created_by= "Created By: #{creator}"
 
 
