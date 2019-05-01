@@ -1,15 +1,15 @@
 #main.container
     = "#{@user.username}"
-    %h1.header= "Chef Details #{@user.email}"
+    %h1.header= "Chef Details for #{@user.email}"
 
     -# %h1.image= image_tag current_user.image.attached? ? current_user.image.variant(resize: "300x400^") : 'default_user.jpg'
     -# %h2.image= "Upload Chief Image"
 
     -if @chefstatus == 1 
-        %h1= "Congradulations! You have recieved star chef status. This means your recipes are getting great reviews!" 
+        %h3= "Congradulations! You have recieved star chef status. This means your recipes are getting great reviews!" 
         =image_tag("starchef.jpg",size: "100x100")
     -else 
-        %h1= "You have not yet recieved star chef status yet"
+        %h3= "You have not yet recieved star chef status yet."
     .row 
 
     
