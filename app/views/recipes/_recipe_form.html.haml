@@ -1,13 +1,13 @@
 = f.label :recipe_name, "Recipe name"
-= f.text_field :recipe_name, :required => true
+= f.text_field :recipe_name 
 %br
 
 = f.label :cuisine, "Type of cuisine"
-= f.text_field :cuisine, :required => true
+= f.text_field :cuisine
 %br
 
 = f.label :meal_type, "Type of meal"
-= f.select :meal_type, ["Breakfast", "Lunch", "Dinner", "Dessert"], :required => true
+= f.select :meal_type, ["Breakfast", "Lunch", "Dinner", "Dessert"]
 %br
 
 = f.check_box(:vegetarian)
@@ -24,7 +24,7 @@
 %br
 
 = f.label :time_to_create, "Time to create, in minutes"
-= f.number_field :time_to_create, :required => true
+= f.number_field :time_to_create
 %br
 
 = f.label :appliance, "Any special appliances needed"
@@ -32,13 +32,13 @@
 %br
 
 = f.label :ingredients, "Ingredients required"
-= f.text_area :ingredients, :required => true
+= f.text_area :ingredients
 %br
 
 = f.label :instructions, "Instructions"
-= f.text_area :instructions, :required => true
+= f.text_area :instructions
 %br
 
 = f.label :level, "Level of difficulty"
-= f.select :level, ["Easy", "Medium", "Hard"], :required => true
+= f.select :level, ["Easy", "Medium", "Hard"]
 %br

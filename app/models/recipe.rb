@@ -2,7 +2,13 @@ class Recipe < ApplicationRecord
     has_one_attached :image, :dependent => :destroy
     has_many :reviews, :dependent => :destroy
     belongs_to :user, required: false
-
+    validates :recipe_name, :cuisine, :appliance, :appliance, :ingredients, :instructions, presence: true
+    validates :meal_type, inclusion: {in: %w(Breakfast Lunch Dinner Dessert)}
+    validates :time_to_create, numericality: { only_integer: true }
+    validates :level, inclusion: {in: %w(Easy Medium Hard)}
+    validates_associated :user
+    validates_associated :reviews
+    #scopes for filtering
     scope :recipe_name_filter, -> (name) { where('UPPER(recipe_name) LIKE ?', "%#{name}%")}
     scope :cuisine_filter, -> (cuisine) { where(cuisine: cuisine)}
     scope :level_filter, -> (level) { where(level: level)}

@@ -3,7 +3,6 @@ class RecipesController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
 
     def index
-        # the following line throws uninitialized constant RecipesController::Recipe
         @recipes = Recipe.all
         @user = set_user
 
@@ -13,7 +12,6 @@ class RecipesController < ApplicationController
 
         # check filter conditions with session
         do_redirect, prefs = update_settings(params, session)
-
         if do_redirect
           flash.keep
           redirect_to recipes_path(prefs) and return
@@ -47,18 +45,20 @@ class RecipesController < ApplicationController
 
     def new
         @recipe = Recipe.new
-        @recipe = current_user.recipes.build 
+        #@recipe = current_user.recipes.build 
     end
 
     def create
         @recipe= Recipe.new(create_update_params)
-        @recipe= current_user.recipes.build(create_update_params)
+        #@recipe= current_user.recipes.build(create_update_params)
         @recipe.user = current_user
         if @recipe.save
           flash[:notice] = "New recipe #{@recipe.recipe_name} created successfully"
           redirect_to recipes_path and return
         else
-            # handled by pop-up notice. Cannot sumbit if any required fields is not completed
+          # with validation in model
+          #render 'new'
+          redirect_to new_recipe_path
         end
     end
 
@@ -72,7 +72,9 @@ class RecipesController < ApplicationController
             flash[:notice] = "#{@recipe.recipe_name} successfully updated!"
             redirect_to recipe_path(@recipe)
         else 
-            # handled by pop-up notice. Cannot sumbit if any required fields is not completed
+            # with validation in model
+            # render 'edit'
+            redirect_to edit_recipe_path(@recipe)
         end
     end
 

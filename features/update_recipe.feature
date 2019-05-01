@@ -19,3 +19,14 @@ Feature: Edit a Recipe
    And I fill in "Instructions" with "make 12"
    And I press "Save Changes"
    And I should see that "brownies" has instructions equal to "make 12"
+
+  #sad path
+  Scenario: Update an existing recipe with blank ingredients
+   Given I am on the recipes page
+   When I follow "BROWNIES"
+   Then I should see "Dessert"
+   And I should see "make them good"
+   When I follow "Edit recipe"
+   And I fill in "Instructions" with ""
+   And I press "Save Changes"
+   And I should be on the edit recipe 1 page
