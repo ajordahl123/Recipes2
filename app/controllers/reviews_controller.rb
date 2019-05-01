@@ -1,17 +1,5 @@
 class ReviewsController < ApplicationController
-  # TO DO: IMPLEMENTATION WILL BE CONTINUED IN NEXT ITERATION
-
-  # def index
-  #   @recipe = Recipe.find(params[:recipe_id])
-  #   redirect_to recipe_path(@recipe)
-  # end
-
-  # def show
-  #   @recipe = Recipe.find(params[:recipe_id])
-  #   @review = Review.find(params[:id])
-  #   redirect_to recipe_path(@recipe) and return
-  # end
-
+  
   def new
     @recipe = Recipe.find(params[:recipe_id])
     @review = Review.new
@@ -26,8 +14,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "New review created successfully."
       redirect_to recipe_path(@recipe) and return #redirect to the recipe associated with review
     else
-      flash[:warning] = "New review creation failed. Please try again."
-      redirect_to new_recipe_review_path and return
+        # handled by pop-up notice. Cannot sumbit if any required field is not completed or contains incorrect input
     end
   end
 

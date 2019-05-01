@@ -13,7 +13,7 @@
       | brownies        | Dessert   | false  | true       |   false  | false      | American| oven      | make them good       | chocolate        | 30             | easy  | user2@colgate.edu  |
       | cookies         | Dessert   | true   | true       |   true   | true       | French  |  oven     | cook for ten minutes | butter and flour | 20             | hard  | testing@colgate.edu  |
 
-  Scenario: Create a new review without images
+  Scenario: Create a new review
     Given I am on the recipes page
     And I follow "BROWNIES"
     Then I should see "Dessert"
