@@ -82,21 +82,12 @@ h2, h3 {
     text-align: center;
     color: white;
     font-weight: bold;
-    font-variant: small-caps;
-    box-shadow: 2px 2px 3px #888888;
     text-decoration:none;
 }
 
 #filter_wrap_toggle:hover
 {
-    text-decoration:none;
-    border-top: 1px groove white;
-    border-left: 1px groove white;
-    border-bottom: 1px solid #7B7B78;
-    border-right: 1px solid #7B7B78;
-    color: #663200;
-    background: #EBEBB3;
-    box-shadow: 1px 1px 2px #888888;
+    background: $text-grey;
 }
 
 .logo {
