@@ -25,7 +25,7 @@ a:hover {
 }
 
 #main.container {
-    margin-top: 60px; /* Add a top margin to avoid content overlay */
+    margin-top: 120px; /* Add a top margin to avoid content overlay */
 }
 
 h1 {
@@ -42,7 +42,7 @@ h3 {
     position: fixed; /* Set the navbar to fixed position */
     top: 0px; /* Position the navbar at the top of the page */
     width: 97%; /* Full width */
-    height: 25px;
+    height: 95px;
     border-radius: 8px;
     padding: 10px 15px;
 }
@@ -54,10 +54,14 @@ h3 {
     text-align: center;
     font-size: 18px;
     text-decoration: none;
-    padding: 0px 35px;
+    padding: 35px 35px;
 }
 #header a:hover {
     color: $text-grey;
+}
+
+.logo {
+  float: left;
 }
 
 table {
@@ -72,7 +76,7 @@ th {
     align-content: left;
     border-top-width: 5px;
     border-top-style: solid;
-    border-top-color: $secondary-color-blue; 
+    border-top-color: $secondary-color-blue;
     border-bottom-width: 5px;
     border-bottom-style: solid;
     border-bottom-color: $secondary-color-blue;
@@ -90,6 +94,5 @@ td {
     a {
         font-weight: bold;
     }
-    
-}
 
+}

@@ -39,9 +39,9 @@ gem 'haml'
 gem 'haml-rails'
 gem 'devise'
 
-group :production do
-  gem 'pg'
-end
+# group :production do
+#   gem 'pg'
+# end
 
 
 group :development, :test do
