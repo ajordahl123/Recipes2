@@ -1,11 +1,14 @@
 #main.container
   %br
 
-  = form_tag recipes_path, :method => :get do
-    = render  "filter_form"
+  %div.filter_toggle_wrapper
+    %a#filter_wrap_toggle Expand Filter
+  #filter_wrap
+    = form_tag recipes_path, :method => :get, :locals=>"#filter_wrap_toggle" do
+      = render  "filter_form"
 
-    .button= submit_tag "Refine the list of recipes"
-    .button= link_to "Clear out filter settings",recipes_path(:reset_filters => true)
+      .button= submit_tag "Refine the list of recipes"
+      .button= link_to "Clear out filter settings",recipes_path(:reset_filters => true)
 
   %br
   %table.table
