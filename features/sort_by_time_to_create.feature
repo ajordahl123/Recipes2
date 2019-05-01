@@ -15,4 +15,4 @@
   Scenario: Sort by duration
     Given I am on the recipes page
     And I follow "Ready In"
-    Then "cookies" should appear before "brownies"
+    Then "COOKIES" should appear before "BROWNIES"

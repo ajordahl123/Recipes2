@@ -8,7 +8,7 @@ Background: The user is already logged in
 
   Scenario: Update an existing user profile
     When I am on the recipes page
-    When I follow "View Profile"
+    When I follow "Your Profile & Favorite Recipes"
     Then I should see "Chef Details"
     And I should see the image "default_user"
     When I follow "Edit your profile picture"

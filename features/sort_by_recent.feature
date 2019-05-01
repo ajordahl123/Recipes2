@@ -19,5 +19,5 @@
 
   Scenario: Sort by recently added recipe
     Given I am on the recipes page
-    And I follow "Recipe"
-    Then "brownies" should appear before "cookies"
+    And I follow "Name"
+    Then "BROWNIES" should appear before "COOKIES"

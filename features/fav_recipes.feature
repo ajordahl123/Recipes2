@@ -13,14 +13,14 @@
 
    Scenario: Favorite and unfavorite a recipe
      Given I am on the recipes page
-     When I follow "brownies"
+     When I follow "BROWNIES"
      Then I should see "brownies"
      And I should see "Favorite this recipe"
      And I should see the image "fav_bw"
      When I follow "Favorite this recipe"
      Then I should see the image "fav_color1"
      When I follow "Back to recipe listing"
-     And I follow "brownies"
+     And I follow "BROWNIES"
      Then I should see "Unfavorite this recipe"
      When I follow "Unfavorite this recipe"
      Then I should see the image "fav_bw"

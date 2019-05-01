@@ -12,7 +12,7 @@ Feature: Delete existing rental property
   Scenario: Delete an existing recipe
 
   Given I am on the recipes page
-  When I follow "brownies"
+  When I follow "BROWNIES"
   Then I should see "Delete recipe"
   When I follow "Delete recipe"
   Then I should be on the recipes page

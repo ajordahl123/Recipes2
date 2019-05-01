@@ -8,5 +8,5 @@ Background: The user is already logged in
 
 Scenario: Visit Profile Page
  When I am on the recipes page
- When I follow "View Profile"
+ When I follow "Your Profile & Favorite Recipes"
  Then I should see "Chef Details"

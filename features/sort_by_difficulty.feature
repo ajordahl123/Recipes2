@@ -15,4 +15,4 @@
   Scenario: Sort by difficulty
     Given I am on the recipes page
     And I follow "Difficulty"
-    Then "brownies" should appear before "cookies"
+    Then "BROWNIES" should appear before "COOKIES"

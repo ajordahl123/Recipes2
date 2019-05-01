@@ -13,8 +13,8 @@ Feature: Show Recipe Details when there is no user signed in
 
   Scenario: View the details of a recipe another user created
     Given I am on the recipes page
-    When I follow "cookies"
+    When I follow "COOKIES"
     Then I should see "cookies"
-    And I should see "Write a review"
+    And I should not see "Write a review"
     And I should see "Back to recipe listing"
     And I should see "cook for ten minutes"

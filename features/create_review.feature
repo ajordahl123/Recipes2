@@ -14,7 +14,7 @@
 
   Scenario: Create a new review without images
     Given I am on the recipes page
-    And I follow "brownies"
+    And I follow "BROWNIES"
     Then I should see "Dessert"
     And I should see "make them good"
     When I follow "Write a review"
