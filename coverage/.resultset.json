@@ -457,25 +457,9 @@
         0,
         0,
         0
-      ],
-      "/Users/zhua/Recipes2/app/jobs/application_job.rb": [
-        0,
-        0
-      ],
-      "/Users/zhua/Recipes2/app/channels/application_cable/connection.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/zhua/Recipes2/app/channels/application_cable/channel.rb": [
-        0,
-        0,
-        0,
-        0
       ]
     },
-    "timestamp": 1556832467
+    "timestamp": 1556833146
   },
   "RSpec": {
     "coverage": {
@@ -882,10 +866,6 @@
         0,
         0
       ],
-      "/Users/zhua/Recipes2/app/jobs/application_job.rb": [
-        0,
-        0
-      ],
       "/Users/zhua/Recipes2/app/controllers/users_controller.rb": [
         0,
         null,
@@ -939,20 +919,8 @@
         0,
         0,
         0
-      ],
-      "/Users/zhua/Recipes2/app/channels/application_cable/connection.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/zhua/Recipes2/app/channels/application_cable/channel.rb": [
-        0,
-        0,
-        0,
-        0
       ]
     },
-    "timestamp": 1556832490
+    "timestamp": 1556833170
   }
 }
