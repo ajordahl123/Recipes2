@@ -453,13 +453,13 @@
         null
       ],
       "/Users/zhua/Recipes2/app/mailers/application_mailer.rb": [
-        0,
-        0,
-        0,
-        0
+        null,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1556833146
+    "timestamp": 1556833507
   },
   "RSpec": {
     "coverage": {
@@ -862,8 +862,8 @@
       ],
       "/Users/zhua/Recipes2/app/mailers/application_mailer.rb": [
         0,
-        0,
-        0,
+        null,
+        null,
         0
       ],
       "/Users/zhua/Recipes2/app/controllers/users_controller.rb": [
@@ -921,6 +921,6 @@
         0
       ]
     },
-    "timestamp": 1556833170
+    "timestamp": 1556833330
   }
 }
