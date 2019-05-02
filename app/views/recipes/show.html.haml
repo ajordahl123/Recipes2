@@ -21,12 +21,7 @@
     %br
     -# check favorited or not
     -if @favorited
-<<<<<<< HEAD
       .fav #{image_tag("fav_color1.png", height: '25', width: '25')} #{link_to "Unfavorite this recipe", recipe_path(@recipe.id, :unfavorited => true)}
-=======
-      .fav= image_tag("fav_color1.png", height: '25', width: '25')
-      .fav_text= link_to "Unfavorite this recipe", recipe_path(@recipe.id, :unfavorited => true)
->>>>>>> 87f47ffc8faa3ce0d014247c5c59534fe1b0ed9c
     -else
       .fav #{image_tag("fav_bw.png", height: '25', width: '25')} #{link_to "Favorite this recipe", recipe_path(@recipe.id, :favorited => true)}
     %br
