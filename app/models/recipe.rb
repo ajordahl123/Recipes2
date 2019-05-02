@@ -2,7 +2,7 @@ class Recipe < ApplicationRecord
     has_one_attached :image, :dependent => :destroy
     has_many :reviews, :dependent => :destroy
     belongs_to :user, required: false
-    validates :recipe_name, :cuisine, :appliance, :appliance, :ingredients, :instructions, presence: true
+    validates :recipe_name, :cuisine, :ingredients, :instructions, presence: true
     validates :meal_type, inclusion: {in: %w(Breakfast Lunch Dinner Dessert)}
     validates :time_to_create, numericality: { only_integer: true }
     validates :level, inclusion: {in: %w(Easy Medium Hard)}

@@ -52,14 +52,10 @@ class RecipesController < ApplicationController
         @recipe= Recipe.new(create_update_params)
         #@recipe= current_user.recipes.build(create_update_params)
         @recipe.user = current_user
-        if(@recipe.appliance == "")
-          @recipe.appliance = "None."
-        end
         if @recipe.save
           flash[:notice] = "New recipe #{@recipe.recipe_name} created successfully"
           redirect_to recipes_path and return
         else
-          byebug
           # with validation in model
           #render 'new'
           redirect_to new_recipe_path

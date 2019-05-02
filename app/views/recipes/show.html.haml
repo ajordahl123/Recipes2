@@ -5,7 +5,6 @@
   -if @user != nil
     -# display recipe creator
     -if @user == @recipe.user
-      -byebug
       -creator = "You, #{@user.email}"
       -creator_id = @user.id
     -elsif @recipe.user.nil?
