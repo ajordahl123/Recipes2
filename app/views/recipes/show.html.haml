@@ -19,6 +19,7 @@
       This user is has achieved star chef status.
 
     %br
+    %br
     -# check favorited or not
     -if @favorited
       .fav #{image_tag("fav_color1.png", height: '25', width: '25')} #{link_to "Unfavorite this recipe", recipe_path(@recipe.id, :unfavorited => true)}

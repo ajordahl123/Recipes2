@@ -61,7 +61,7 @@ h2, h3 {
     color: $text-grey;
 }
 
-#filter_wrap
+#filter_wrap, #filter_wrap.button
 {
     margin-top: 0px;
     margin-bottom: 30px;
@@ -69,8 +69,6 @@ h2, h3 {
     color: white;
     width: auto; height: 50px;
 }
-
-
 
 #filter_wrap_toggle
 {
@@ -124,5 +122,17 @@ td {
     a {
         font-weight: bold;
     }
+}
 
+.button input, #funmode, .button a {
+        border-radius: 6px;
+        background-color: $primary-color-pink; 
+        border: none;
+        color: white;
+        padding: 8px 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin-top: 5px;
 }
