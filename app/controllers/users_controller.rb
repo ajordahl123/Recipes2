@@ -11,11 +11,13 @@ class UsersController < ApplicationController
 
   def update
     @user= User.find(params[:id])
-    if @user.update(create_update_params) #successful!
-        # flash[:notice] = "#{@recipe.recipe_name} successfully updated!"
+    #byebug
+    @user.update(create_update_params)
+    if @user.save#successful!
+        # flash[:notice] = "#{@user.username} successfully updated!"
         redirect_to user_path(@user)
     else # unsucessful
-        # flash[:warning] = "Sorry, the recipe couldn't be updated. Please try again."
+        # flash[:warning] = "Sorry, the user profile couldn't be updated. Please try again."
         redirect_to edit_user_path(@user)
     end
 end
