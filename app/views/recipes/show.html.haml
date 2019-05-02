@@ -11,21 +11,19 @@
     -else
       -creator = @recipe.user.username
       -creator_id = @recipe.user.id
-    .created_by Created By:
-    .created_by= link_to "#{creator}", user_path(creator_id)
+    .created_by Created By: #{link_to "#{creator}", user_path(creator_id)}
 
 
     -if @chefstatus == 1 
       =image_tag("starchef.jpg",size: "30x30")
       This user is has achieved star chef status.
 
+    %br
     -# check favorited or not
     -if @favorited
-      .fav= image_tag("fav_color1.png", height: '25', width: '25')
-      .fav_text= link_to "Unfavorite this recipe", recipe_path(@recipe.id, :unfavorited => true) 
+      .fav #{image_tag("fav_color1.png", height: '25', width: '25')} #{link_to "Unfavorite this recipe", recipe_path(@recipe.id, :unfavorited => true)}
     -else
-      .fav= image_tag("fav_bw.png", height: '25', width: '25')
-      .fav_text= link_to "Favorite this recipe", recipe_path(@recipe.id, :favorited => true)
+      .fav #{image_tag("fav_bw.png", height: '25', width: '25')} #{link_to "Favorite this recipe", recipe_path(@recipe.id, :favorited => true)}
     %br
     -# user can edit and delete if it's their own recipe
     -if @user == @recipe.user
