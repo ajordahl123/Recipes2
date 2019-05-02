@@ -5,7 +5,7 @@
     %h3.header= "Email address: #{@user.email}"
 
     -if @chefstatus == 1
-        %h3= "#{@user==current_user ? "Congratulations! You have" : "#{@user.username} has"} recieved star chef status by getting great reviews!"
+        %h3= "#{@user==current_user ? "Congratulations! You have" : "#{@user.username} has"} received star chef status by getting great reviews!"
         =image_tag("starchef.jpg",size: "100x100")
     -else
         %h3= "#{@user==current_user ? "You have" : "#{@user.username} has"} not yet recieved star chef status yet."
