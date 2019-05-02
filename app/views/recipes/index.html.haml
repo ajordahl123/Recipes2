@@ -6,9 +6,8 @@
   #filter_wrap
     = form_tag recipes_path, :method => :get, :locals=>"#filter_wrap_toggle" do
       = render  "filter_form"
-
-      .button= submit_tag "Refine the list of recipes"
-      .button= link_to "Clear out filter settings",recipes_path(:reset_filters => true)
+      %br
+      .button#filter_wrap #{submit_tag "Refine the list of recipes"} #{link_to "Clear out filter settings",recipes_path(:reset_filters => true)}
 
   %br
   %table.table

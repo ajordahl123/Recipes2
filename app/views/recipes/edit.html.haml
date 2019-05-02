@@ -8,5 +8,5 @@
 		= f.file_field :image, :required => true, accept: "image/png,image/gif,image/jpeg"
 		%br
 
-		= f.submit "Save Changes"
+		.button= f.submit "Save Changes"
 		%li= link_to "Back to recipe details", recipe_path(@recipe)
