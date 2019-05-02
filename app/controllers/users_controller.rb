@@ -22,7 +22,7 @@ end
 
 private
     def create_update_params
-        params.require(:user).permit(:username, :first, :string, :image)
+        params.require(:user).permit(:username, :first, :last, :email, :image)
     end
 
     def update_star_chef_status

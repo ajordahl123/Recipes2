@@ -28,7 +28,7 @@ recipe_list = [['Sushi','Dinner','false','false','true','true','Japanese','No','
 	    ['Spaghetti','Dinner','true','true','true','true','Italian','pot','Boil spaghetti','spaghetti','20','Medium',3],
         ['Burger','Lunch','false','false','true','false','American','pan','This is a test','buns,grounded beef,cheese,tomato,lettuce','30','Hard',1],
         ['Chicken pot pie','Dinner','false','false','true','false','American','pan','This is a test','chicken,pie crust,peas,carrots','30','Hard',1]
-	    #,'app/assets/images/sushi.jpg','app/assets/images/spaghetti.jpg'
+	    #,'app/assets/images/sushi.jpg','app/assets/images/spaghetti.jpg','app/assets/images/burger.jpg','app/assets/images/chicken_pot_pie.jpg'
 ]
 
 
@@ -39,7 +39,7 @@ recipe_list.each do |name, type, is_vegan, is_vege, is_nutf, is_dairyf, cuisine,
         dairy_free: is_dairyf, cuisine: cuisine, appliance: appliance, instructions: instr, ingredients: ingre,
         time_to_create: time, level: level, user_id: user_id)#, image: File.new(img_path)
 end
-
+# b = Recipe.create(recipe_name: 'testing', meal_type: 'Dessert', vegan:'true', vegetarian: 'true', nut_free: 'false',dairy_free: 'false', cuisine: 'French', appliance: 'tetsing', instructions: 'testing', ingredients: 'testing',time_to_create: '17', level: 'Medium', user_id: 2, :image => File.open("app/assets/images/spaghetti.jpg",'r'))
 review_list = [[1,'It was disgusting',1,1],
     [3,'meh',2,2],
     [4,'really tasty!',2,1],
