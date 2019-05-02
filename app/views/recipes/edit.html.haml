@@ -5,7 +5,7 @@
 		= render "recipe_form", f: f
 
 		= f.label :image, "Picture of the recipe"
-		= f.file_field :image
+		= f.file_field :image, :required => true, accept: "image/png,image/gif,image/jpeg"
 		%br
 
 		= f.submit "Save Changes"

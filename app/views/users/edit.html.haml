@@ -3,7 +3,7 @@
 
     =form_for current_user, :method => :put do |f|
         = f.label :image, "Upload a new profile picture"
-        = f.file_field :image, :required => true
+        = f.file_field :image, :required => true, accept: "image/png,image/gif,image/jpeg"
         %br
         = f.submit "Save Changes"
         %br
