@@ -15,9 +15,9 @@
 
 
     -if !@user.image.attached?
-        %h2=image_tag("default_user.jpg",size: "100x100")
+        %h4=image_tag("default_user.jpg",size: "100x100")
     -else
-        %h2=image_tag(@user.image.variant(resize: "100x100^"))
+        %h4=image_tag(@user.image.variant(resize: "100x100^"))
 
     .row
 
@@ -40,3 +40,5 @@
     .row
     -if (current_user == @user)
         = link_to "Edit your profile picture", edit_user_path(@user)
+        %button#funmode Our Clients Wanted This
+    %audio{:src=>"/assets/eastereggaudio.mp3"}
