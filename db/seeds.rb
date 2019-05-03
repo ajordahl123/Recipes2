@@ -33,8 +33,7 @@ recipe_list = [['Sushi','Dinner','false','false','true','true','Japanese','No','
 
 
 recipe_list.each do |name, type, is_vegan, is_vege, is_nutf, is_dairyf, cuisine,
-    appliance, instr, ingre, time, level, user_id|#img_path
-    #img = File.read(img_path)
+    appliance, instr, ingre, time, level, user_id|
     Recipe.create( recipe_name: name, meal_type: type, vegan:is_vegan, vegetarian: is_vege, nut_free: is_nutf,
         dairy_free: is_dairyf, cuisine: cuisine, appliance: appliance, instructions: instr, ingredients: ingre,
         time_to_create: time, level: level, user_id: user_id)#, image: File.new(img_path)

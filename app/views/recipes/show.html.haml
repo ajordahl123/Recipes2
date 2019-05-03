@@ -73,32 +73,33 @@
   .instructions_header= "How to Make This Recipe:"
   .instructions= @recipe.instructions
 
-  %br
-  %br
-  %h3 See What Other People Think About This Recipe...
+  -if !@user.nil?
+    %br
+    %br
+    %h3 See What Other People Think About This Recipe...
 
-  %table.table
-    %thead
-      %tr
-        %th Name
-        %th Rating
-        %th Review
-        %th Images
-    %tbody
-      -@recipe.reviews.each do |rev|
+    %table.table
+      %thead
         %tr
-          -if rev.user_id.nil?
-            %td.username Anonymous
-          -else
-            -user = User.find(rev.user_id)
-            -if user.nil?
+          %th Name
+          %th Rating
+          %th Review
+          %th Images
+      %tbody
+        -@recipe.reviews.each do |rev|
+          %tr
+            -if rev.user_id.nil?
               %td.username Anonymous
             -else
-              %td.username= link_to(user.username, user_path(user))
-          %td.stars= rev.stars
-          %td.review_text= rev.text
+              -user = User.find(rev.user_id)
+              -if user.nil?
+                %td.username Anonymous
+              -else
+                %td.username= link_to(user.username, user_path(user))
+            %td.stars= rev.stars
+            %td.review_text= rev.text
 
-          -if rev.image.attached?
-            %td.photo= image_tag(rev.image, size: 100)
-          -else
-            %td.photo= image_tag("logo_no_txt.png", size:100)
+            -if rev.image.attached?
+              %td.photo= image_tag(rev.image, size: 100)
+            -else
+              %td.photo= image_tag("logo_no_txt.png", size:100)
