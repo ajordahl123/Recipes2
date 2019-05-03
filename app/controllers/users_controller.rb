@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    update_star_chef_status
+    #update_star_chef_status
   end 
   
   def new
@@ -30,14 +30,11 @@ private
     def update_star_chef_status
       if user_signed_in?
         @user = User.find(params[:id])
-        byebug
 
         @count = 0
         @rating = 0
         @chefstatus = 0
-        byebug
         allrecipes = Recipe.where("user_id == ?", @user.id)
-        byebug
         allrecipes.each do |r|
             @count = @count + 1
             if !r.rating.nil?

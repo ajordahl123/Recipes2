@@ -40,7 +40,7 @@ class RecipesController < ApplicationController
     def show
         @recipe = Recipe.find(params[:id])
         favoriting_recipes # (un)favorite recipes if favoriting status was just changed
-        update_star_chef_status
+        #update_star_chef_status
     end
 
     def new
