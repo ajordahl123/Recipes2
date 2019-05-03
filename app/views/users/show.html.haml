@@ -23,13 +23,10 @@
         %thead
             %tr
                 %th Name
-                %th Creator
         %tbody
             -@user.favorite_recipes.each do |r|
                 %tr
                     %td.recipe_name= link_to "#{r.recipe_name}", recipe_path(r)
-                    %td.creator= User.where("id == ?",r.user_id).first.email
-
     .row
     %br
 
