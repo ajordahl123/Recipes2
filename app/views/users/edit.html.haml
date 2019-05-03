@@ -1,10 +1,19 @@
 #main.container
     %h3.header Edit Your Profile
 
-    =form_for current_user, :method => :put do |f|
+    =form_for @user, :method => :put do |f|
+        = f.label :username, "New Username"
+        = f.text_field :username
+        
+        = f.label :username, "New First name"
+        = f.text_field :first
+
+        = f.label :username, "New Last Name"
+        = f.text_field :last
+
         = f.label :image, "Upload a new profile picture"
-        = f.file_field :image, :required => true, accept: "image/png,image/gif,image/jpeg"
+        = f.file_field :image, accept: "image/png,image/jpg,image/jpeg"
         %br
         = f.submit "Save Changes"
         %br
-        = link_to "Back to user details", user_path(current_user)
+        = link_to "Back to user details", user_path(@user)

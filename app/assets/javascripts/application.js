@@ -55,3 +55,19 @@ jQuery(function() {
 
   });
 });
+jQuery(function() {
+  //$("td.recipe_name.img").hide();
+  //var x = $("td.recipe_name");
+
+  $("td.recipe_name").hover(function () {
+    //x.attr("src", $(this).attr("data-thumbnail-src"));
+    //var x = event.pageX, y = event.pageY; .css({ 'left': x , 'top': y }).
+    $(this).attr('data-image').show();
+    //var image_name=$(this).data('image');
+    //var imageTag='<div class="image" style="position:absolute;">'+'<img src="'+image_name+'" alt="image" height="100" />'+'</div>';
+    //$(this).parent('td.recipe_name').append($(this).data('image'));
+  }, function () {
+    //x.attr("src", "");
+    //$("td.recipe_name.img").hide();
+  });
+});

@@ -14,6 +14,7 @@
   %table.table
     %thead
       %tr
+        %th Image
         %th= link_to "Name", recipes_path(sort_by: 'recent')
         %th Meal type
         %th= link_to "Ready In", recipes_path(sort_by: "duration")
@@ -25,7 +26,11 @@
 
       -@recipes.each do |r|
         %tr
-          %td.recipe_name= link_to ("#{r.recipe_name}".upcase), recipe_path(r)
+          - if r.image.attached? 
+            %td.image= image_tag(r.image.variant(resize: "80x100^"))
+          - else
+            %td.image= image_tag("default_recipe.jpg",size: 100)
+          %td.recipe_name= link_to ("#{r.recipe_name}".upcase), recipe_path(r)  #, {"data-image" => r.image.attached? ? r.image : "default_recipe.jpg", :href => "#"}
           %td.meal_type= "#{r.meal_type}"
           %td.time_to_create= "#{r.time_to_create} mins"
           %td.level= r.level
