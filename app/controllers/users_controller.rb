@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    @user = current_user
-    #update_star_chef_status
+    update_star_chef_status
   end 
   
   def new

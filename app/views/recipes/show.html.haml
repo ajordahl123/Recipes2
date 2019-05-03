@@ -14,9 +14,9 @@
     .created_by Created By: #{link_to "#{creator}", user_path(creator_id)}
 
 
-    -# -if @chefstatus == 1
-    -#   =image_tag("starchef.jpg",size: "30x30")
-    -#   This user is has achieved star chef status.
+    -if @chefstatus == 1
+      =image_tag("starchef.jpg",size: "30x30")
+      This user is has achieved star chef status.
 
     %br
     %br
