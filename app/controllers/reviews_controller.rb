@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  
+
   def new
     @recipe = Recipe.find(params[:recipe_id])
     @review = Review.new
@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:text, :stars, :user_id, :recipe_id)
+      params.require(:review).permit(:text, :stars, :user_id, :recipe_id, :image)
     end
 
 end

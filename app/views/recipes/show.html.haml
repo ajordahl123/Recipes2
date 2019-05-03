@@ -1,32 +1,30 @@
 #main.container
   %h1.header= @recipe.recipe_name
 
-
   -if @user != nil
     -# display recipe creator
     -if @user == @recipe.user
-      -creator = "You, #{@user.email}"
+      -creator = "You, #{@user.username}"
       -creator_id = @user.id
     -elsif @recipe.user.nil?
       -creator = "Unknown creator"
     -else
-      -creator = @recipe.user.email
+      -creator = @recipe.user.username
       -creator_id = @recipe.user.id
-    .created_by Created By:
-    .created_by= link_to "#{creator}", user_path(creator_id)
+    .created_by Created By: #{link_to "#{creator}", user_path(creator_id)}
 
 
-    -if @chefstatus == 1 
+    -if @chefstatus == 1
       =image_tag("starchef.jpg",size: "30x30")
       This user is has achieved star chef status.
 
+    %br
+    %br
     -# check favorited or not
     -if @favorited
-      .fav= image_tag("fav_color1.png", height: '25', width: '25')
-      .fav_text= link_to "Unfavorite this recipe", recipe_path(@recipe.id, :unfavorited => true) 
+      .fav #{image_tag("fav_color1.png", height: '25', width: '25')} #{link_to "Unfavorite this recipe", recipe_path(@recipe.id, :unfavorited => true)}
     -else
-      .fav= image_tag("fav_bw.png", height: '25', width: '25')
-      .fav_text= link_to "Favorite this recipe", recipe_path(@recipe.id, :favorited => true)
+      .fav #{image_tag("fav_bw.png", height: '25', width: '25')} #{link_to "Favorite this recipe", recipe_path(@recipe.id, :favorited => true)}
     %br
     -# user can edit and delete if it's their own recipe
     -if @user == @recipe.user
@@ -87,19 +85,20 @@
         %th Review
         %th Images
     %tbody
-      -@recipe.reviews.each do |r|
+      -@recipe.reviews.each do |rev|
         %tr
-          -if r.user_id.nil?
+          -if rev.user_id.nil?
             %td.username Anonymous
           -else
-            -user = User.find(r.user_id)
+            -user = User.find(rev.user_id)
             -if user.nil?
               %td.username Anonymous
             -else
               %td.username= link_to(user.username, user_path(user))
-          %td.stars= r.stars
-          %td.review_text= r.text
-          -if r.image.attached?
-            %td.photo= image_tag(get_image(r), size: 100)
+          %td.stars= rev.stars
+          %td.review_text= rev.text
+
+          -if rev.image.attached?
+            %td.photo= image_tag(rev.image, size: 100)
           -else
-            %td.photo No photo attached
+            %td.photo= image_tag("logo_no_txt.png", size:100)

@@ -1,18 +1,15 @@
 #main.container
 
     %h1.header= "Chef Details for #{@user.username}"
-    %h2.header= "Email address: #{@user.email}"
-    -# %h1.image= image_tag current_user.image.attached? ? current_user.image.variant(resize: "300x400^") : 'default_user.jpg'
-    -# %h2.image= "Upload Chief Image"
+    %h3.header= "Name: #{@user.first} #{@user.last}"
+    %h3.header= "Email address: #{@user.email}"
 
     -if @chefstatus == 1
-        %h3= "#{@user==current_user ? "Congradulations! You have" : "#{@user.username} has"} recieved star chef status by getting great reviews!"
+        %h3= "#{@user==current_user ? "Congratulations! You have" : "#{@user.username} has"} received star chef status by getting great reviews!"
         =image_tag("starchef.jpg",size: "100x100")
     -else
         %h3= "#{@user==current_user ? "You have" : "#{@user.username} has"} not yet recieved star chef status yet."
     .row
-
-
 
     -if !@user.image.attached?
         %h4=image_tag("default_user.jpg",size: "100x100")
@@ -40,5 +37,8 @@
     .row
     -if (current_user == @user)
         = link_to "Edit your profile picture", edit_user_path(@user)
+        %br
+        %br
+        %br
         %button#funmode Our Clients Wanted This
     %audio{:src=>"/assets/eastereggaudio.mp3"}
