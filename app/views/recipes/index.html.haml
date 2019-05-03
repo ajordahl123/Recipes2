@@ -29,7 +29,7 @@
             %td.image= image_tag(r.image.variant(resize: "80x100^"))
           - else
             %td.image= image_tag("default_recipe.jpg",size: 100)
-          %td.recipe_name= link_to ("#{r.recipe_name}".upcase), recipe_path(r)  #, {"data-image" => r.image.attached? ? r.image : "default_recipe.jpg", :href => "#"}
+          %td.recipe_name= link_to ("#{r.recipe_name}".upcase), recipe_path(r) 
           %td.meal_type= "#{r.meal_type}"
           %td.time_to_create= "#{r.time_to_create} mins"
           %td.level= r.level

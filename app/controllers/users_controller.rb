@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   
   def new
     # devise handles this
-    #@user = User.new
   end
 
   def edit
@@ -15,13 +14,10 @@ class UsersController < ApplicationController
   
   def update
     @user= User.find(params[:id])
-    #byebug
     @user.update(create_update_params)
-    if @user.save#successful!
-        # flash[:notice] = "#{@user.username} successfully updated!"
+    if @user.save
         redirect_to user_path(@user)
     else # unsucessful
-        # flash[:warning] = "Sorry, the user profile couldn't be updated. Please try again."
         redirect_to edit_user_path(@user)
     end
 end

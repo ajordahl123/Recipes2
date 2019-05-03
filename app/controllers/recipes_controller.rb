@@ -45,25 +45,22 @@ class RecipesController < ApplicationController
 
     def new
         @recipe = Recipe.new
-        #@recipe = current_user.recipes.build 
     end
 
     def create
         @recipe= Recipe.new(create_update_params)
-        #@recipe= current_user.recipes.build(create_update_params)
         @recipe.user = current_user
         if @recipe.save
           flash[:notice] = "New recipe #{@recipe.recipe_name} created successfully"
           redirect_to recipes_path and return
         else
           # with validation in model
-          #render 'new'
           redirect_to new_recipe_path
         end
     end
 
     def edit
-        @recipe = Recipe.find(params[:id]) # get existing object
+        @recipe = Recipe.find(params[:id])
     end
 
     def update
@@ -73,7 +70,6 @@ class RecipesController < ApplicationController
             redirect_to recipe_path(@recipe)
         else 
             # with validation in model
-            # render 'edit'
             redirect_to edit_recipe_path(@recipe)
         end
     end
@@ -174,8 +170,6 @@ class RecipesController < ApplicationController
     def update_star_chef_status
         if user_signed_in?
             @recipe = Recipe.find(params[:id])
-            
-
             @count = 0
             @rating = 0
             @chefstatus = 0
@@ -186,7 +180,6 @@ class RecipesController < ApplicationController
                     @rating = @rating + r.rating
                 end
             end
-
             # if average stars for all recipes created by the user is greater than or equal to 4, they are a star chef
             if @count != 0 && @rating/@count >= 4
                 @chefstatus = 1
@@ -194,12 +187,5 @@ class RecipesController < ApplicationController
                 @chefstatus = 0
             end
         end
-
-        # if @recipe.user.recipes.length > 0 && @recipe.user.recipes.average("stars") > 4 
-        #     @chefstatus = 1
-        # else
-        #     @chefstatus = 0
-        # end
-
     end
 end

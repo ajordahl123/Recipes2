@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/models/user.rb": [
+      "/Users/zhua/Recipes2/app/models/user.rb": [
         1,
         null,
         null,
@@ -10,20 +10,18 @@
         1,
         1,
         1,
-        null,
-        null,
         1,
         null,
         null,
         null,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/models/application_record.rb": [
+      "/Users/zhua/Recipes2/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/controllers/application_controller.rb": [
+      "/Users/zhua/Recipes2/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -33,27 +31,27 @@
         null,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/helpers/application_helper.rb": [
+      "/Users/zhua/Recipes2/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/helpers/recipes_helper.rb": [
+      "/Users/zhua/Recipes2/app/helpers/recipes_helper.rb": [
         1,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/helpers/review_helper.rb": [
+      "/Users/zhua/Recipes2/app/helpers/review_helper.rb": [
         1,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/helpers/reviews_helper.rb": [
+      "/Users/zhua/Recipes2/app/helpers/reviews_helper.rb": [
         1,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/helpers/u_sers_helper.rb": [
+      "/Users/zhua/Recipes2/app/helpers/u_sers_helper.rb": [
         1,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/controllers/recipes_controller.rb": [
+      "/Users/zhua/Recipes2/app/controllers/recipes_controller.rb": [
         1,
         null,
         1,
@@ -103,15 +101,12 @@
         3,
         null,
         null,
-        null,
         1,
         2,
-        null,
         2,
         2,
         1,
         1,
-        null,
         null,
         null,
         1,
@@ -127,7 +122,6 @@
         2,
         1,
         1,
-        null,
         null,
         null,
         1,
@@ -230,8 +224,6 @@
         1,
         16,
         15,
-        null,
-        null,
         15,
         15,
         15,
@@ -240,7 +232,6 @@
         18,
         18,
         18,
-        null,
         null,
         null,
         null,
@@ -251,16 +242,9 @@
         null,
         null,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/models/recipe.rb": [
+      "/Users/zhua/Recipes2/app/models/recipe.rb": [
         1,
         1,
         1,
@@ -341,13 +325,11 @@
         1,
         1,
         1,
-        null,
         1,
         2,
         1,
         1,
         null,
-        null,
         1,
         null,
         null,
@@ -355,7 +337,7 @@
         null,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/models/review.rb": [
+      "/Users/zhua/Recipes2/app/models/review.rb": [
         1,
         1,
         1,
@@ -367,7 +349,7 @@
         1,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/controllers/users_controller.rb": [
+      "/Users/zhua/Recipes2/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -378,15 +360,15 @@
         null,
         null,
         null,
-        null,
         1,
         1,
         null,
-        1,
-        1,
         null,
         1,
-        null,
+        1,
+        1,
+        1,
+        1,
         null,
         0,
         null,
@@ -421,7 +403,7 @@
         null,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/controllers/reviews_controller.rb": [
+      "/Users/zhua/Recipes2/app/controllers/reviews_controller.rb": [
         1,
         null,
         1,
@@ -451,14 +433,14 @@
         null,
         null
       ],
-      "/mnt/c/Users/rmitc/Documents/2018-2019/COSC480/Recipes2/app/mailers/application_mailer.rb": [
+      "/Users/zhua/Recipes2/app/mailers/application_mailer.rb": [
         null,
         null,
         null,
         null
       ]
     },
-    "timestamp": 1556841535
+    "timestamp": 1556896332
   },
   "RSpec": {
     "coverage": {

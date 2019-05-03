@@ -42,7 +42,7 @@ class Recipe < ApplicationRecord
   def num_reviews
     self.reviews.length
   end
-
+  #sort recipes by different fields
   def Recipe.sort_by_num_reviews
     recipes = Recipe.all
     hash = {}
@@ -78,13 +78,11 @@ class Recipe < ApplicationRecord
     easy = []
     med = []
     hard = []
-
     recipes.each do |r|
       if r.level == "Easy"; easy << r;
       elsif r.level == "Medium"; med << r;
       else r.level; hard << r; end;
     end
-
     rec = easy + med + hard
   end
 
