@@ -149,13 +149,13 @@ class RecipesController < ApplicationController
                 @user.favorite_recipes << Recipe.where(:id => params[:id]) 
                 @favorited = true
             # user just unfavorited recipe
-            elsif params[:unfavorited] && ! (@user.favorite_recipes.where("recipe_id == ?", params[:id]).empty?)
+            elsif params[:unfavorited] && ! (@user.favorite_recipes.where("recipe_id == ?", params[:id].to_i).empty?)
                 # remove recipe from the user's favorites list
                 @user.favorite_recipes.delete(params[:id])
                 @favorited = false
                 params[:unfavorited] = false
             # user has previously favorited this recipe
-            elsif ! (@user.favorite_recipes.where("recipe_id == ?", params[:id]).empty?)
+            elsif ! (@user.favorite_recipes.where("recipe_id == ?", params[:id].to_i).empty?)
                 # passed to view so the correct message will be shown
                 @favorited = true
             # user hasn't favorited this recipe
